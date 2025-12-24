@@ -49,7 +49,6 @@ const faqs = [
 
 const About = () => {
   const [openFaq, setOpenFaq] = useState(null);
-  const { t } = useTranslation();
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
