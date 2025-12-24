@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from '../context/LanguageContext';
 
 const Hero = () => {
+  const { t } = useTranslation();
   return (
     <section className="min-h-screen flex flex-col justify-center relative overflow-hidden pt-24 pb-12">
       {/* Background Animated Shapes */}
@@ -41,7 +43,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight tracking-tight text-prime-black"
         >
-          İşinizi Zirveye Taşıyan <br />
+          {t('hero.title')} <br />
           <span className="drop-shadow-sm">
             <span className="text-prime-yellow">Prime</span> Dokunuş
           </span>
@@ -53,7 +55,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg md:text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed"
         >
-          Grafik tasarım, baskı hizmetleri ve yazılım geliştirme alanlarında uzman ekibimizle, markanızı dijital dünyada <span className="text-prime-yellow font-bold">öne çıkarıyoruz</span>.
+          {t('hero.subtitle')}
         </motion.p>
         
         <motion.div 

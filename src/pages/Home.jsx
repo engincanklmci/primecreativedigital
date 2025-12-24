@@ -7,8 +7,10 @@ import CTA from '../components/CTA';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Target, Lightbulb, Users, Clock, ShieldCheck, Zap, Star, TrendingUp } from 'lucide-react';
+import { useTranslation } from '../context/LanguageContext';
 
 const Home = () => {
+  const { t } = useTranslation();
   // Memoize static data to prevent re-renders
   const whyChooseUsData = useMemo(() => [
     { icon: <Users />, title: "Uzman Kadro", desc: "Alanında deneyimli, yenilikçi ve profesyonel ekibimizle projelerinizi emin ellere teslim edin." },
