@@ -45,7 +45,7 @@ const Hero = () => {
         >
           {t('hero.title').split('Prime').map((part, index) => 
             index === 1 ? <span key={index} className="text-prime-yellow">Prime</span> : part
-          )}
+          ).join('')}
         </motion.h1>
         
         <motion.p 
