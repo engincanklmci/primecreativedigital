@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#F3F4F6"/>
+  <circle cx="200" cy="150" r="80" fill="#D1D5DB"/>
+  <path d="M200 250C133.726 250 80 303.726 80 370H320C320 303.726 266.274 250 200 250Z" fill="#D1D5DB"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="40" fill="#6B7280">EK</text>
+</svg>
