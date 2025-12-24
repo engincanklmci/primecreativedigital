@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useTranslation } from '../context/LanguageContext';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,11 +25,11 @@ const Navbar = () => {
   }, [location]);
 
   const links = [
-    { name: 'Ana Sayfa', path: '/' },
-    { name: 'Hizmetler', path: '/hizmetler' },
-    { name: 'Portföy', path: '/portfoy' },
-    { name: 'Hakkımızda', path: '/hakkimizda' },
-    { name: 'Blog', path: '/blog' },
+    { name: t('nav.home'), path: '/' },
+    { name: t('nav.services'), path: '/hizmetler' },
+    { name: t('nav.portfolio'), path: '/portfoy' },
+    { name: t('nav.about'), path: '/hakkimizda' },
+    { name: t('nav.blog'), path: '/blog' },
   ];
 
   return (
@@ -79,6 +82,11 @@ const Navbar = () => {
             </Link>
           </div>
 
+          {/* Language Switcher */}
+          <div className="hidden md:block">
+            <LanguageSwitcher />
+          </div>
+
           {/* Mobile Menu Button */}
           <button 
             className="md:hidden z-50 text-prime-black"
@@ -113,9 +121,14 @@ const Navbar = () => {
               ))}
               <Link to="/iletisim" className="pt-4">
                 <button className="bg-prime-yellow text-prime-black px-8 py-3 rounded-md text-lg font-bold w-full hover:bg-yellow-400 transition-all">
-                  İletişime Geç
+                  {t('nav.getStarted')}
                 </button>
               </Link>
+              
+              {/* Mobile Language Switcher */}
+              <div className="pt-4">
+                <LanguageSwitcher />
+              </div>
             </div>
           </motion.div>
         )}

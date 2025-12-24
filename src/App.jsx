@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { DataProvider } from './context/DataContext';
+import { LanguageProvider } from './context/LanguageContext';
 
 // Lazy loading for pages
 const Home = lazy(() => import('./pages/Home'));
@@ -50,22 +51,23 @@ const ProtectedRoute = ({ children }) => {
 function App() {
   return (
     <HelmetProvider>
-      <AuthProvider>
-        <DataProvider>
-          <Router>
-            <ScrollToTop />
-            <div className="font-sans antialiased text-prime-black bg-prime-white min-h-screen selection:bg-prime-yellow selection:text-prime-black overflow-x-hidden w-full relative">
-              <Suspense fallback={<PageLoader />}>
-                <Routes>
-                  {/* Public Routes */}
-                  <Route path="/" element={<Home />} />
-                  <Route path="/hizmetler" element={<Services />} />
-                  <Route path="/portfoy" element={<Portfolio />} />
-                  <Route path="/portfoy/:slug" element={<PortfolioDetail />} />
-                  <Route path="/hakkimizda" element={<About />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/blog/:slug" element={<BlogDetail />} />
-                  <Route path="/iletisim" element={<Contact />} />
+      <LanguageProvider>
+        <AuthProvider>
+          <DataProvider>
+            <Router>
+              <ScrollToTop />
+              <div className="font-sans antialiased text-prime-black bg-prime-white min-h-screen selection:bg-prime-yellow selection:text-prime-black overflow-x-hidden w-full relative">
+                <Suspense fallback={<PageLoader />}>
+                  <Routes>
+                    {/* Public Routes */}
+                    <Route path="/" element={<Home />} />
+                    <Route path="/hizmetler" element={<Services />} />
+                    <Route path="/portfoy" element={<Portfolio />} />
+                    <Route path="/portfoy/:slug" element={<PortfolioDetail />} />
+                    <Route path="/hakkimizda" element={<About />} />
+                    <Route path="/blog" element={<Blog />} />
+                    <Route path="/blog/:slug" element={<BlogDetail />} />
+                    <Route path="/iletisim" element={<Contact />} />
                   
                   {/* Admin Routes */}
                   <Route path="/admin" element={<Login />} />
@@ -83,6 +85,7 @@ function App() {
           </Router>
         </DataProvider>
       </AuthProvider>
+    </LanguageProvider>
     </HelmetProvider>
   );
 }
