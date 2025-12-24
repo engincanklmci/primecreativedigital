@@ -10,6 +10,10 @@ import { Helmet } from 'react-helmet-async';
 const Services = () => {
   const { services } = useData();
 
+  // Debug: Log the services data
+  console.log('Services data:', services);
+  console.log('First service imagePath:', services[0]?.imagePath);
+
   return (
     <>
       <Helmet>
@@ -50,11 +54,25 @@ const Services = () => {
                 <div className="relative">
                    <div className="absolute inset-0 bg-prime-yellow/20 blur-3xl rounded-full transform scale-90"></div>
                    <div className="relative bg-white rounded-3xl p-8 shadow-xl border border-gray-100 flex items-center justify-center aspect-video md:aspect-square overflow-hidden">
-                      <img 
-                        src={service.imagePath} 
-                        alt={service.title}
-                        className="w-full h-full object-cover rounded-2xl"
-                      />
+                      {service.imagePath ? (
+                        <img 
+                          src={service.imagePath} 
+                          alt={service.title}
+                          className="w-full h-full object-cover rounded-2xl"
+                          onError={(e) => {
+                            console.error('Image failed to load:', service.imagePath);
+                            e.target.style.display = 'none';
+                          }}
+                          onLoad={() => {
+                            console.log('Image loaded successfully:', service.imagePath);
+                          }}
+                        />
+                      ) : (
+                        <div className="text-red-500 text-center">
+                          <p>No imagePath found</p>
+                          <p className="text-sm">Service: {service.title}</p>
+                        </div>
+                      )}
                    </div>
                 </div>
               </motion.div>
