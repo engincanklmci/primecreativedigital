@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import emailjs from '@emailjs/browser';
+import { useTranslation } from '../context/LanguageContext';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -123,20 +125,20 @@ const Contact = () => {
                <div className="p-12 md:w-3/5 bg-white">
                  {submitStatus === 'success' && (
                    <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-                     Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.
+                     {t('contact.form.success')}
                    </div>
                  )}
                  
                  {submitStatus === 'error' && (
                    <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
-                     Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.
+                     {t('contact.form.error')}
                    </div>
                  )}
 
                  <form onSubmit={handleSubmit} className="space-y-6">
                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                      <div>
-                       <label className="block text-sm font-medium text-gray-700 mb-2">Ad Soyad</label>
+                       <label className="block text-sm font-medium text-gray-700 mb-2">{t('contact.name')}</label>
                        <input 
                          type="text" 
                          name="name"
@@ -144,11 +146,11 @@ const Contact = () => {
                          onChange={handleChange}
                          required
                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-prime-yellow focus:ring-1 focus:ring-prime-yellow transition-all bg-gray-50" 
-                         placeholder="Adınız Soyadınız" 
+                         placeholder={t('contact.form.namePlaceholder')}
                        />
                      </div>
                      <div>
-                       <label className="block text-sm font-medium text-gray-700 mb-2">E-Posta</label>
+                       <label className="block text-sm font-medium text-gray-700 mb-2">{t('contact.email')}</label>
                        <input 
                          type="email" 
                          name="email"
@@ -156,28 +158,28 @@ const Contact = () => {
                          onChange={handleChange}
                          required
                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-prime-yellow focus:ring-1 focus:ring-prime-yellow transition-all bg-gray-50" 
-                         placeholder="ornek@email.com" 
+                         placeholder={t('contact.form.emailPlaceholder')}
                        />
                      </div>
                    </div>
                    
                    <div>
-                     <label className="block text-sm font-medium text-gray-700 mb-2">Konu</label>
+                     <label className="block text-sm font-medium text-gray-700 mb-2">{t('contact.subject')}</label>
                      <select 
                        name="subject"
                        value={formData.subject}
                        onChange={handleChange}
                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-prime-yellow focus:ring-1 focus:ring-prime-yellow transition-all bg-gray-50"
                      >
-                       <option value="Proje Teklifi Almak İstiyorum">Proje Teklifi Almak İstiyorum</option>
-                       <option value="Genel Bilgi">Genel Bilgi</option>
-                       <option value="İş Başvurusu">İş Başvurusu</option>
-                       <option value="Diğer">Diğer</option>
+                       <option value={t('contact.form.subjectOptions.project')}>{t('contact.form.subjectOptions.project')}</option>
+                       <option value={t('contact.form.subjectOptions.info')}>{t('contact.form.subjectOptions.info')}</option>
+                       <option value={t('contact.form.subjectOptions.job')}>{t('contact.form.subjectOptions.job')}</option>
+                       <option value={t('contact.form.subjectOptions.other')}>{t('contact.form.subjectOptions.other')}</option>
                      </select>
                    </div>
                    
                    <div>
-                     <label className="block text-sm font-medium text-gray-700 mb-2">Mesajınız</label>
+                     <label className="block text-sm font-medium text-gray-700 mb-2">{t('contact.message')}</label>
                      <textarea 
                        name="message"
                        value={formData.message}
@@ -185,7 +187,7 @@ const Contact = () => {
                        required
                        rows="4" 
                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-prime-yellow focus:ring-1 focus:ring-prime-yellow transition-all bg-gray-50" 
-                       placeholder="Mesajınızı buraya yazın..."
+                       placeholder={t('contact.form.messagePlaceholder')}
                      ></textarea>
                    </div>
                    
@@ -198,7 +200,7 @@ const Contact = () => {
                          : 'bg-prime-black text-white hover:bg-gray-800'
                      }`}
                    >
-                     {isSubmitting ? 'Gönderiliyor...' : 'Gönder'}
+                     {isSubmitting ? t('contact.form.sending') : t('contact.send')}
                    </button>
                  </form>
                </div>
