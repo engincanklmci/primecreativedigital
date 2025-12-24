@@ -36,7 +36,17 @@ export const DataProvider = ({ children }) => {
   const [services, setServices] = useState(() => {
     try {
       const savedServices = localStorage.getItem('prime_services');
-      return savedServices ? JSON.parse(savedServices) : defaultServices;
+      if (savedServices) {
+        const parsed = JSON.parse(savedServices);
+        // Check if the saved data has the old iconName structure
+        if (parsed[0] && parsed[0].iconName) {
+          // Clear old cache and use new defaultServices
+          localStorage.removeItem('prime_services');
+          return defaultServices;
+        }
+        return parsed;
+      }
+      return defaultServices;
     } catch (error) {
       console.error('Error loading services from localStorage:', error);
       return defaultServices;
