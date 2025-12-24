@@ -53,12 +53,12 @@ const Services = () => {
               >
                 <div className="relative">
                    <div className="absolute inset-0 bg-prime-yellow/20 blur-3xl rounded-full transform scale-90"></div>
-                   <div className="relative bg-white rounded-3xl p-8 shadow-xl border border-gray-100 flex items-center justify-center aspect-video md:aspect-square overflow-hidden">
+                   <div className="relative bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden aspect-video md:aspect-square">
                       {service.imagePath ? (
                         <img 
                           src={service.imagePath} 
                           alt={service.title}
-                          className="w-full h-full object-cover rounded-2xl"
+                          className="w-full h-full object-cover rounded-3xl"
                           onError={(e) => {
                             console.error('Image failed to load:', service.imagePath);
                             e.target.style.display = 'none';
