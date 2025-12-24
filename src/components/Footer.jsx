@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <Link to="/" className="inline-block mb-6">
               <div className="flex items-center gap-2">
-                <img src="/logo.svg" alt="Prime Dijital" className="h-10 w-auto object-contain bg-white/10 rounded-lg p-1" />
+                <img src="/logo.png" alt="Prime Dijital" className="h-10 w-auto object-contain bg-white/10 rounded-lg p-1" />
                 <span className="text-2xl font-bold tracking-tighter">
                   Prime <span className="text-prime-yellow">Dijital</span>
                 </span>
