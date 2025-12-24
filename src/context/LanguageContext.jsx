@@ -12,43 +12,43 @@ const translations = {
     'nav.getStarted': 'İletişime Geç',
     
     // Hero Section
-    'hero.title': 'Dijital Dunyada Markanizi Zirveye Tasiyoruz',
-    'hero.subtitle': 'Grafik tasarim, baski hizmetleri ve yazilim gelistirme alaninda profesyonel cozumler',
-    'hero.cta': 'Projemizi Baslatalim',
+    'hero.title': 'İşinizi Zirveye Taşıyan Prime Dokunuş',
+    'hero.subtitle': 'Grafik tasarım, baskı hizmetleri ve yazılım geliştirme alanında profesyonel çözümler',
+    'hero.cta': 'Projemizi Başlatalım',
     
     // Services
     'services.title': 'Hizmetlerimiz',
-    'services.subtitle': 'Isinizi dijital dunyada zirveye tasiyacak kapsamli cozumlerimizi kesfedin',
-    'services.getQuote': 'Teklif Alin',
-    'services.scope': 'Hizmet Kapsami:',
+    'services.subtitle': 'İşinizi dijital dünyada zirveye taşıyacak kapsamlı çözümlerimizi keşfedin',
+    'services.getQuote': 'Teklif Alın',
+    'services.scope': 'Hizmet Kapsamı:',
     
     // About
-    'about.title': 'Hakkimizda',
-    'about.subtitle': 'Prime Dijital\'in hikayesi, vizyonu ve tutkuyla calisan ekibiyle tanisin',
-    'about.teamTitle': 'Ekibimizle Tanisin',
+    'about.title': 'Hakkımızda',
+    'about.subtitle': 'Prime Dijital\'in hikayesi, vizyonu ve tutkuyla çalışan ekibiyle tanışın',
+    'about.teamTitle': 'Ekibimizle Tanışın',
     
     // Contact
-    'contact.title': 'Iletisime Gecin',
-    'contact.subtitle': 'Projeniz hakkinda konusmak veya sadece tanismak icin formu doldurun',
+    'contact.title': 'İletişime Geçin',
+    'contact.subtitle': 'Projeniz hakkında konuşmak veya sadece tanışmak için formu doldurun',
     'contact.name': 'Ad Soyad',
     'contact.email': 'E-Posta',
     'contact.subject': 'Konu',
-    'contact.message': 'Mesajiniz',
-    'contact.send': 'Gonder',
+    'contact.message': 'Mesajınız',
+    'contact.send': 'Gönder',
     'contact.phone': 'Telefon',
     'contact.address': 'Adres',
     
     // Footer
-    'footer.tagline': 'Isinizi zirveye tasiyan prime dokunus. Grafik tasarim, baski ve yazilik hizmetlerinde uzman ekibimizle yaninizdayiz.',
-    'footer.quickLinks': 'Hizli Erisim',
+    'footer.tagline': 'İşinizi zirveye taşıyan prime dokunuş. Grafik tasarım, baskı ve yazılım hizmetlerinde uzman ekibimizle yanınızdayız.',
+    'footer.quickLinks': 'Hızlı Erişim',
     'footer.services': 'Hizmetler',
-    'footer.contact': 'Iletisim',
-    'footer.copyright': 'Tüm haklari saklidir.',
+    'footer.contact': 'İletişim',
+    'footer.copyright': 'Tüm hakları saklıdır.',
     
     // Common
     'loading': 'Yükleniyor...',
-    'error': 'Bir hata olustu',
-    'success': 'Basarili!',
+    'error': 'Bir hata oluştu',
+    'success': 'Başarılı!',
     
     // Services Page
     'services.graphic.title': 'Grafik Tasarım',
