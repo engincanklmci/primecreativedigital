@@ -5,10 +5,11 @@ import CTA from '../components/CTA';
 import { motion } from 'framer-motion';
 import { useData } from '../context/DataContext';
 import { Helmet } from 'react-helmet-async';
-
+import { useTranslation } from '../context/LanguageContext';
 
 const Services = () => {
   const { services } = useData();
+  const { t } = useTranslation();
 
   // Debug: Log the services data
   console.log('Services data:', services);
@@ -28,7 +29,7 @@ const Services = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-6xl font-bold mb-6"
           >
-            Hizmetlerimiz
+            {t('services.title')}
           </motion.h1>
           <motion.p 
              initial={{ opacity: 0, y: 20 }}
@@ -36,7 +37,7 @@ const Services = () => {
              transition={{ delay: 0.1 }}
              className="text-xl text-gray-500 max-w-3xl mx-auto"
           >
-            İşinizi dijital dünyada zirveye taşıyacak kapsamlı çözümlerimizi keşfedin
+            {t('services.subtitle')}
           </motion.p>
         </div>
 

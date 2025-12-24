@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import CTA from '../components/CTA';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { useTranslation } from '../context/LanguageContext';
 
 const team = [
   {
@@ -49,6 +50,7 @@ const faqs = [
 
 const About = () => {
   const [openFaq, setOpenFaq] = useState(null);
+  const { t } = useTranslation();
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -64,7 +66,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-6xl font-bold mb-6"
           >
-            Hakkımızda
+            {t('about.title')}
           </motion.h1>
           <motion.p 
              initial={{ opacity: 0, y: 20 }}
@@ -72,7 +74,7 @@ const About = () => {
              transition={{ delay: 0.1 }}
              className="text-xl text-gray-500 max-w-3xl mx-auto"
           >
-            Prime Dijital'in hikayesi, vizyonu ve tutkuyla çalışan ekibiyle tanışın
+            {t('about.subtitle')}
           </motion.p>
         </div>
 
@@ -89,14 +91,14 @@ const About = () => {
                   Hikayemiz
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-                  12 Yıllık Dijital Mükemmellik Yolculuğu
+                  {t('about.story.title')}
                 </h2>
                 <div className="space-y-4 text-gray-600 leading-relaxed">
                   <p>
-                    2012 yılında kuruluşumuzdan bu yana, Prime Dijital olarak İstanbul'un kalbi Gaziosmanpaşa'da faaliyet gösteriyoruz. Başlangıçta küçük bir ekiple yola çıktık, ancak şimdi 30+ profesyonelden oluşan güçlü bir aile olduk.
+                    {t('about.story.description1')}
                   </p>
                   <p>
-                    Grafik tasarım, baskı hizmetleri ve yazılım geliştirme alanında uzmanlaşarak, her büyüklükteki işletmeye özel çözümler sunuyoruz. Müşterilerimizin başarısını kendi başarımız olarak görüyor ve her projeye tutkuyla yaklaşıyoruz.
+                    {t('about.story.description2')}
                   </p>
                 </div>
              </motion.div>
@@ -121,7 +123,7 @@ const About = () => {
         {/* Team Section */}
         <div className="container-custom mb-32">
           <div className="text-center mb-12">
-             <h2 className="text-3xl font-bold">Ekibimizle Tanışın</h2>
+             <h2 className="text-3xl font-bold">{t('about.teamTitle')}</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {team.map((member, index) => (
