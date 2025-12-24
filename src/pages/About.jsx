@@ -4,7 +4,6 @@ import Footer from '../components/Footer';
 import CTA from '../components/CTA';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { useTranslation } from '../context/LanguageContext';
 
 const team = [
   {
@@ -66,7 +65,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-6xl font-bold mb-6"
           >
-            {t('about.title')}
+            Hakkımızda
           </motion.h1>
           <motion.p 
              initial={{ opacity: 0, y: 20 }}
@@ -74,7 +73,7 @@ const About = () => {
              transition={{ delay: 0.1 }}
              className="text-xl text-gray-500 max-w-3xl mx-auto"
           >
-            {t('about.subtitle')}
+            Prime Dijital'in hikayesi, vizyonu ve tutkuyla çalışan ekibiyle tanışın
           </motion.p>
         </div>
 
@@ -91,14 +90,14 @@ const About = () => {
                   Hikayemiz
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-                  {t('about.story.title')}
+                  12 Yıllık Dijital Mükemmellik Yolculuğu
                 </h2>
                 <div className="space-y-4 text-gray-600 leading-relaxed">
                   <p>
-                    {t('about.story.description1')}
+                    2012 yılında kuruluşumuzdan bu yana, Prime Dijital olarak İstanbul'un kalbi Gaziosmanpaşa'da faaliyet gösteriyoruz.
                   </p>
                   <p>
-                    {t('about.story.description2')}
+                    Grafik tasarım, baskı hizmetleri ve yazılım geliştirme alanında uzmanlaşarak, her büyüklükteki işletmeye özel çözümler sunuyoruz.
                   </p>
                 </div>
              </motion.div>
@@ -123,7 +122,7 @@ const About = () => {
         {/* Team Section */}
         <div className="container-custom mb-32">
           <div className="text-center mb-12">
-             <h2 className="text-3xl font-bold">{t('about.teamTitle')}</h2>
+             <h2 className="text-3xl font-bold">Ekibimizle Tanışın</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {team.map((member, index) => (

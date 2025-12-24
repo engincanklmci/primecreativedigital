@@ -5,11 +5,9 @@ import CTA from '../components/CTA';
 import { motion } from 'framer-motion';
 import { useData } from '../context/DataContext';
 import { Helmet } from 'react-helmet-async';
-import { useTranslation } from '../context/LanguageContext';
 
 const Services = () => {
   const { services } = useData();
-  const { t } = useTranslation();
 
   // Debug: Log the services data
   console.log('Services data:', services);
@@ -29,7 +27,7 @@ const Services = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-6xl font-bold mb-6"
           >
-            {t('services.title')}
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Hizmetlerimiz</h1>
           </motion.h1>
           <motion.p 
              initial={{ opacity: 0, y: 20 }}
@@ -37,7 +35,7 @@ const Services = () => {
              transition={{ delay: 0.1 }}
              className="text-xl text-gray-500 max-w-3xl mx-auto"
           >
-            {t('services.subtitle')}
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">İşinizi dijital dünyada zirveye taşıyacak kapsamlı çözümlerimizi keşfedin</p>
           </motion.p>
         </div>
 
@@ -88,22 +86,22 @@ const Services = () => {
                  className="w-full md:w-1/2"
               >
                 <span className="inline-block px-4 py-2 bg-prime-yellow/20 text-prime-black font-bold text-sm rounded-lg mb-4">
-                  {service.id === 'grafik-tasarim' ? t('services.graphic.title') : 
-                   service.id === 'baski-hizmetleri' ? t('services.printing.title') : 
-                   t('services.software.title')}
+                  {service.id === 'grafik-tasarim' ? 'Grafik Tasarım' : 
+                   service.id === 'baski-hizmetleri' ? 'Baskı Hizmetleri' : 
+                   'Yazılım Geliştirme'}
                 </span>
                 <h2 className="text-4xl font-bold mb-6">
-                  {service.id === 'grafik-tasarim' ? t('services.graphic.title') : 
-                   service.id === 'baski-hizmetleri' ? t('services.printing.title') : 
-                   t('services.software.title')}
+                  {service.id === 'grafik-tasarim' ? 'Grafik Tasarım' : 
+                   service.id === 'baski-hizmetleri' ? 'Baskı Hizmetleri' : 
+                   'Yazılım Geliştirme'}
                 </h2>
                 <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                  {service.id === 'grafik-tasarim' ? t('services.graphic.description') : 
-                   service.id === 'baski-hizmetleri' ? t('services.printing.description') : 
-                   t('services.software.description')}
+                  {service.id === 'grafik-tasarim' ? 'Prime Dijital olarak, markanızın görsel kimliğini en üst düzeyde temsil edecek grafik tasarım hizmetleri sunuyoruz.' : 
+                   service.id === 'baski-hizmetleri' ? 'Son teknoloji baskı makinelerimiz ve kaliteli malzemelerimizle, her türlü baskı ihtiyacınız için profesyonel çözümler sunuyoruz.' : 
+                   'Dijital dünyada işinizi öne çıkaracak, kullanıcı deneyimini ön planda tutan yazılım çözümleri geliştiriyoruz.'}
                 </p>
                 
-                <h3 className="text-lg font-bold mb-4">{t('services.scope')}</h3>
+                <h3 className="text-lg font-bold mb-4">Hizmet Kapsamı:</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {service.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-gray-600">
