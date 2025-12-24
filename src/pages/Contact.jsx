@@ -1,8 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: 'Proje Teklifi Almak İstiyorum',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('');
+
+    try {
+      const templateParams = {
+        to_name: 'Engin Can Kelemci',
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'kelemciengincan@gmail.com'
+      };
+
+      // Using EmailJS with a free service
+      await emailjs.send(
+        'service_g2y9ag9', // Service ID
+        'template_1xecsi9', // Template ID
+        templateParams,
+        'AyC6yOQqhEUhj4Be8' // Public Key
+      );
+
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        subject: 'Proje Teklifi Almak İstiyorum',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <>
       <Navbar />
@@ -54,35 +109,84 @@ const Contact = () => {
                </div>
                
                <div className="p-12 md:w-3/5 bg-white">
-                 <form className="space-y-6">
+                 {submitStatus === 'success' && (
+                   <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+                     Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.
+                   </div>
+                 )}
+                 
+                 {submitStatus === 'error' && (
+                   <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                     Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.
+                   </div>
+                 )}
+
+                 <form onSubmit={handleSubmit} className="space-y-6">
                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                      <div>
                        <label className="block text-sm font-medium text-gray-700 mb-2">Ad Soyad</label>
-                       <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-prime-yellow focus:ring-1 focus:ring-prime-yellow transition-all bg-gray-50" placeholder="Adınız Soyadınız" />
+                       <input 
+                         type="text" 
+                         name="name"
+                         value={formData.name}
+                         onChange={handleChange}
+                         required
+                         className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-prime-yellow focus:ring-1 focus:ring-prime-yellow transition-all bg-gray-50" 
+                         placeholder="Adınız Soyadınız" 
+                       />
                      </div>
                      <div>
                        <label className="block text-sm font-medium text-gray-700 mb-2">E-Posta</label>
-                       <input type="email" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-prime-yellow focus:ring-1 focus:ring-prime-yellow transition-all bg-gray-50" placeholder="ornek@email.com" />
+                       <input 
+                         type="email" 
+                         name="email"
+                         value={formData.email}
+                         onChange={handleChange}
+                         required
+                         className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-prime-yellow focus:ring-1 focus:ring-prime-yellow transition-all bg-gray-50" 
+                         placeholder="ornek@email.com" 
+                       />
                      </div>
                    </div>
                    
                    <div>
                      <label className="block text-sm font-medium text-gray-700 mb-2">Konu</label>
-                     <select className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-prime-yellow focus:ring-1 focus:ring-prime-yellow transition-all bg-gray-50">
-                       <option>Proje Teklifi Almak İstiyorum</option>
-                       <option>Genel Bilgi</option>
-                       <option>İş Başvurusu</option>
-                       <option>Diğer</option>
+                     <select 
+                       name="subject"
+                       value={formData.subject}
+                       onChange={handleChange}
+                       className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-prime-yellow focus:ring-1 focus:ring-prime-yellow transition-all bg-gray-50"
+                     >
+                       <option value="Proje Teklifi Almak İstiyorum">Proje Teklifi Almak İstiyorum</option>
+                       <option value="Genel Bilgi">Genel Bilgi</option>
+                       <option value="İş Başvurusu">İş Başvurusu</option>
+                       <option value="Diğer">Diğer</option>
                      </select>
                    </div>
                    
                    <div>
                      <label className="block text-sm font-medium text-gray-700 mb-2">Mesajınız</label>
-                     <textarea rows="4" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-prime-yellow focus:ring-1 focus:ring-prime-yellow transition-all bg-gray-50" placeholder="Mesajınızı buraya yazın..."></textarea>
+                     <textarea 
+                       name="message"
+                       value={formData.message}
+                       onChange={handleChange}
+                       required
+                       rows="4" 
+                       className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-prime-yellow focus:ring-1 focus:ring-prime-yellow transition-all bg-gray-50" 
+                       placeholder="Mesajınızı buraya yazın..."
+                     ></textarea>
                    </div>
                    
-                   <button type="button" className="w-full bg-prime-black text-white font-bold py-4 rounded-lg hover:bg-gray-800 transition-colors shadow-lg">
-                     Gönder
+                   <button 
+                     type="submit" 
+                     disabled={isSubmitting}
+                     className={`w-full font-bold py-4 rounded-lg transition-colors shadow-lg ${
+                       isSubmitting 
+                         ? 'bg-gray-400 text-gray-200 cursor-not-allowed' 
+                         : 'bg-prime-black text-white hover:bg-gray-800'
+                     }`}
+                   >
+                     {isSubmitting ? 'Gönderiliyor...' : 'Gönder'}
                    </button>
                  </form>
                </div>
