@@ -17,8 +17,8 @@ const team = [
   },
   {
     name: 'Emel Gökçe Kelemci',
-    role: 'Graphic Designer',
-    title: 'Graphic Designer',
+    role: 'Grafik Designer',
+    title: 'Grafik Designer',
     image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     description: '5 yıllık deneyime sahip grafik tasarımcı ve marka stratejisti. Kurumsal kimlik, dijital tasarım ve marka yönetimi konusunda uluslararası ödüllü çalışmalar.',
     isSvg: false
