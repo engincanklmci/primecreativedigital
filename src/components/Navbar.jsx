@@ -74,17 +74,15 @@ const Navbar = () => {
             ))}
           </div>
           
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+            
             <Link to="/iletisim">
               <button className="bg-prime-yellow text-prime-black px-6 py-2 rounded-md text-sm font-bold hover:bg-yellow-400 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                 İletişime Geç
               </button>
             </Link>
-          </div>
-
-          {/* Language Switcher */}
-          <div className="hidden md:block">
-            <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
