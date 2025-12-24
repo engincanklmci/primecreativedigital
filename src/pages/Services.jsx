@@ -3,17 +3,9 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import CTA from '../components/CTA';
 import { motion } from 'framer-motion';
-import { Palette, Code, Printer, Megaphone } from 'lucide-react';
 import { useData } from '../context/DataContext';
 import { Helmet } from 'react-helmet-async';
 
-// Icon mapping
-const iconMap = {
-  'Palette': <Palette size={64} className="text-prime-black" />,
-  'Printer': <Printer size={64} className="text-prime-black" />,
-  'Code': <Code size={64} className="text-prime-black" />,
-  'Megaphone': <Megaphone size={64} className="text-prime-black" />
-};
 
 const Services = () => {
   const { services } = useData();
@@ -57,10 +49,12 @@ const Services = () => {
               >
                 <div className="relative">
                    <div className="absolute inset-0 bg-prime-yellow/20 blur-3xl rounded-full transform scale-90"></div>
-                   <div className="relative bg-white rounded-3xl p-16 shadow-xl border border-gray-100 flex items-center justify-center aspect-video md:aspect-square">
-                      <div className={`p-8 rounded-3xl ${service.color} shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-500`}>
-                        {iconMap[service.iconName] || <Palette size={64} className="text-prime-black" />}
-                      </div>
+                   <div className="relative bg-white rounded-3xl p-8 shadow-xl border border-gray-100 flex items-center justify-center aspect-video md:aspect-square overflow-hidden">
+                      <img 
+                        src={service.imagePath} 
+                        alt={service.title}
+                        className="w-full h-full object-cover rounded-2xl"
+                      />
                    </div>
                 </div>
               </motion.div>
