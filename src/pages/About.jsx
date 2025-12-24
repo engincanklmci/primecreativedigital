@@ -8,34 +8,18 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 const team = [
   {
     name: 'Engincan Kelemci',
-    role: 'Kurucu & CEO',
-    title: 'Kurucu & CEO',
+    role: 'Full Stack Developer',
+    title: 'Full Stack Developer',
     image: '/engincan.png',
-    description: '12 yıllık deneyime sahip dijital pazarlama ve yazılım uzmanı',
+    description: '5 yıllık deneyime sahip full stack developer ve sistem mimarisi uzmanı. Modern web teknolojileri ve e-ticaret çözümleri konusunda uzmanlaşmış durumda.',
     isSvg: false
   },
   {
-    name: 'Elif Kara',
-    role: 'Kreatif Direktör',
-    title: 'Kreatif Direktör',
-    image: 'https://images.unsplash.com/photo-1573496359-0cf84ec07b64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    description: 'Uluslararası ödüllü grafik tasarımcı ve marka stratejisti',
-    isSvg: false
-  },
-  {
-    name: 'Mehmet Demir',
-    role: 'Baş Yazılım Geliştirici',
-    title: 'Baş Yazılım Geliştirici',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    description: 'Full-stack developer ve sistem mimarisi uzmanı',
-    isSvg: false
-  },
-  {
-    name: 'Zeynep Öztürk',
-    role: 'Proje Yöneticisi',
-    title: 'Proje Yöneticisi',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    description: 'Müşteri ilişkileri ve proje yönetimi konusunda 8 yıllık tecrübe',
+    name: 'Emel Gökçe Kelemci',
+    role: 'Grafik Designer',
+    title: 'Grafik Designer',
+    image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    description: '5 yıllık deneyime sahip grafik tasarımcı ve marka stratejisti. Kurumsal kimlik, dijital tasarım ve marka yönetimi konusunda uluslararası ödüllü çalışmalar.',
     isSvg: false
   }
 ];
@@ -139,7 +123,7 @@ const About = () => {
           <div className="text-center mb-12">
              <h2 className="text-3xl font-bold">Ekibimizle Tanışın</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {team.map((member, index) => (
               <motion.div
                 key={index}
