@@ -53,12 +53,13 @@ const Services = () => {
               >
                 <div className="relative">
                    <div className="absolute inset-0 bg-prime-yellow/20 blur-3xl rounded-full transform scale-90"></div>
-                   <div className="relative rounded-3xl shadow-xl border border-gray-100 overflow-hidden aspect-video md:aspect-square">
+                   <div className="relative rounded-3xl shadow-2xl border border-gray-100 overflow-hidden aspect-video md:aspect-square group">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       {service.imagePath ? (
                         <img 
                           src={service.imagePath} 
                           alt={service.title}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                           onError={(e) => {
                             console.error('Image failed to load:', service.imagePath);
                             e.target.style.display = 'none';
