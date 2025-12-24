@@ -26,6 +26,9 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus('');
 
+    console.log('Form submission started');
+    console.log('Form data:', formData);
+
     try {
       const templateParams = {
         to_name: 'Engin Can Kelemci',
@@ -36,14 +39,18 @@ const Contact = () => {
         to_email: 'kelemciengincan@gmail.com'
       };
 
+      console.log('Template params:', templateParams);
+      console.log('Sending email...');
+
       // Using EmailJS with a free service
-      await emailjs.send(
+      const response = await emailjs.send(
         'service_g2y9ag9', // Service ID
         'template_1xecsi9', // Template ID
         templateParams,
         'AyC6yOQqhEUhj4Be8' // Public Key
       );
 
+      console.log('Email sent successfully:', response);
       setSubmitStatus('success');
       setFormData({
         name: '',
@@ -53,6 +60,11 @@ const Contact = () => {
       });
     } catch (error) {
       console.error('Email sending failed:', error);
+      console.error('Error details:', {
+        status: error.status,
+        text: error.text,
+        message: error.message
+      });
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
