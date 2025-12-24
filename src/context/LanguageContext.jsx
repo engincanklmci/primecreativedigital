@@ -20,6 +20,7 @@ const translations = {
     'services.title': 'Hizmetlerimiz',
     'services.subtitle': 'Isinizi dijital dunyada zirveye tasiyacak kapsamli cozumlerimizi kesfedin',
     'services.getQuote': 'Teklif Alin',
+    'services.scope': 'Hizmet Kapsami:',
     
     // About
     'about.title': 'Hakkimizda',
@@ -93,6 +94,7 @@ const translations = {
     'services.title': 'Our Services',
     'services.subtitle': 'Discover our comprehensive solutions that will take your business to the top in the digital world',
     'services.getQuote': 'Get Quote',
+    'services.scope': 'Service Scope:',
     
     // About
     'about.title': 'About Us',

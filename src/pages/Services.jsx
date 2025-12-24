@@ -88,14 +88,22 @@ const Services = () => {
                  className="w-full md:w-1/2"
               >
                 <span className="inline-block px-4 py-2 bg-prime-yellow/20 text-prime-black font-bold text-sm rounded-lg mb-4">
-                  {service.title}
+                  {service.id === 'grafik-tasarim' ? t('services.graphic.title') : 
+                   service.id === 'baski-hizmetleri' ? t('services.printing.title') : 
+                   t('services.software.title')}
                 </span>
-                <h2 className="text-4xl font-bold mb-6">{service.title}</h2>
+                <h2 className="text-4xl font-bold mb-6">
+                  {service.id === 'grafik-tasarim' ? t('services.graphic.title') : 
+                   service.id === 'baski-hizmetleri' ? t('services.printing.title') : 
+                   t('services.software.title')}
+                </h2>
                 <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                  {service.description}
+                  {service.id === 'grafik-tasarim' ? t('services.graphic.description') : 
+                   service.id === 'baski-hizmetleri' ? t('services.printing.description') : 
+                   t('services.software.description')}
                 </p>
                 
-                <h3 className="text-lg font-bold mb-4">Hizmet Kapsamı:</h3>
+                <h3 className="text-lg font-bold mb-4">{t('services.scope')}</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {service.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-gray-600">
