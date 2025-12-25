@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import emailjs from '@emailjs/browser';
-
-// Initialize EmailJS once
-emailjs.init('AyC6yOQqhEUhj4Be8');
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -50,63 +46,34 @@ const Contact = () => {
     }
 
     try {
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-        reply_to: formData.email
-      };
-
-      console.log('Template params:', templateParams);
-      console.log('EmailJS configuration check:');
-      console.log('- Service ID: service_g2y9ag9');
-      console.log('- Template ID: template_1xecsi9');
-      console.log('- Public Key: AyC6yOQqhEUhj4Be8');
-      
-      console.log('EmailJS initialized, sending email...');
-
-      // Send email using EmailJS (no need to init again)
-      const response = await emailjs.send(
-        'service_g2y9ag9', // Service ID
-        'template_1xecsi9', // Template ID
-        templateParams
-      );
-
-      console.log('Email sent successfully:', response);
-      console.log('Response status:', response.status);
-      console.log('Response text:', response.text);
-      
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        subject: 'Proje Teklifi Almak İstiyorum',
-        message: ''
+      // Formspree ile gönder
+      const response = await fetch('https://formspree.io/f/xpqzapye', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
       });
-    } catch (error) {
-      console.error('Email sending failed:', error);
-      console.error('Error details:', {
-        status: error.status,
-        text: error.text,
-        message: error.message,
-        name: error.name
-      });
-      
-      // Show more specific error in console
-      if (error.status === 400) {
-        console.error('Bad Request: Check your EmailJS template parameters');
-      } else if (error.status === 401) {
-        console.error('Unauthorized: Check your EmailJS public key');
-      } else if (error.status === 403) {
-        console.error('Forbidden: Check your EmailJS service configuration');
-      } else if (error.status === 412) {
-        console.error('Precondition Failed: Template parameters mismatch or missing required fields');
-        console.error('Please check your EmailJS template configuration');
-      } else if (error.status === 429) {
-        console.error('Too Many Requests: EmailJS rate limit exceeded');
+
+      if (response.ok) {
+        console.log('Form sent successfully');
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          subject: 'Proje Teklifi Almak İstiyorum',
+          message: ''
+        });
+      } else {
+        throw new Error('Form submission failed');
       }
-      
+    } catch (error) {
+      console.error('Form sending failed:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
