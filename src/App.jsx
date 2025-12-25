@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'r
 import { HelmetProvider } from 'react-helmet-async';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { DataProvider } from './context/DataContext';
-import { initLeadCapture } from './utils/leadCapture';
 import AnalyticsTracker from './components/AnalyticsTracker';
 import AnalyticsTest from './components/AnalyticsTest';
 import CookieConsent from './components/CookieConsent';
@@ -54,11 +53,6 @@ const ProtectedRoute = ({ children }) => {
 };
 
 function App() {
-  // Initialize lead capture system
-  useEffect(() => {
-    initLeadCapture();
-  }, []);
-
   return (
     <HelmetProvider>
       <AuthProvider>
