@@ -5,6 +5,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import { DataProvider } from './context/DataContext';
 import { initLeadCapture } from './utils/leadCapture';
 import AnalyticsTracker from './components/AnalyticsTracker';
+import AnalyticsTest from './components/AnalyticsTest';
 
 // Lazy loading for pages
 const Home = lazy(() => import('./pages/Home'));
@@ -61,6 +62,7 @@ function App() {
           <Router>
             <ScrollToTop />
             <AnalyticsTracker />
+            <AnalyticsTest />
             <div className="font-sans antialiased text-prime-black bg-prime-white min-h-screen selection:bg-prime-yellow selection:text-prime-black overflow-x-hidden w-full relative">
               <Suspense fallback={<PageLoader />}>
                 <Routes>

@@ -3,7 +3,7 @@
  */
 
 // Google Analytics 4 configuration
-export const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // Replace with your actual GA4 ID
+export const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-S515E55TSS';
 
 // Initialize Google Analytics
 export const initGA = () => {
