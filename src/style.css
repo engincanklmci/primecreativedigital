@@ -42,3 +42,6 @@ html {
 .container-custom {
   @apply container mx-auto px-6 md:px-12;
 }
+
+/* Lead Capture Styles */
+@import './styles/leadCapture.css';

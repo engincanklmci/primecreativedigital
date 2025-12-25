@@ -1,9 +1,10 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
-import { useEffect } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { DataProvider } from './context/DataContext';
+import { initLeadCapture } from './utils/leadCapture';
+import AnalyticsTracker from './components/AnalyticsTracker';
 
 // Lazy loading for pages
 const Home = lazy(() => import('./pages/Home'));
@@ -48,12 +49,18 @@ const ProtectedRoute = ({ children }) => {
 };
 
 function App() {
+  // Initialize lead capture system
+  useEffect(() => {
+    initLeadCapture();
+  }, []);
+
   return (
     <HelmetProvider>
       <AuthProvider>
         <DataProvider>
           <Router>
             <ScrollToTop />
+            <AnalyticsTracker />
             <div className="font-sans antialiased text-prime-black bg-prime-white min-h-screen selection:bg-prime-yellow selection:text-prime-black overflow-x-hidden w-full relative">
               <Suspense fallback={<PageLoader />}>
                 <Routes>
