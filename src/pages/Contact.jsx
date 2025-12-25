@@ -42,12 +42,14 @@ const Contact = () => {
       console.log('Template params:', templateParams);
       console.log('Sending email...');
 
-      // Using EmailJS with a free service
+      // Initialize EmailJS with your public key
+      emailjs.init('AyC6yOQqhEUhj4Be8');
+      
+      // Send email using EmailJS
       const response = await emailjs.send(
         'service_g2y9ag9', // Service ID
         'template_1xecsi9', // Template ID
-        templateParams,
-        'AyC6yOQqhEUhj4Be8' // Public Key
+        templateParams
       );
 
       console.log('Email sent successfully:', response);
@@ -129,7 +131,8 @@ const Contact = () => {
                  
                  {submitStatus === 'error' && (
                    <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
-                     Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.
+                     <p className="font-semibold mb-2">Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.</p>
+                     <p className="text-sm">Tarayıcı konsolunu (F12) açarak detaylı hata bilgisini görebilirsiniz.</p>
                    </div>
                  )}
 
