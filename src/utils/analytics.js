@@ -8,6 +8,12 @@ export const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-S5
 // Initialize Google Analytics
 export const initGA = () => {
   if (typeof window === 'undefined') return;
+  
+  // Check for analytics consent
+  if (!hasAnalyticsConsent()) {
+    console.log('❌ Google Analytics başlatılmadı - kullanıcı onayı yok');
+    return;
+  }
 
   // Load gtag script
   const script = document.createElement('script');
@@ -32,11 +38,13 @@ export const initGA = () => {
       custom_parameter: 'dimension1'
     }
   });
+  
+  console.log('✅ Google Analytics başlatıldı');
 };
 
 // Track page views
 export const trackPageView = (url, title) => {
-  if (typeof window.gtag === 'undefined') return;
+  if (typeof window.gtag === 'undefined' || !hasAnalyticsConsent()) return;
 
   window.gtag('config', GA_MEASUREMENT_ID, {
     page_path: url,
@@ -46,7 +54,7 @@ export const trackPageView = (url, title) => {
 
 // Track custom events
 export const trackEvent = (action, category = 'engagement', label = '', value = 0) => {
-  if (typeof window.gtag === 'undefined') return;
+  if (typeof window.gtag === 'undefined' || !hasAnalyticsConsent()) return;
 
   window.gtag('event', action, {
     event_category: category,
@@ -136,7 +144,7 @@ export const trackSearch = (query, results = 0) => {
 
 // Enhanced ecommerce tracking (for service inquiries)
 export const trackServiceInquiry = (serviceName, value = 0) => {
-  if (typeof window.gtag === 'undefined') return;
+  if (typeof window.gtag === 'undefined' || !hasAnalyticsConsent()) return;
 
   window.gtag('event', 'generate_lead', {
     currency: 'TRY',
@@ -173,16 +181,19 @@ export const calculateEngagementScore = () => {
 
 // GDPR compliance helper
 export const hasAnalyticsConsent = () => {
-  return localStorage.getItem('analytics_consent') === 'true';
+  const consent = localStorage.getItem('cookie_consent');
+  const preferences = JSON.parse(localStorage.getItem('cookie_preferences') || '{}');
+  return consent === 'true' && preferences.analytics === true;
 };
 
 export const setAnalyticsConsent = (consent) => {
-  localStorage.setItem('analytics_consent', consent.toString());
-  
   if (consent) {
+    // Enable analytics
     initGA();
+    console.log('✅ Google Analytics etkinleştirildi');
   } else {
     // Disable analytics
     window[`ga-disable-${GA_MEASUREMENT_ID}`] = true;
+    console.log('❌ Google Analytics devre dışı bırakıldı');
   }
 };

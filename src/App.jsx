@@ -6,6 +6,7 @@ import { DataProvider } from './context/DataContext';
 import { initLeadCapture } from './utils/leadCapture';
 import AnalyticsTracker from './components/AnalyticsTracker';
 import AnalyticsTest from './components/AnalyticsTest';
+import CookieConsent from './components/CookieConsent';
 
 // Lazy loading for pages
 const Home = lazy(() => import('./pages/Home'));
@@ -18,6 +19,9 @@ const BlogDetail = lazy(() => import('./pages/BlogDetail'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Login = lazy(() => import('./pages/admin/Login'));
 const Dashboard = lazy(() => import('./pages/admin/Dashboard'));
+const KVKKAydinlatmaMetni = lazy(() => import('./pages/KVKKAydinlatmaMetni'));
+const GizlilikPolitikasi = lazy(() => import('./pages/GizlilikPolitikasi'));
+const CerezPolitikasi = lazy(() => import('./pages/CerezPolitikasi'));
 
 // Loading component
 const PageLoader = () => (
@@ -75,6 +79,9 @@ function App() {
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/blog/:slug" element={<BlogDetail />} />
                   <Route path="/iletisim" element={<Contact />} />
+                  <Route path="/kvkk-aydinlatma-metni" element={<KVKKAydinlatmaMetni />} />
+                  <Route path="/gizlilik-politikasi" element={<GizlilikPolitikasi />} />
+                  <Route path="/cerez-politikasi" element={<CerezPolitikasi />} />
                   
                   {/* Admin Routes */}
                   <Route path="/admin" element={<Login />} />
@@ -89,6 +96,9 @@ function App() {
                 </Routes>
               </Suspense>
             </div>
+            
+            {/* Cookie Consent Banner */}
+            <CookieConsent />
           </Router>
         </DataProvider>
       </AuthProvider>

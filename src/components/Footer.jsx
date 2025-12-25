@@ -103,15 +103,33 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm">
-            © 2024 Prime Dijital. Tüm hakları saklıdır.
-          </p>
-          <div className="flex space-x-6 text-sm text-gray-500">
-            <a href="#" className="hover:text-prime-yellow transition-colors">Gizlilik Politikası</a>
-            <a href="#" className="hover:text-prime-yellow transition-colors">Kullanım Şartları</a>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-500 text-sm">
+              © 2024 Prime Dijital. Tüm hakları saklıdır.
+            </p>
+            <div className="flex flex-wrap justify-center md:justify-end items-center gap-4 text-sm text-gray-500">
+              <Link to="/gizlilik-politikasi" className="hover:text-prime-yellow transition-colors">
+                Gizlilik Politikası
+              </Link>
+              <Link to="/cerez-politikasi" className="hover:text-prime-yellow transition-colors">
+                Çerez Politikası
+              </Link>
+              <Link to="/kvkk-aydinlatma-metni" className="hover:text-prime-yellow transition-colors">
+                KVKK
+              </Link>
+              <button 
+                onClick={() => {
+                  localStorage.removeItem('cookie_consent');
+                  localStorage.removeItem('cookie_consent_date');
+                  localStorage.removeItem('cookie_preferences');
+                  window.location.reload();
+                }}
+                className="hover:text-prime-yellow transition-colors cursor-pointer"
+              >
+                Çerez Ayarları
+              </button>
+            </div>
           </div>
-        </div>
       </div>
     </footer>
   );
