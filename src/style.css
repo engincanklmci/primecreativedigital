@@ -75,11 +75,6 @@ html {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .lead-capture-popup > div {
-    margin: 20px;
-    max-width: calc(100vw - 40px);
-  }
-  
   .toast-notification {
     right: 10px;
     left: 10px;

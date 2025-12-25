@@ -91,8 +91,8 @@ function App() {
               </Suspense>
             </div>
             
-            {/* Cookie Consent Banner */}
-            <CookieConsent />
+            {/* Cookie Consent Banner - DISABLED */}
+            {/* <CookieConsent /> */}
           </Router>
         </DataProvider>
       </AuthProvider>
