@@ -25,3 +25,5 @@
 
 ## ✅ Sonuç
 Artık lead capture sistemi tamamen kaldırıldı ve build başarılı olacak.
+
+**Deploy Trigger**: Manuel deployment tetiklendi - 2024-12-26
