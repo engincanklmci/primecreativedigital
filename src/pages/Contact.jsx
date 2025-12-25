@@ -29,6 +29,23 @@ const Contact = () => {
     console.log('Form submission started');
     console.log('Form data:', formData);
 
+    // Validate form fields
+    if (!formData.name || !formData.email || !formData.message) {
+      console.error('Validation failed: Missing required fields');
+      setSubmitStatus('error');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      console.error('Validation failed: Invalid email format');
+      setSubmitStatus('error');
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       const templateParams = {
         to_name: 'Engin Can Kelemci',
@@ -40,11 +57,16 @@ const Contact = () => {
       };
 
       console.log('Template params:', templateParams);
-      console.log('Sending email...');
+      console.log('EmailJS configuration check:');
+      console.log('- Service ID: service_g2y9ag9');
+      console.log('- Template ID: template_1xecsi9');
+      console.log('- Public Key: AyC6yOQqhEUhj4Be8');
 
       // Initialize EmailJS with your public key
       emailjs.init('AyC6yOQqhEUhj4Be8');
       
+      console.log('EmailJS initialized, sending email...');
+
       // Send email using EmailJS
       const response = await emailjs.send(
         'service_g2y9ag9', // Service ID
@@ -53,6 +75,9 @@ const Contact = () => {
       );
 
       console.log('Email sent successfully:', response);
+      console.log('Response status:', response.status);
+      console.log('Response text:', response.text);
+      
       setSubmitStatus('success');
       setFormData({
         name: '',
@@ -65,8 +90,21 @@ const Contact = () => {
       console.error('Error details:', {
         status: error.status,
         text: error.text,
-        message: error.message
+        message: error.message,
+        name: error.name
       });
+      
+      // Show more specific error in console
+      if (error.status === 400) {
+        console.error('Bad Request: Check your EmailJS template parameters');
+      } else if (error.status === 401) {
+        console.error('Unauthorized: Check your EmailJS public key');
+      } else if (error.status === 403) {
+        console.error('Forbidden: Check your EmailJS service configuration');
+      } else if (error.status === 429) {
+        console.error('Too Many Requests: EmailJS rate limit exceeded');
+      }
+      
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -131,8 +169,13 @@ const Contact = () => {
                  
                  {submitStatus === 'error' && (
                    <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
-                     <p className="font-semibold mb-2">Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.</p>
-                     <p className="text-sm">Tarayıcı konsolunu (F12) açarak detaylı hata bilgisini görebilirsiniz.</p>
+                     <p className="font-semibold mb-2">Mesaj gönderilirken bir hata oluştu.</p>
+                     <p className="text-sm mb-2">Lütfen aşağıdakileri kontrol edin:</p>
+                     <ul className="text-sm list-disc ml-4 space-y-1">
+                       <li>E-posta adresinin doğru yazıldığından (örn: isim@domain.com)</li>
+                       <li>Tüm alanların doldurulduğundan emin olun</li>
+                       <li>Tarayıcı konsolunu (F12) açarak detaylı hata bilgisini görebilirsiniz</li>
+                     </ul>
                    </div>
                  )}
 
