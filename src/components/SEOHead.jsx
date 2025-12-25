@@ -2,9 +2,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 const SEOHead = ({
-  title = "Prime Dijital | İşinizi Zirveye Taşıyan Prime Dokunuş",
-  description = "Prime Dijital ile işinizi dijital dünyada zirveye taşıyın. Web tasarım, grafik tasarım, matbaa hizmetleri ve daha fazlası.",
-  keywords = "web tasarım, grafik tasarım, matbaa, dijital pazarlama, logo tasarım, kurumsal kimlik",
+  title = "Prime Dijital | Web Tasarım & Dijital Pazarlama Ajansı İstanbul",
+  description = "Prime Dijital ile işinizi dijital dünyada zirveye taşıyın. Profesyonel web tasarım, SEO, mobil uygulama ve dijital pazarlama hizmetleri.",
+  keywords = "web tasarım İstanbul, dijital ajans, SEO hizmetleri, mobil uygulama geliştirme, grafik tasarım, dijital pazarlama, e-ticaret çözümleri",
   image = "/logo.png",
   url = "https://primedigitalcreative.com",
   type = "website",
@@ -27,22 +27,86 @@ const SEOHead = ({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Prime Dijital",
+    "alternateName": "Prime Digital Creative",
     "url": "https://primedigitalcreative.com",
     "logo": "https://primedigitalcreative.com/logo.png",
     "description": description,
+    "foundingDate": "2020",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Büyükdere Cad. No: 123/A",
+      "addressLocality": "Şişli",
+      "addressRegion": "İstanbul",
+      "postalCode": "34394",
       "addressCountry": "TR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "41.0082",
+      "longitude": "28.9784"
     },
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "availableLanguage": ["Turkish", "English"]
+      "telephone": "+90-212-555-0123",
+      "email": "info@primedigitalcreative.com",
+      "availableLanguage": ["Turkish", "English"],
+      "areaServed": "TR"
     },
+    "openingHours": [
+      "Mo-Fr 09:00-18:00",
+      "Sa 10:00-16:00"
+    ],
+    "priceRange": "$$",
     "sameAs": [
       "https://www.instagram.com/primedigitalcreative",
-      "https://www.linkedin.com/company/primedigitalcreative"
-    ]
+      "https://www.linkedin.com/company/primedigitalcreative",
+      "https://www.facebook.com/primedigitalcreative",
+      "https://twitter.com/primedigitaltr",
+      "https://www.youtube.com/@primedigitalcreative"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Dijital Hizmetler",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Web Tasarım",
+            "description": "Profesyonel web tasarım ve geliştirme hizmetleri",
+            "provider": {
+              "@type": "Organization",
+              "name": "Prime Dijital"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "SEO Hizmetleri",
+            "description": "Arama motoru optimizasyonu ve dijital pazarlama",
+            "provider": {
+              "@type": "Organization",
+              "name": "Prime Dijital"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Mobil Uygulama",
+            "description": "iOS ve Android mobil uygulama geliştirme",
+            "provider": {
+              "@type": "Organization",
+              "name": "Prime Dijital"
+            }
+          }
+        }
+      ]
+    }
   };
 
   return (
