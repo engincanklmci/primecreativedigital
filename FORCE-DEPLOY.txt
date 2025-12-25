@@ -1,0 +1,3 @@
+Force deployment trigger - 2024-12-26 15:30
+Lead capture sistemi tamamen kaldırıldı.
+Bu dosya sadece deployment tetiklemek için oluşturuldu.
