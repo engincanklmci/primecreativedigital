@@ -37,25 +37,25 @@ class EmailMarketingService {
     // 15-second visitor sequence
     this.sequences.set('interested_visitor', [
       { delay: 0, template: 'welcome', subject: 'Prime Dijital\'e Hoş Geldiniz!' },
-      { delay: 3600000, template: 'seo_analysis', subject: 'Ücretsiz SEO Analiziniz Hazır!' }, // 1 hour
-      { delay: 86400000, template: 'case_studies', subject: 'Başarı Hikayelerimiz' }, // 1 day
-      { delay: 259200000, template: 'consultation', subject: 'Ücretsiz Danışmanlık Randevusu' } // 3 days
+      { delay: 3600000, template: 'services_info', subject: 'Hizmetlerimiz Hakkında Bilgi' }, // 1 hour
+      { delay: 86400000, template: 'case_studies', subject: 'Projelerimizden Örnekler' }, // 1 day
+      { delay: 259200000, template: 'consultation', subject: 'Ücretsiz Danışmanlık Hakkında' } // 3 days
     ]);
 
     // 45-second engaged visitor sequence
     this.sequences.set('engaged_visitor', [
-      { delay: 0, template: 'discount_offer', subject: '%20 İndirim Kodunuz Burada!' },
-      { delay: 1800000, template: 'urgency_reminder', subject: 'İndiriminiz Yakında Sona Eriyor!' }, // 30 min
-      { delay: 86400000, template: 'portfolio_showcase', subject: 'Projelerimizi İnceleyin' }, // 1 day
-      { delay: 172800000, template: 'testimonials', subject: 'Müşterilerimiz Ne Diyor?' } // 2 days
+      { delay: 0, template: 'services_detail', subject: 'Hizmet Detaylarımız' },
+      { delay: 1800000, template: 'portfolio_showcase', subject: 'Portföyümüzü İnceleyin' }, // 30 min
+      { delay: 86400000, template: 'contact_info', subject: 'Bizimle İletişime Geçin' }, // 1 day
+      { delay: 172800000, template: 'testimonials', subject: 'Müşteri Yorumları' } // 2 days
     ]);
 
     // High intent visitor sequence
     this.sequences.set('high_intent_visitor', [
-      { delay: 0, template: 'premium_package', subject: 'Premium Paket Detayları' },
-      { delay: 900000, template: 'calendar_booking', subject: 'Hemen Randevu Alın!' }, // 15 min
-      { delay: 3600000, template: 'personal_consultation', subject: 'Kişisel Danışmanlık Teklifi' }, // 1 hour
-      { delay: 86400000, template: 'custom_proposal', subject: 'Size Özel Teklif Hazırladık' } // 1 day
+      { delay: 0, template: 'consultation_offer', subject: 'Ücretsiz Danışmanlık Teklifi' },
+      { delay: 900000, template: 'contact_methods', subject: 'İletişim Yöntemlerimiz' }, // 15 min
+      { delay: 3600000, template: 'project_process', subject: 'Proje Sürecimiz Nasıl İşler?' }, // 1 hour
+      { delay: 86400000, template: 'next_steps', subject: 'Sonraki Adımlar' } // 1 day
     ]);
   }
 
@@ -175,61 +175,60 @@ class EmailMarketingService {
             <h1 style="color: #FFD700;">Prime Dijital'e Hoş Geldiniz!</h1>
             <p>Merhaba,</p>
             <p>Prime Dijital ailesine katıldığınız için teşekkür ederiz! Size en iyi dijital çözümleri sunmak için buradayız.</p>
-            <p><strong>Sizin için neler yapabiliriz:</strong></p>
+            <p><strong>Hizmetlerimiz:</strong></p>
             <ul>
               <li>🌐 Profesyonel Web Tasarım</li>
               <li>📱 Mobil Uygulama Geliştirme</li>
               <li>🚀 SEO ve Dijital Pazarlama</li>
               <li>🎨 Grafik Tasarım ve Kurumsal Kimlik</li>
             </ul>
-            <p>Yakında size özel bir SEO analizi göndereceğiz!</p>
+            <p>Hizmetlerimiz hakkında daha fazla bilgi almak için bizimle iletişime geçebilirsiniz.</p>
             <p>İyi günler,<br>Prime Dijital Ekibi</p>
           </div>
         `,
         text: 'Prime Dijital\'e hoş geldiniz! Size en iyi dijital çözümleri sunmak için buradayız.'
       },
       
-      seo_analysis: {
+      services_info: {
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h1 style="color: #FFD700;">🔍 Ücretsiz SEO Analiziniz Hazır!</h1>
+            <h1 style="color: #FFD700;">🔍 Hizmetlerimiz Hakkında</h1>
             <p>Merhaba,</p>
-            <p>Vadettiğimiz gibi, web siteniz için ücretsiz SEO analizi hazırladık!</p>
+            <p>Prime Dijital olarak sunduğumuz hizmetler hakkında detaylı bilgi:</p>
             <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
-              <h3>Analiz Sonuçları:</h3>
-              <p>✅ Teknik SEO Durumu<br>
-              ✅ Anahtar Kelime Analizi<br>
-              ✅ Rakip Analizi<br>
-              ✅ İyileştirme Önerileri</p>
+              <h3>Dijital Çözümlerimiz:</h3>
+              <p>✅ Web Tasarım ve Geliştirme<br>
+              ✅ Mobil Uygulama Geliştirme<br>
+              ✅ SEO ve Dijital Pazarlama<br>
+              ✅ Grafik Tasarım Hizmetleri</p>
             </div>
-            <a href="https://primedigitalcreative.com/seo-analiz" 
+            <a href="https://primedigitalcreative.com/hizmetler" 
                style="background: #FFD700; color: black; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block;">
-              Analizimi Görüntüle
+              Hizmetlerimizi İnceleyin
             </a>
             <p>Sorularınız için bize ulaşabilirsiniz!</p>
           </div>
         `,
-        text: 'Ücretsiz SEO analiziniz hazır! Detayları görmek için sitemizi ziyaret edin.'
+        text: 'Hizmetlerimiz hakkında detaylı bilgi için sitemizi ziyaret edin.'
       },
       
-      discount_offer: {
+      consultation_offer: {
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h1 style="color: #FFD700;">🎉 %20 İndirim Kodunuz!</h1>
-            <p>Harika haber! Size özel %20 indirim kodunuz hazır:</p>
+            <h1 style="color: #FFD700;">🎉 Ücretsiz Danışmanlık</h1>
+            <p>Projeniz hakkında konuşmak ister misiniz?</p>
             <div style="background: #FFD700; color: black; padding: 20px; text-align: center; border-radius: 8px; margin: 20px 0;">
-              <h2 style="margin: 0;">PRIME20</h2>
-              <p style="margin: 5px 0;">Tüm web tasarım hizmetlerinde geçerli</p>
+              <h2 style="margin: 0;">Ücretsiz Danışmanlık</h2>
+              <p style="margin: 5px 0;">Projenizi değerlendirelim</p>
             </div>
-            <p><strong>Bu kod sadece 48 saat geçerli!</strong></p>
-            <p>Hemen teklif almak için:</p>
-            <a href="https://primedigitalcreative.com/teklif-al" 
+            <p>Size en uygun çözümü bulmak için buradayız.</p>
+            <a href="https://primedigitalcreative.com/iletisim" 
                style="background: #FFD700; color: black; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block;">
-              Teklif Al
+              İletişime Geç
             </a>
           </div>
         `,
-        text: 'Size özel %20 indirim kodu: PRIME20 - 48 saat geçerli!'
+        text: 'Ücretsiz danışmanlık için bizimle iletişime geçin!'
       }
     };
 

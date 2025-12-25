@@ -5,18 +5,21 @@
 
 // Lead capture configuration
 const LEAD_CAPTURE_CONFIG = {
+  enabled: false,           // LEAD CAPTURE DISABLED - set to true to enable
   timeThresholds: {
-    interested: 15000,    // 15 seconds - show subtle popup
-    engaged: 45000,       // 45 seconds - show offer popup
-    highIntent: 120000    // 2 minutes - show premium offer
+    interested: 60000,    // 1 minute - show subtle popup
+    engaged: 180000,      // 3 minutes - show offer popup
+    highIntent: 300000    // 5 minutes - show premium offer
   },
   scrollThresholds: {
-    interested: 25,       // 25% scroll
-    engaged: 50,          // 50% scroll
-    highIntent: 75        // 75% scroll
+    interested: 50,       // 50% scroll
+    engaged: 75,          // 75% scroll
+    highIntent: 90        // 90% scroll
   },
   exitIntent: true,       // Show popup on exit intent
-  returnVisitor: true     // Special offers for return visitors
+  returnVisitor: false,   // Disable return visitor popups
+  maxPopupsPerSession: 1, // Maximum 1 popup per session
+  cooldownPeriod: 86400000 // 24 hours cooldown between popups
 };
 
 class LeadCaptureSystem {
@@ -29,7 +32,9 @@ class LeadCaptureSystem {
       interactions: 0,
       leadScore: 0,
       hasEmail: false,
-      consentGiven: false
+      consentGiven: false,
+      popupsShown: 0,
+      lastPopupTime: 0
     };
     
     this.triggers = new Set();
@@ -37,6 +42,26 @@ class LeadCaptureSystem {
   }
 
   init() {
+    // Check if lead capture is enabled
+    if (!LEAD_CAPTURE_CONFIG.enabled) {
+      console.log('Lead capture is disabled');
+      return;
+    }
+
+    // Check if user has already seen popup recently
+    const lastPopupTime = localStorage.getItem('last_popup_time');
+    const emailCaptured = localStorage.getItem('email_captured');
+    
+    if (emailCaptured === 'true') {
+      console.log('Email already captured, skipping lead capture');
+      return;
+    }
+    
+    if (lastPopupTime && Date.now() - parseInt(lastPopupTime) < LEAD_CAPTURE_CONFIG.cooldownPeriod) {
+      console.log('Cooldown period active, skipping lead capture');
+      return;
+    }
+
     // Check GDPR consent first
     if (!this.hasGDPRConsent()) {
       this.showConsentBanner();
@@ -146,7 +171,10 @@ class LeadCaptureSystem {
     let hasTriggered = false;
     
     document.addEventListener('mouseleave', (e) => {
-      if (e.clientY <= 0 && !hasTriggered && this.sessionData.timeSpent > 10000) {
+      if (e.clientY <= 0 && !hasTriggered && 
+          this.sessionData.timeSpent > 30000 && 
+          this.sessionData.popupsShown === 0 && 
+          !this.sessionData.hasEmail) {
         hasTriggered = true;
         this.triggerExitIntentPopup();
       }
@@ -154,22 +182,17 @@ class LeadCaptureSystem {
   }
 
   checkReturnVisitor() {
-    const visitCount = parseInt(localStorage.getItem('visit_count') || '0') + 1;
-    localStorage.setItem('visit_count', visitCount.toString());
-    
-    if (visitCount > 1) {
-      this.sessionData.isReturnVisitor = true;
-      // Return visitors get special treatment after 30 seconds
-      setTimeout(() => {
-        if (!this.sessionData.hasEmail) {
-          this.showReturnVisitorOffer();
-        }
-      }, 30000);
-    }
+    // Disable return visitor popups to reduce annoyance
+    return;
   }
 
   checkTimeBasedTriggers() {
     const { timeSpent } = this.sessionData;
+    
+    // Check if we've already shown maximum popups
+    if (this.sessionData.popupsShown >= LEAD_CAPTURE_CONFIG.maxPopupsPerSession) {
+      return;
+    }
     
     if (timeSpent >= LEAD_CAPTURE_CONFIG.timeThresholds.interested && 
         !this.triggers.has('interested')) {
@@ -177,6 +200,8 @@ class LeadCaptureSystem {
       this.showInterestedVisitorPopup();
     }
     
+    // Only show one popup per session - remove other triggers
+    /*
     if (timeSpent >= LEAD_CAPTURE_CONFIG.timeThresholds.engaged && 
         !this.triggers.has('engaged')) {
       this.triggers.add('engaged');
@@ -188,16 +213,12 @@ class LeadCaptureSystem {
       this.triggers.add('highIntent');
       this.showHighIntentPopup();
     }
+    */
   }
 
   checkScrollBasedTriggers() {
-    const { maxScroll } = this.sessionData;
-    
-    if (maxScroll >= LEAD_CAPTURE_CONFIG.scrollThresholds.engaged && 
-        !this.triggers.has('scrollEngaged')) {
-      this.triggers.add('scrollEngaged');
-      this.showScrollEngagedPopup();
-    }
+    // Disable scroll-based triggers to reduce popup frequency
+    return;
   }
 
   calculateLeadScore() {
@@ -227,14 +248,17 @@ class LeadCaptureSystem {
   }
 
   showInterestedVisitorPopup() {
-    if (this.sessionData.hasEmail) return;
+    if (this.sessionData.hasEmail || this.sessionData.popupsShown >= LEAD_CAPTURE_CONFIG.maxPopupsPerSession) return;
+    
+    this.sessionData.popupsShown++;
+    localStorage.setItem('last_popup_time', Date.now().toString());
     
     this.showPopup({
       title: "Prime Dijital'e Hoş Geldiniz! 👋",
-      message: "Dijital dünyada işinizi büyütmek için buradayız. Size özel fırsatlardan haberdar olmak ister misiniz?",
+      message: "Dijital hizmetlerimiz hakkında bilgi almak ve güncellemelerden haberdar olmak ister misiniz?",
       type: "subtle",
-      offer: "Ücretsiz SEO Analizi",
-      buttonText: "Evet, İlgiliyim"
+      offer: "Hizmetlerimizden Haberdar Olun",
+      buttonText: "Bilgi Al"
     });
   }
 
@@ -242,12 +266,11 @@ class LeadCaptureSystem {
     if (this.sessionData.hasEmail) return;
     
     this.showPopup({
-      title: "🎯 Size Özel Teklif!",
-      message: "Web sitenizi incelediğinizi görüyoruz. Size özel %20 indirimli web tasarım teklifi hazırladık!",
+      title: "🎯 Bizden Haberdar Olun!",
+      message: "Hizmetlerimiz ilginizi çekti mi? Yeni projelerimiz ve hizmetlerimizden haberdar olmak için e-posta listemize katılın.",
       type: "offer",
-      offer: "%20 İndirim + Ücretsiz SEO",
-      buttonText: "Teklifi Al",
-      urgency: "Bu teklif sadece bugün geçerli!"
+      offer: "Güncel Bilgiler ve Haberler",
+      buttonText: "Katıl"
     });
   }
 
@@ -255,12 +278,11 @@ class LeadCaptureSystem {
     if (this.sessionData.hasEmail) return;
     
     this.showPopup({
-      title: "🚀 Premium Paket Fırsatı!",
-      message: "Ciddi bir şekilde dijital çözümler arıyorsunuz. Size özel premium paket teklifimiz var!",
+      title: "🚀 İletişime Geçelim!",
+      message: "Hizmetlerimizle ilgili detaylı bilgi almak istiyorsanız, size ulaşabilmemiz için iletişim bilgilerinizi paylaşın.",
       type: "premium",
-      offer: "Web + Mobil + SEO Paketi",
-      buttonText: "Detayları Gör",
-      urgency: "Sadece 5 kişiye özel!"
+      offer: "Ücretsiz Danışmanlık",
+      buttonText: "İletişim Kur"
     });
   }
 
@@ -268,34 +290,36 @@ class LeadCaptureSystem {
     if (this.sessionData.hasEmail || this.triggers.has('engaged')) return;
     
     this.showPopup({
-      title: "📧 Haftalık İpuçları",
-      message: "Dijital pazarlama ipuçlarımızı kaçırmayın! Haftalık newsletter'ımıza katılın.",
+      title: "📧 Bültenimize Katılın",
+      message: "Dijital dünya hakkında yazılarımızı ve güncellemelerimizi kaçırmayın. Bültenimize katılın.",
       type: "newsletter",
-      offer: "Ücretsiz E-book Hediyeli",
+      offer: "Haftalık Güncellemeler",
       buttonText: "Katıl"
     });
   }
 
   showExitIntentPopup() {
-    if (this.sessionData.hasEmail) return;
+    if (this.sessionData.hasEmail || this.sessionData.popupsShown >= LEAD_CAPTURE_CONFIG.maxPopupsPerSession) return;
+    
+    this.sessionData.popupsShown++;
+    localStorage.setItem('last_popup_time', Date.now().toString());
     
     this.showPopup({
-      title: "⏰ Dur! Gitmeden Önce...",
-      message: "Size özel hazırladığımız ücretsiz dijital strateji rehberini almayı unutmayın!",
+      title: "⏰ Gitmeden Önce...",
+      message: "Hizmetlerimiz hakkında daha fazla bilgi almak isterseniz, iletişim bilgilerinizi bırakabilirsiniz.",
       type: "exit",
-      offer: "Ücretsiz Strateji Rehberi",
-      buttonText: "Hemen Al",
-      urgency: "Bu fırsat bir daha gelmeyebilir!"
+      offer: "İletişimde Kalın",
+      buttonText: "Bilgi Ver"
     });
   }
 
   showReturnVisitorOffer() {
     this.showPopup({
       title: "🎉 Tekrar Hoş Geldiniz!",
-      message: "Sizi tekrar görmek harika! Sadece sizin için özel bir teklif hazırladık.",
+      message: "Sizi tekrar görmek harika! Hizmetlerimiz hakkında güncellemeler almak ister misiniz?",
       type: "return",
-      offer: "Sadece Size Özel %30 İndirim",
-      buttonText: "Teklifi Gör"
+      offer: "Güncel Haberler ve Duyurular",
+      buttonText: "Haberdar Ol"
     });
   }
 
@@ -306,7 +330,7 @@ class LeadCaptureSystem {
     popup.innerHTML = `
       <div class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
         <div class="bg-white rounded-xl max-w-md w-full p-6 relative animate-bounce-in">
-          <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="this.closest('.lead-capture-popup').remove()">
+          <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="leadCaptureSystem.closePopup(this)">
             ✕
           </button>
           
@@ -321,7 +345,7 @@ class LeadCaptureSystem {
             ` : ''}
             
             ${config.urgency ? `
-              <p class="text-red-600 text-sm font-medium mb-4">${config.urgency}</p>
+              <p class="text-orange-600 text-sm font-medium mb-4">${config.urgency}</p>
             ` : ''}
             
             <form class="space-y-3" onsubmit="leadCaptureSystem.handleEmailSubmit(event, '${config.type}')">
@@ -355,6 +379,12 @@ class LeadCaptureSystem {
         popup.remove();
       }
     }, 30000);
+  }
+
+  closePopup(button) {
+    // Set cooldown when popup is closed manually
+    localStorage.setItem('last_popup_time', Date.now().toString());
+    button.closest('.lead-capture-popup').remove();
   }
 
   async handleEmailSubmit(event, popupType) {
@@ -423,12 +453,12 @@ class LeadCaptureSystem {
 
   showSuccessMessage(popupType) {
     const messages = {
-      subtle: "Teşekkürler! Ücretsiz SEO analizinizi e-postanıza göndereceğiz.",
-      offer: "Harika! %20 indirim kodunuz e-postanızda. Hemen kontrol edin!",
-      premium: "Mükemmel! Premium paket detaylarını e-postanıza gönderdik.",
-      newsletter: "Başarılı! İlk newsletter'ınız yolda. E-book'u da unutmadık!",
-      exit: "Teşekkürler! Strateji rehberiniz e-postanızda sizi bekliyor.",
-      return: "Hoş geldin tekrar! Özel indirim kodun e-postanda."
+      subtle: "Teşekkürler! Hizmetlerimiz hakkında bilgileri e-postanıza göndereceğiz.",
+      offer: "Harika! Güncellemelerimizi e-postanızdan takip edebilirsiniz.",
+      premium: "Mükemmel! Size en kısa sürede geri dönüş yapacağız.",
+      newsletter: "Başarılı! Bültenimize hoş geldiniz.",
+      exit: "Teşekkürler! Size yakında ulaşacağız.",
+      return: "Hoş geldin tekrar! Güncellemelerimizi takip etmeye devam edin."
     };
     
     // Show toast notification
