@@ -1,0 +1,27 @@
+{
+  "name": "Prime Dijital - Web Tasarım ve Dijital Çözümler",
+  "short_name": "Prime Dijital",
+  "description": "İstanbul'un önde gelen dijital ajansı. Web tasarım, mobil uygulama, SEO, dijital pazarlama ve kurumsal kimlik çözümleri.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#FFD700",
+  "orientation": "portrait-primary",
+  "lang": "tr",
+  "scope": "/",
+  "categories": ["business", "productivity", "design"],
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ]
+}

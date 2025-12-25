@@ -16,8 +16,72 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>Hizmetlerimiz - Prime Dijital Ajans</title>
-        <meta name="description" content="Grafik tasarım, yazılım geliştirme, baskı hizmetleri ve dijital pazarlama alanlarında profesyonel çözümler sunuyoruz." />
+        <title>Hizmetlerimiz | Web Tasarım, SEO, Dijital Pazarlama - Prime Dijital</title>
+        <meta name="description" content="Prime Dijital hizmetleri: Profesyonel web tasarım, mobil uygulama geliştirme, SEO optimizasyonu, dijital pazarlama, kurumsal kimlik ve grafik tasarım çözümleri." />
+        <meta name="keywords" content="web tasarım hizmetleri, SEO hizmetleri, dijital pazarlama ajansı, mobil uygulama geliştirme, kurumsal kimlik tasarımı, grafik tasarım İstanbul" />
+        <meta name="robots" content="index, follow" />
+        
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://primedigitalcreative.com/hizmetler" />
+        <meta property="og:title" content="Hizmetlerimiz | Web Tasarım, SEO, Dijital Pazarlama - Prime Dijital" />
+        <meta property="og:description" content="Prime Dijital hizmetleri: Profesyonel web tasarım, mobil uygulama geliştirme, SEO optimizasyonu, dijital pazarlama, kurumsal kimlik ve grafik tasarım çözümleri." />
+        <meta property="og:image" content="https://primedigitalcreative.com/og-services.jpg" />
+        
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://primedigitalcreative.com/hizmetler" />
+        <meta property="twitter:title" content="Hizmetlerimiz | Web Tasarım, SEO, Dijital Pazarlama - Prime Dijital" />
+        <meta property="twitter:description" content="Prime Dijital hizmetleri: Profesyonel web tasarım, mobil uygulama geliştirme, SEO optimizasyonu, dijital pazarlama, kurumsal kimlik ve grafik tasarım çözümleri." />
+        <meta property="twitter:image" content="https://primedigitalcreative.com/og-services.jpg" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://primedigitalcreative.com/hizmetler" />
+        
+        {/* Schema.org JSON-LD */}
+        <script type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Dijital Ajans Hizmetleri",
+            "provider": {
+              "@type": "Organization",
+              "name": "Prime Dijital",
+              "url": "https://primedigitalcreative.com"
+            },
+            "areaServed": "İstanbul, Türkiye",
+            "description": "Profesyonel web tasarım, mobil uygulama geliştirme, SEO optimizasyonu, dijital pazarlama, kurumsal kimlik ve grafik tasarım çözümleri.",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Dijital Hizmet Kataloğu",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Web Tasarım"
+                  }
+                },
+                {
+                  "@type": "Offer", 
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "SEO Hizmetleri"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service", 
+                    "name": "Dijital Pazarlama"
+                  }
+                }
+              ]
+            }
+          }
+        `}
+        </script>
       </Helmet>
       <Navbar />
       <div className="pt-32 pb-20">

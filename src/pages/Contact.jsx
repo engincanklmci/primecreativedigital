@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { Helmet } from 'react-helmet-async';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -81,6 +82,61 @@ const Contact = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>İletişim | Prime Dijital - Web Tasarım ve Dijital Çözümler</title>
+        <meta name="description" content="Prime Dijital ile iletişime geçin. İstanbul'da web tasarım, SEO, dijital pazarlama ve yazılım projeleriniz için bize ulaşın. +90 535 949 53 05" />
+        <meta name="keywords" content="dijital ajans iletişim, web tasarım İstanbul, SEO hizmetleri, proje teklifi, Prime Dijital telefon, İstanbul ajans" />
+        <meta name="robots" content="index, follow" />
+        
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://primedigitalcreative.com/iletisim" />
+        <meta property="og:title" content="İletişim | Prime Dijital - Web Tasarım ve Dijital Çözümler" />
+        <meta property="og:description" content="Prime Dijital ile iletişime geçin. İstanbul'da web tasarım, SEO, dijital pazarlama ve yazılım projeleriniz için bize ulaşın." />
+        <meta property="og:image" content="https://primedigitalcreative.com/og-contact.jpg" />
+        
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://primedigitalcreative.com/iletisim" />
+        <meta property="twitter:title" content="İletişim | Prime Dijital - Web Tasarım ve Dijital Çözümler" />
+        <meta property="twitter:description" content="Prime Dijital ile iletişime geçin. İstanbul'da web tasarım, SEO, dijital pazarlama ve yazılım projeleriniz için bize ulaşın." />
+        <meta property="twitter:image" content="https://primedigitalcreative.com/og-contact.jpg" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://primedigitalcreative.com/iletisim" />
+        
+        {/* Schema.org JSON-LD */}
+        <script type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Prime Dijital İletişim",
+            "description": "Prime Dijital ile iletişime geçin. İstanbul'da web tasarım, SEO, dijital pazarlama ve yazılım projeleriniz için bize ulaşın.",
+            "url": "https://primedigitalcreative.com/iletisim",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Prime Dijital",
+              "url": "https://primedigitalcreative.com",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+90-535-949-53-05",
+                "contactType": "customer service",
+                "email": "info@primedigitalcreative.com",
+                "availableLanguage": ["Turkish", "English"],
+                "hoursAvailable": "Mo-Fr 09:00-18:00"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "İstanbul",
+                "addressRegion": "TR",
+                "addressCountry": "Turkey"
+              }
+            }
+          }
+        `}
+        </script>
+      </Helmet>
       <Navbar />
       <div className="pt-32 pb-20">
          <div className="container-custom">
