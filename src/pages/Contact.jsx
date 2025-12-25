@@ -3,6 +3,9 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import emailjs from '@emailjs/browser';
 
+// Initialize EmailJS once
+emailjs.init('AyC6yOQqhEUhj4Be8');
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -48,12 +51,11 @@ const Contact = () => {
 
     try {
       const templateParams = {
-        to_name: 'Engin Can Kelemci',
         from_name: formData.name,
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message,
-        to_email: 'kelemciengincan@gmail.com'
+        reply_to: formData.email
       };
 
       console.log('Template params:', templateParams);
@@ -61,13 +63,10 @@ const Contact = () => {
       console.log('- Service ID: service_g2y9ag9');
       console.log('- Template ID: template_1xecsi9');
       console.log('- Public Key: AyC6yOQqhEUhj4Be8');
-
-      // Initialize EmailJS with your public key
-      emailjs.init('AyC6yOQqhEUhj4Be8');
       
       console.log('EmailJS initialized, sending email...');
 
-      // Send email using EmailJS
+      // Send email using EmailJS (no need to init again)
       const response = await emailjs.send(
         'service_g2y9ag9', // Service ID
         'template_1xecsi9', // Template ID
@@ -101,6 +100,9 @@ const Contact = () => {
         console.error('Unauthorized: Check your EmailJS public key');
       } else if (error.status === 403) {
         console.error('Forbidden: Check your EmailJS service configuration');
+      } else if (error.status === 412) {
+        console.error('Precondition Failed: Template parameters mismatch or missing required fields');
+        console.error('Please check your EmailJS template configuration');
       } else if (error.status === 429) {
         console.error('Too Many Requests: EmailJS rate limit exceeded');
       }
