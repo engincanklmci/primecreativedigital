@@ -1,0 +1,43 @@
+/* Responsive Image Styles - Generated 2025-12-25T21:16:25.917Z */
+
+.responsive-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.responsive-image[loading="lazy"] {
+  opacity: 0;
+}
+
+.responsive-image.loaded {
+  opacity: 1;
+}
+
+/* Example usage in HTML:
+
+<picture>
+  <source media="(max-width: 400px)" srcset="engincan-400w.webp" type="image/webp">
+  <source media="(max-width: 800px)" srcset="engincan-800w.webp" type="image/webp">
+  <source media="(max-width: 1200px)" srcset="engincan-1200w.webp" type="image/webp">
+  <source srcset="engincan-1920w.webp" type="image/webp">
+  <img src="engincan.png" alt="Description" class="responsive-image" loading="lazy">
+</picture>
+
+<picture>
+  <source media="(max-width: 400px)" srcset="hizmetler-grafiktasarim-400w.webp" type="image/webp">
+  <source media="(max-width: 800px)" srcset="hizmetler-grafiktasarim-800w.webp" type="image/webp">
+  <source media="(max-width: 1200px)" srcset="hizmetler-grafiktasarim-1200w.webp" type="image/webp">
+  <source srcset="hizmetler-grafiktasarim-1920w.webp" type="image/webp">
+  <img src="hizmetler-grafiktasarim.jpg" alt="Description" class="responsive-image" loading="lazy">
+</picture>
+
+<picture>
+  <source media="(max-width: 400px)" srcset="hizmetler-matbaa-400w.webp" type="image/webp">
+  <source media="(max-width: 800px)" srcset="hizmetler-matbaa-800w.webp" type="image/webp">
+  <source media="(max-width: 1200px)" srcset="hizmetler-matbaa-1200w.webp" type="image/webp">
+  <source srcset="hizmetler-matbaa-1920w.webp" type="image/webp">
+  <img src="hizmetler-matbaa.jpg" alt="Description" class="responsive-image" loading="lazy">
+</picture>
+*/

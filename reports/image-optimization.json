@@ -1,0 +1,74 @@
+{
+  "timestamp": "2025-12-25T21:16:25.916Z",
+  "totalImages": 5,
+  "supportedFormats": [
+    ".jpg",
+    ".jpeg",
+    ".png"
+  ],
+  "responsiveSizes": [
+    400,
+    800,
+    1200,
+    1920
+  ],
+  "images": [
+    {
+      "original": "engincan.png",
+      "webp": "engincan.webp",
+      "responsive": [
+        "engincan-400w.webp",
+        "engincan-800w.webp",
+        "engincan-1200w.webp",
+        "engincan-1920w.webp"
+      ]
+    },
+    {
+      "original": "hizmetler-grafiktasarim.jpg",
+      "webp": "hizmetler-grafiktasarim.webp",
+      "responsive": [
+        "hizmetler-grafiktasarim-400w.webp",
+        "hizmetler-grafiktasarim-800w.webp",
+        "hizmetler-grafiktasarim-1200w.webp",
+        "hizmetler-grafiktasarim-1920w.webp"
+      ]
+    },
+    {
+      "original": "hizmetler-matbaa.jpg",
+      "webp": "hizmetler-matbaa.webp",
+      "responsive": [
+        "hizmetler-matbaa-400w.webp",
+        "hizmetler-matbaa-800w.webp",
+        "hizmetler-matbaa-1200w.webp",
+        "hizmetler-matbaa-1920w.webp"
+      ]
+    },
+    {
+      "original": "logo.png",
+      "webp": "logo.webp",
+      "responsive": [
+        "logo-400w.webp",
+        "logo-800w.webp",
+        "logo-1200w.webp",
+        "logo-1920w.webp"
+      ]
+    },
+    {
+      "original": "yazilim-hizmetler.jpg",
+      "webp": "yazilim-hizmetler.webp",
+      "responsive": [
+        "yazilim-hizmetler-400w.webp",
+        "yazilim-hizmetler-800w.webp",
+        "yazilim-hizmetler-1200w.webp",
+        "yazilim-hizmetler-1920w.webp"
+      ]
+    }
+  ],
+  "recommendations": [
+    "Install Sharp for actual image processing: npm install sharp --save-dev",
+    "Use OptimizedImage component for all images",
+    "Implement lazy loading for better performance",
+    "Consider using CDN for image delivery",
+    "Monitor Core Web Vitals for image loading performance"
+  ]
+}

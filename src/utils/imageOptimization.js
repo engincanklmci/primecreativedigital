@@ -1,37 +1,54 @@
-// Resim optimizasyon yardımcıları
-export const optimizeImage = (src, alt, loading = 'lazy') => {
-  return {
-    src,
-    alt,
-    loading,
-    decoding: 'async',
-    style: {
-      contentVisibility: 'auto',
-      containIntrinsicSize: '800 600'
-    }
-  };
-};
+/**
+ * Image optimization utilities for better performance
+ */
 
-// WebP format desteği kontrolü
+// WebP support detection
 export const supportsWebP = () => {
-  return new Promise(resolve => {
-    const webP = new Image();
-    webP.onload = webP.onerror = () => {
-      resolve(webP.height === 2);
-    };
-    webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+  if (typeof window === 'undefined') return false;
+  
+  const canvas = document.createElement('canvas');
+  canvas.width = 1;
+  canvas.height = 1;
+  return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+};
+
+// Generate responsive image sources
+export const generateImageSources = (imagePath, sizes = [400, 800, 1200]) => {
+  const extension = imagePath.split('.').pop();
+  const basePath = imagePath.replace(`.${extension}`, '');
+  
+  return sizes.map(size => ({
+    srcSet: `${basePath}-${size}w.webp ${size}w`,
+    media: `(max-width: ${size}px)`,
+    type: 'image/webp'
+  }));
+};
+
+// Lazy loading intersection observer
+export const createLazyLoadObserver = (callback) => {
+  if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
+    return null;
+  }
+
+  return new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        callback(entry.target);
+      }
+    });
+  }, {
+    rootMargin: '50px 0px',
+    threshold: 0.01
   });
 };
 
-// Resim yükleme optimizasyonu
-export const loadImageOptimized = async (imageSrc) => {
-  const webPSupported = await supportsWebP();
-  const optimizedSrc = webPSupported ? imageSrc.replace(/\.(jpg|jpeg|png)$/, '.webp') : imageSrc;
-  
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = () => resolve(optimizedSrc);
-    img.onerror = () => reject(new Error('Image load failed'));
-    img.src = optimizedSrc;
-  });
-};
+// Optimized image component props
+export const getOptimizedImageProps = (src, alt, width, height) => ({
+  src,
+  alt,
+  width,
+  height,
+  loading: 'lazy',
+  decoding: 'async',
+  style: { aspectRatio: `${width}/${height}` }
+});
