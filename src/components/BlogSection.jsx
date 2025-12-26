@@ -338,7 +338,8 @@ const BlogSection = ({ featured = false, limit = 6 }) => {
           ))}
         </div>
 
-        {/* Newsletter Signup */}
+        {/* Newsletter Signup - DISABLED */}
+        {false && (
         <div className="mt-16 bg-gradient-to-r from-prime-yellow/10 to-prime-yellow/5 rounded-2xl p-8 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
             Haftalık Newsletter'ımıza Katılın
@@ -360,6 +361,7 @@ const BlogSection = ({ featured = false, limit = 6 }) => {
             İstediğiniz zaman abonelikten çıkabilirsiniz. Gizlilik politikamızı okuyun.
           </p>
         </div>
+        )}
 
         {/* View All Button */}
         {featured && (

@@ -1,5 +1,5 @@
-// API endpoint for lead capture (Vercel serverless function)
-import { emailMarketingService } from '../src/api/emailMarketing.js';
+// API endpoint for lead capture (Vercel serverless function) - DISABLED
+// Lead capture functionality has been removed from the system
 
 export default async function handler(req, res) {
   // CORS headers
@@ -12,51 +12,9 @@ export default async function handler(req, res) {
     return;
   }
 
-  if (req.method === 'POST') {
-    try {
-      const leadData = req.body;
-      
-      // Validate required fields
-      if (!leadData.email || !leadData.source) {
-        return res.status(400).json({ 
-          error: 'Email and source are required' 
-        });
-      }
-
-      // Validate email format
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(leadData.email)) {
-        return res.status(400).json({ 
-          error: 'Invalid email format' 
-        });
-      }
-
-      // Process the lead
-      const result = await emailMarketingService.captureLeadAndStartSequence(leadData);
-      
-      res.status(200).json({
-        success: true,
-        message: 'Lead captured successfully',
-        leadId: result.leadId,
-        sequence: result.sequence
-      });
-
-    } catch (error) {
-      console.error('Lead capture error:', error);
-      res.status(500).json({ 
-        error: 'Failed to capture lead',
-        message: error.message 
-      });
-    }
-  } else if (req.method === 'GET') {
-    // Get leads (for admin dashboard)
-    try {
-      const leads = JSON.parse(process.env.LEADS_DATA || '[]');
-      res.status(200).json({ leads });
-    } catch (error) {
-      res.status(500).json({ error: 'Failed to fetch leads' });
-    }
-  } else {
-    res.status(405).json({ error: 'Method not allowed' });
-  }
+  // Return disabled message for all requests
+  res.status(403).json({
+    error: 'Lead capture functionality has been disabled',
+    message: 'This feature is no longer available'
+  });
 }
