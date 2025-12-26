@@ -89,11 +89,11 @@ const About = () => {
                   Hikayemiz
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-                  12 Yıllık Dijital Mükemmellik Yolculuğu
+                  5 Yıllık Dijital Mükemmellik Yolculuğu
                 </h2>
                 <div className="space-y-4 text-gray-600 leading-relaxed">
                   <p>
-                    2012 yılında kuruluşumuzdan bu yana, Prime Dijital olarak İstanbul'un kalbi Gaziosmanpaşa'da faaliyet gösteriyoruz.
+                    2019 yılında kuruluşumuzdan bu yana, alanında deneyimli profesyonellerden oluşan freelancer dijital ajans olarak İstanbul'da faaliyet gösteriyoruz.
                   </p>
                   <p>
                     Grafik tasarım, baskı hizmetleri ve yazılım geliştirme alanında uzmanlaşarak, her büyüklükteki işletmeye özel çözümler sunuyoruz.

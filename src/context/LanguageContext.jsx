@@ -59,8 +59,8 @@ const translations = {
     'services.software.description': 'Dijital dünyada işinizi öne çıkaracak, kullanıcı deneyimini ön planda tutan yazılım çözümleri geliştiriyoruz.',
     
     // About Page
-    'about.story.title': '12 Yıllık Dijital Mükemmellik Yolculuğu',
-    'about.story.description1': '2012 yılında kuruluşumuzdan bu yana, Prime Dijital olarak İstanbul\'un kalbi Gaziosmanpaşa\'da faaliyet gösteriyoruz.',
+    'about.story.title': '5 Yıllık Dijital Mükemmellik Yolculuğu',
+    'about.story.description1': '2019 yılında kuruluşumuzdan bu yana, alanında deneyimli profesyonellerden oluşan freelancer dijital ajans olarak İstanbul\'da faaliyet gösteriyoruz.',
     'about.story.description2': 'Grafik tasarım, baskı hizmetleri ve yazılım geliştirme alanında uzmanlaşarak, her büyüklükteki işletmeye özel çözümler sunuyoruz.',
     
     // Contact Form
@@ -133,8 +133,8 @@ const translations = {
     'services.software.description': 'We develop software solutions that will make your business stand out in the digital world, prioritizing user experience.',
     
     // About Page
-    'about.story.title': '12 Years of Digital Excellence Journey',
-    'about.story.description1': 'Since our establishment in 2012, Prime Digital has been operating in the heart of Istanbul, Gaziosmanpaşa.',
+    'about.story.title': '5 Years of Digital Excellence Journey',
+    'about.story.description1': 'Since our establishment in 2019, we have been operating as a freelancer digital agency consisting of experienced professionals in Istanbul.',
     'about.story.description2': 'Specializing in graphic design, printing services and software development, we offer special solutions for businesses of all sizes.',
     
     // Contact Form
