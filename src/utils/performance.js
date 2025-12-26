@@ -2,37 +2,35 @@
  * Performance monitoring and optimization utilities
  */
 
-// Web Vitals tracking
+// Web Vitals tracking with analytics integration
 export const trackWebVitals = () => {
   if (typeof window === 'undefined') return;
 
-  // Track Core Web Vitals
-  const observer = new PerformanceObserver((list) => {
-    list.getEntries().forEach((entry) => {
-      switch (entry.entryType) {
-        case 'largest-contentful-paint':
-          console.log('LCP:', entry.startTime);
-          // Send to analytics
-          break;
-        case 'first-input':
-          console.log('FID:', entry.processingStart - entry.startTime);
-          break;
-        case 'layout-shift':
-          if (!entry.hadRecentInput) {
-            console.log('CLS:', entry.value);
-          }
-          break;
-      }
-    });
-  });
+  const reportWebVitals = (metric) => {
+    // Send to analytics
+    if (window.gtag) {
+      window.gtag('event', metric.name, {
+        event_category: 'Web Vitals',
+        value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
+        event_label: metric.id,
+        non_interaction: true,
+      });
+    }
+    
+    // Log to console in development
+    if (process.env.NODE_ENV === 'development') {
+      console.log(metric);
+    }
+  };
 
-  // Observe different entry types
-  try {
-    observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
-  } catch (e) {
-    // Fallback for older browsers
-    console.warn('Performance Observer not supported');
-  }
+  // Load web-vitals with dynamic import
+  import('web-vitals').then(({ getCLS, getFID, getLCP, getFCP, getTTFB }) => {
+    getCLS(reportWebVitals);
+    getFID(reportWebVitals);
+    getLCP(reportWebVitals);
+    getFCP(reportWebVitals);
+    getTTFB(reportWebVitals);
+  });
 };
 
 // Resource loading optimization
@@ -40,34 +38,111 @@ export const preloadCriticalResources = () => {
   if (typeof window === 'undefined') return;
 
   // Preload critical fonts
-  const fontPreloads = [
-    '/fonts/inter-var.woff2',
-    '/fonts/inter-var-italic.woff2'
+  const resources = [
+    { href: '/fonts/inter-var.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
+    { href: '/fonts/inter-var-italic.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
+    // Add other critical resources here
   ];
 
-  fontPreloads.forEach(font => {
+  resources.forEach(resource => {
     const link = document.createElement('link');
     link.rel = 'preload';
-    link.href = font;
-    link.as = 'font';
-    link.type = 'font/woff2';
-    link.crossOrigin = 'anonymous';
+    link.href = resource.href;
+    if (resource.as) link.as = resource.as;
+    if (resource.type) link.type = resource.type;
+    if (resource.crossorigin) link.crossOrigin = 'anonymous';
     document.head.appendChild(link);
   });
+};
 
-  // Preload critical images
-  const criticalImages = [
-    '/logo.webp',
-    '/hero-bg.webp'
+// Preconnect to external domains
+export const preconnectToOrigins = () => {
+  if (typeof window === 'undefined') return;
+
+  const origins = [
+    'https://www.google-analytics.com',
+    'https://www.googletagmanager.com',
+    'https://fonts.googleapis.com',
+    'https://fonts.gstatic.com',
   ];
 
-  criticalImages.forEach(image => {
+  origins.forEach(origin => {
     const link = document.createElement('link');
-    link.rel = 'preload';
-    link.href = image;
-    link.as = 'image';
+    link.rel = 'preconnect';
+    link.href = origin;
+    if (origin.includes('fonts.gstatic.com')) {
+      link.crossOrigin = 'anonymous';
+    }
     document.head.appendChild(link);
   });
+};
+
+// Load non-critical CSS asynchronously
+export const loadNonCriticalCSS = () => {
+  if (typeof window === 'undefined') return;
+
+  const links = document.querySelectorAll('link[rel="stylesheet"]');
+  links.forEach(link => {
+    if (link.media === 'print') {
+      link.media = 'all';
+      link.onload = () => { link.media = 'print'; };
+    }
+  });
+};
+
+// Defer non-critical JavaScript
+export const deferNonCriticalJS = () => {
+  if (typeof window === 'undefined') return;
+
+  // Add defer attribute to non-critical scripts
+  document.addEventListener('DOMContentLoaded', () => {
+    const scripts = document.querySelectorAll('script[data-defer]');
+    scripts.forEach(script => {
+      if (script.getAttribute('defer') !== 'defer') {
+        const newScript = document.createElement('script');
+        newScript.src = script.src;
+        newScript.defer = true;
+        script.parentNode.replaceChild(newScript, script);
+      }
+    });
+  });
+};
+
+// Optimize image loading
+export const optimizeImageLoading = () => {
+  if (typeof window === 'undefined') return;
+
+  // Add loading="lazy" to images that are not in the viewport
+  if ('loading' in HTMLImageElement.prototype) {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+      img.loading = 'lazy';
+    });
+  }
+};
+
+// Initialize all performance optimizations
+export const initPerformanceOptimizations = () => {
+  if (typeof window === 'undefined') return;
+
+  // Track Web Vitals
+  trackWebVitals();
+  
+  // Preload critical resources
+  preloadCriticalResources();
+  
+  // Preconnect to external domains
+  preconnectToOrigins();
+  
+  // Load non-critical CSS asynchronously
+  loadNonCriticalCSS();
+  
+  // Defer non-critical JavaScript
+  deferNonCriticalJS();
+  
+  // Optimize image loading
+  optimizeImageLoading();
+};
 };
 
 // Lazy load non-critical resources
