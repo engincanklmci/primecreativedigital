@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <Link to="/" className="inline-block mb-6">
               <div className="flex items-center gap-2">
-                <img src="/logo.png" alt="Prime Dijital" className="h-10 w-auto object-contain bg-white/10 rounded-lg p-1" />
+                <img src="/logo.png" alt="Prime Dijital" width="40" height="40" className="h-10 w-auto object-contain bg-white/10 rounded-lg p-1" />
                 <span className="text-2xl font-bold tracking-tighter">
                   Prime <span className="text-prime-yellow">Dijital</span>
                 </span>
@@ -21,16 +21,16 @@ const Footer = () => {
               İşinizi zirveye taşıyan prime dokunuş. Grafik tasarım, baskı ve yazılım hizmetlerinde uzman ekibimizle yanınızdayız.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-prime-yellow hover:text-prime-black transition-all duration-300">
+              <a href="https://www.facebook.com/primedigitalcreative" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-prime-yellow hover:text-prime-black transition-all duration-300">
                 <Facebook size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-prime-yellow hover:text-prime-black transition-all duration-300">
+              <a href="https://www.instagram.com/primedigitalcreative" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-prime-yellow hover:text-prime-black transition-all duration-300">
                 <Instagram size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-prime-yellow hover:text-prime-black transition-all duration-300">
+              <a href="https://www.linkedin.com/company/primedigitalcreative" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-prime-yellow hover:text-prime-black transition-all duration-300">
                 <Linkedin size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-prime-yellow hover:text-prime-black transition-all duration-300">
+              <a href="https://twitter.com/primedigitaltr" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-prime-yellow hover:text-prime-black transition-all duration-300">
                 <Twitter size={18} />
               </a>
             </div>

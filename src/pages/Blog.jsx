@@ -207,6 +207,10 @@ const Blog = () => {
                             <img 
                               src={post.featuredImage}
                               alt={post.title}
+                              width="400"
+                              height="300"
+                              loading="lazy"
+                              decoding="async"
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                               onError={(e) => {
                                 e.target.src = `https://picsum.photos/seed/${post.id}/400/300.jpg`;
@@ -319,6 +323,10 @@ const Blog = () => {
                             <img 
                               src={post.featuredImage}
                               alt={post.title}
+                              width="100"
+                              height="100"
+                              loading="lazy"
+                              decoding="async"
                               className="w-full h-full object-cover"
                               onError={(e) => {
                                 e.target.src = `https://picsum.photos/seed/${post.id}/100/100.jpg`;

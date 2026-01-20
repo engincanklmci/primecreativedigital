@@ -45,6 +45,8 @@ const Navbar = () => {
             <img 
               src="/logo.png" 
               alt="Prime Dijital" 
+              width="48"
+              height="48"
               className="h-12 w-auto object-contain" 
               style={{ backgroundColor: 'transparent' }}
             />
@@ -83,6 +85,10 @@ const Navbar = () => {
           <button 
             className="md:hidden z-50 text-prime-black"
             onClick={() => setIsOpen(!isOpen)}
+            type="button"
+            aria-label={isOpen ? 'Menüyü kapat' : 'Menüyü aç'}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -97,6 +103,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: '100vh' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
+            id="mobile-menu"
             className="fixed inset-0 bg-prime-white z-40 md:hidden pt-24 px-6 flex flex-col"
           >
             <div className="flex flex-col space-y-6 text-center">

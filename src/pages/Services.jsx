@@ -9,10 +9,6 @@ import { Helmet } from 'react-helmet-async';
 const Services = () => {
   const { services } = useData();
 
-  // Debug: Log the services data
-  console.log('Services data:', services);
-  console.log('First service imagePath:', services[0]?.imagePath);
-
   return (
     <>
       <Helmet>
@@ -86,21 +82,21 @@ const Services = () => {
       <Navbar />
       <div className="pt-32 pb-20">
         <div className="container-custom text-center mb-20">
-          <motion.h1 
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-6xl font-bold mb-6"
+            className="mb-6"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Hizmetlerimiz</h1>
-          </motion.h1>
-          <motion.p 
+            <h1 className="text-4xl md:text-5xl font-bold">Hizmetlerimiz</h1>
+          </motion.div>
+          <motion.div 
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ delay: 0.1 }}
              className="text-xl text-gray-500 max-w-3xl mx-auto"
           >
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">İşinizi dijital dünyada zirveye taşıyacak kapsamlı çözümlerimizi keşfedin</p>
-          </motion.p>
+          </motion.div>
         </div>
 
         <div className="container-custom space-y-32">
@@ -122,13 +118,14 @@ const Services = () => {
                         <img 
                           src={service.imagePath} 
                           alt={service.title}
+                          width="800"
+                          height="450"
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                           onError={(e) => {
                             console.error('Image failed to load:', service.imagePath);
                             e.target.style.display = 'none';
-                          }}
-                          onLoad={() => {
-                            console.log('Image loaded successfully:', service.imagePath);
                           }}
                         />
                       ) : (

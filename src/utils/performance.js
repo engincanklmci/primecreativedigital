@@ -6,6 +6,8 @@
 export const trackWebVitals = () => {
   if (typeof window === 'undefined') return;
 
+  if (!('PerformanceObserver' in window)) return;
+
   const reportWebVitals = (metric) => {
     // Send to analytics
     if (window.gtag) {
@@ -23,14 +25,61 @@ export const trackWebVitals = () => {
     }
   };
 
-  // Load web-vitals with dynamic import
-  import('web-vitals').then(({ getCLS, getFID, getLCP, getFCP, getTTFB }) => {
-    getCLS(reportWebVitals);
-    getFID(reportWebVitals);
-    getLCP(reportWebVitals);
-    getFCP(reportWebVitals);
-    getTTFB(reportWebVitals);
+  let clsValue = 0;
+  let clsId = `cls-${Math.random().toString(36).slice(2)}`;
+  const lcpId = `lcp-${Math.random().toString(36).slice(2)}`;
+  const fidId = `fid-${Math.random().toString(36).slice(2)}`;
+
+  let clsObserver;
+  let lcpObserver;
+  let fidObserver;
+
+  try {
+    clsObserver = new PerformanceObserver((list) => {
+      for (const entry of list.getEntries()) {
+        if (entry.entryType === 'layout-shift' && !entry.hadRecentInput) {
+          clsValue += entry.value;
+        }
+      }
+    });
+    clsObserver.observe({ type: 'layout-shift', buffered: true });
+  } catch (e) {
+    // ignore
+  }
+
+  try {
+    lcpObserver = new PerformanceObserver((list) => {
+      const entries = list.getEntries();
+      const last = entries[entries.length - 1];
+      if (!last) return;
+      reportWebVitals({ name: 'LCP', value: last.startTime, id: lcpId });
+    });
+    lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true });
+  } catch (e) {
+    // ignore
+  }
+
+  try {
+    fidObserver = new PerformanceObserver((list) => {
+      const first = list.getEntries()[0];
+      if (!first) return;
+      const fid = first.processingStart - first.startTime;
+      reportWebVitals({ name: 'FID', value: fid, id: fidId });
+    });
+    fidObserver.observe({ type: 'first-input', buffered: true });
+  } catch (e) {
+    // ignore
+  }
+
+  const reportCLS = () => {
+    reportWebVitals({ name: 'CLS', value: clsValue, id: clsId });
+  };
+  window.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+      reportCLS();
+    }
   });
+  window.addEventListener('pagehide', reportCLS);
 };
 
 // Resource loading optimization
@@ -38,11 +87,7 @@ export const preloadCriticalResources = () => {
   if (typeof window === 'undefined') return;
 
   // Preload critical fonts
-  const resources = [
-    { href: '/fonts/inter-var.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
-    { href: '/fonts/inter-var-italic.woff2', as: 'font', type: 'font/woff2', crossorigin: true },
-    // Add other critical resources here
-  ];
+  const resources = [];
 
   resources.forEach(resource => {
     const link = document.createElement('link');
@@ -142,7 +187,6 @@ export const initPerformanceOptimizations = () => {
   
   // Optimize image loading
   optimizeImageLoading();
-};
 };
 
 // Lazy load non-critical resources

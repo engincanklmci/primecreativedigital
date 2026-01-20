@@ -159,6 +159,10 @@ const LiveChat = () => {
               : 'bg-prime-yellow hover:bg-yellow-400 animate-pulse'
             }
           `}
+          type="button"
+          aria-label={isOpen ? 'Sohbeti kapat' : 'Sohbeti aç'}
+          aria-haspopup="dialog"
+          aria-expanded={isOpen}
         >
           {isOpen ? (
             <X className="w-6 h-6 text-white" />
@@ -268,6 +272,8 @@ const LiveChat = () => {
               <button
                 onClick={handleSendMessage}
                 className="p-2 bg-prime-yellow text-black rounded-lg hover:bg-yellow-400 transition-colors"
+                type="button"
+                aria-label="Mesaj gönder"
               >
                 <Send className="w-4 h-4" />
               </button>

@@ -285,7 +285,7 @@ const Home = () => {
                  <div className="flex items-center gap-4">
                    <div className="w-12 h-12 bg-gray-300 rounded-full overflow-hidden">
                      {/* Placeholder Avatar */}
-                     <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${testimonial.name}`} alt={testimonial.name} />
+                     <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${testimonial.name}`} alt={testimonial.name} width="48" height="48" loading="lazy" decoding="async" />
                    </div>
                    <div>
                      <h4 className="font-bold text-sm">{testimonial.name}</h4>

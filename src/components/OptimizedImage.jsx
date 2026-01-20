@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
 
 const OptimizedImage = ({ 
   src, 
@@ -117,16 +116,6 @@ const OptimizedImage = ({
       )}
     </div>
   );
-};
-
-OptimizedImage.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  className: PropTypes.string,
-  sizes: PropTypes.string,
-  priority: PropTypes.bool
 };
 
 export default OptimizedImage;

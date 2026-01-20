@@ -1,6 +1,7 @@
 import React, { Suspense, lazy, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { DataProvider } from './context/DataContext';
 import AnalyticsTracker from './components/AnalyticsTracker';
@@ -58,37 +59,47 @@ function App() {
       <AuthProvider>
         <DataProvider>
           <Router>
+            <Helmet>
+              <link rel="preconnect" href="https://fonts.googleapis.com" />
+              <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+              <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+              />
+            </Helmet>
             <ScrollToTop />
             <AnalyticsTracker />
             <AnalyticsTest />
             <div className="font-sans antialiased text-prime-black bg-prime-white min-h-screen selection:bg-prime-yellow selection:text-prime-black overflow-x-hidden w-full relative">
-              <Suspense fallback={<PageLoader />}>
-                <Routes>
-                  {/* Public Routes */}
-                  <Route path="/" element={<Home />} />
-                  <Route path="/hizmetler" element={<Services />} />
-                  <Route path="/portfoy" element={<Portfolio />} />
-                  <Route path="/portfoy/:slug" element={<PortfolioDetail />} />
-                  <Route path="/hakkimizda" element={<About />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/blog/:slug" element={<BlogDetail />} />
-                  <Route path="/iletisim" element={<Contact />} />
-                  <Route path="/kvkk-aydinlatma-metni" element={<KVKKAydinlatmaMetni />} />
-                  <Route path="/gizlilik-politikasi" element={<GizlilikPolitikasi />} />
-                  <Route path="/cerez-politikasi" element={<CerezPolitikasi />} />
-                  
-                  {/* Admin Routes */}
-                  <Route path="/admin" element={<Login />} />
-                  <Route 
-                    path="/admin/dashboard" 
-                    element={
-                      <ProtectedRoute>
-                        <Dashboard />
-                      </ProtectedRoute>
-                    } 
-                  />
-                </Routes>
-              </Suspense>
+              <main id="main-content">
+                <Suspense fallback={<PageLoader />}>
+                  <Routes>
+                    {/* Public Routes */}
+                    <Route path="/" element={<Home />} />
+                    <Route path="/hizmetler" element={<Services />} />
+                    <Route path="/portfoy" element={<Portfolio />} />
+                    <Route path="/portfoy/:slug" element={<PortfolioDetail />} />
+                    <Route path="/hakkimizda" element={<About />} />
+                    <Route path="/blog" element={<Blog />} />
+                    <Route path="/blog/:slug" element={<BlogDetail />} />
+                    <Route path="/iletisim" element={<Contact />} />
+                    <Route path="/kvkk-aydinlatma-metni" element={<KVKKAydinlatmaMetni />} />
+                    <Route path="/gizlilik-politikasi" element={<GizlilikPolitikasi />} />
+                    <Route path="/cerez-politikasi" element={<CerezPolitikasi />} />
+                    
+                    {/* Admin Routes */}
+                    <Route path="/admin" element={<Login />} />
+                    <Route 
+                      path="/admin/dashboard" 
+                      element={
+                        <ProtectedRoute>
+                          <Dashboard />
+                        </ProtectedRoute>
+                      } 
+                    />
+                  </Routes>
+                </Suspense>
+              </main>
             </div>
             
             {/* Cookie Consent Banner - DISABLED */}

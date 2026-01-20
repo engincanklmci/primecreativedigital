@@ -7,7 +7,7 @@ export default defineConfig({
   
   // Simple build configuration
   build: {
-    minify: false,
+    minify: true,
     target: 'es2015',
     sourcemap: false,
   },
