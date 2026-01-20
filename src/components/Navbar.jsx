@@ -51,7 +51,7 @@ const Navbar = () => {
               style={{ backgroundColor: 'transparent' }}
             />
             <span className="text-2xl font-bold tracking-tighter flex items-center gap-1">
-              Prime<span className="text-prime-yellow">Dijital</span>
+              Prime<span className="bg-prime-yellow text-prime-black px-2 py-0.5 rounded-md">Dijital</span>
             </span>
           </Link>
           

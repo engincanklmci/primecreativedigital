@@ -1,7 +1,6 @@
 import React, { Suspense, lazy, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { Helmet } from 'react-helmet-async';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { DataProvider } from './context/DataContext';
 import AnalyticsTracker from './components/AnalyticsTracker';
@@ -59,14 +58,6 @@ function App() {
       <AuthProvider>
         <DataProvider>
           <Router>
-            <Helmet>
-              <link rel="preconnect" href="https://fonts.googleapis.com" />
-              <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-              <link
-                rel="stylesheet"
-                href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-              />
-            </Helmet>
             <ScrollToTop />
             <AnalyticsTracker />
             <AnalyticsTest />

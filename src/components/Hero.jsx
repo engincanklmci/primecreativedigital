@@ -43,9 +43,9 @@ const Hero = () => {
         >
           <>
             {'İşinizi Zirveye Taşıyan '.split('Prime').map((part, index) => 
-              index === 1 ? <span key={index} className="text-prime-yellow">Prime</span> : part
+              index === 1 ? <span key={index} className="bg-prime-yellow text-prime-black px-2 rounded-md inline-block">Prime</span> : part
             )}
-            <span className="text-prime-yellow">Prime</span> Dokunuş
+            <span className="bg-prime-yellow text-prime-black px-2 rounded-md inline-block">Prime</span> Dokunuş
           </>
         </motion.h1>
         

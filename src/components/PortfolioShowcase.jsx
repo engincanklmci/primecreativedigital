@@ -173,6 +173,7 @@ const PortfolioShowcase = ({ featured = false, limit = 6 }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-white rounded-full hover:bg-prime-yellow transition-colors"
+                aria-label="Projeyi yeni sekmede aç"
               >
                 <ExternalLink className="w-5 h-5" />
               </a>
@@ -181,6 +182,7 @@ const PortfolioShowcase = ({ featured = false, limit = 6 }) => {
               <a
                 href={item.caseStudyUrl}
                 className="p-2 bg-white rounded-full hover:bg-prime-yellow transition-colors"
+                aria-label="Proje detaylarını görüntüle"
               >
                 <Eye className="w-5 h-5" />
               </a>
@@ -219,7 +221,7 @@ const PortfolioShowcase = ({ featured = false, limit = 6 }) => {
         <div className="grid grid-cols-3 gap-4 mb-4 p-3 bg-gray-50 rounded-lg">
           {Object.entries(item.results).map(([key, value], index) => (
             <div key={index} className="text-center">
-              <div className="text-lg font-bold text-prime-yellow">{value}</div>
+              <div className="text-lg font-bold text-prime-black">{value}</div>
               <div className="text-xs text-gray-600 capitalize">{key.replace(/([A-Z])/g, ' $1')}</div>
             </div>
           ))}

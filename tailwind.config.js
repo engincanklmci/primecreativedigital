@@ -10,7 +10,7 @@ export default {
         prime: {
           white: '#F8F8F6', // Pearl White - slightly warmer/softer
           black: '#2C2C2C', // Soft Charcoal Black
-          yellow: '#F3E5AB', // Vanilla/Soft Yellow
+          yellow: '#E3AB1E', // Vanilla/Soft Yellow
           accent: '#FFD700', // A bit stronger gold/yellow for highlights if needed
         }
       },

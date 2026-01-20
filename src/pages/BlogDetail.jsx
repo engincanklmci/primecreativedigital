@@ -83,13 +83,13 @@ const BlogDetail = () => {
       .map((line, index) => {
         // Başlıklar
         if (line.startsWith('# ')) {
-          return <h1 key={index} className="text-4xl font-bold mb-6 mt-8 text-prime-black">{line.substring(2)}</h1>;
+          return <h2 key={index} className="text-3xl font-bold mb-6 mt-8 text-prime-black">{line.substring(2)}</h2>;
         }
         if (line.startsWith('## ')) {
-          return <h2 key={index} className="text-3xl font-bold mb-4 mt-6 text-prime-black">{line.substring(3)}</h2>;
+          return <h3 key={index} className="text-2xl font-bold mb-4 mt-6 text-prime-black">{line.substring(3)}</h3>;
         }
         if (line.startsWith('### ')) {
-          return <h3 key={index} className="text-2xl font-bold mb-3 mt-5 text-prime-black">{line.substring(4)}</h3>;
+          return <h4 key={index} className="text-xl font-bold mb-3 mt-5 text-prime-black">{line.substring(4)}</h4>;
         }
         
         // Blockquote
@@ -99,7 +99,7 @@ const BlogDetail = () => {
         
         // Liste öğeleri
         if (line.startsWith('- ')) {
-          return <li key={index} className="ml-6 my-2 text-gray-600">{line.substring(2)}</li>;
+          return <p key={index} className="ml-6 my-2 text-gray-600">• {line.substring(2)}</p>;
         }
         
         // Boş satırlar
@@ -246,6 +246,10 @@ const BlogDetail = () => {
                       <img 
                         src={post.featuredImage} 
                         alt={post.title}
+                        width="800"
+                        height="400"
+                        loading="eager"
+                        decoding="async"
                         className="w-full h-96 object-cover"
                         onError={(e) => {
                           e.target.src = `https://picsum.photos/seed/${post.id}/800/400.jpg`;
@@ -294,18 +298,24 @@ const BlogDetail = () => {
                           <button
                             onClick={() => handleShare('facebook')}
                             className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
+                            type="button"
+                            aria-label="Facebook'ta paylaş"
                           >
                             <Facebook size={18} />
                           </button>
                           <button
                             onClick={() => handleShare('twitter')}
                             className="w-10 h-10 bg-sky-500 text-white rounded-full flex items-center justify-center hover:bg-sky-600 transition-colors"
+                            type="button"
+                            aria-label="X'te paylaş"
                           >
                             <Twitter size={18} />
                           </button>
                           <button
                             onClick={() => handleShare('linkedin')}
                             className="w-10 h-10 bg-blue-700 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
+                            type="button"
+                            aria-label="LinkedIn'de paylaş"
                           >
                             <Linkedin size={18} />
                           </button>

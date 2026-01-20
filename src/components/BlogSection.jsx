@@ -198,7 +198,7 @@ const BlogSection = ({ featured = false, limit = 6 }) => {
               
               <a
                 href={`/blog/${post.slug}`}
-                className="inline-flex items-center gap-2 mt-6 text-prime-yellow font-semibold hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 mt-6 text-prime-black font-semibold underline decoration-prime-yellow underline-offset-4 hover:gap-3 transition-all"
               >
                 Devamını Oku
                 <ArrowRight className="w-4 h-4" />
@@ -227,10 +227,10 @@ const BlogSection = ({ featured = false, limit = 6 }) => {
           </div>
           
           <div className="absolute top-4 right-4 flex gap-2">
-            <button className="p-2 bg-white/90 rounded-full hover:bg-white transition-colors">
+            <button className="p-2 bg-white/90 rounded-full hover:bg-white transition-colors" type="button" aria-label="Yazıyı kaydet">
               <Bookmark className="w-4 h-4" />
             </button>
-            <button className="p-2 bg-white/90 rounded-full hover:bg-white transition-colors">
+            <button className="p-2 bg-white/90 rounded-full hover:bg-white transition-colors" type="button" aria-label="Yazıyı paylaş">
               <Share2 className="w-4 h-4" />
             </button>
           </div>
@@ -282,7 +282,7 @@ const BlogSection = ({ featured = false, limit = 6 }) => {
             
             <a
               href={`/blog/${post.slug}`}
-              className="inline-flex items-center gap-1 text-prime-yellow font-semibold hover:gap-2 transition-all"
+              className="inline-flex items-center gap-1 text-prime-black font-semibold underline decoration-prime-yellow underline-offset-4 hover:gap-2 transition-all"
             >
               Oku
               <ArrowRight className="w-4 h-4" />

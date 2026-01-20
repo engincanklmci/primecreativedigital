@@ -26,12 +26,8 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus('');
 
-    console.log('Form submission started');
-    console.log('Form data:', formData);
-
     // Validate form fields
     if (!formData.name || !formData.email || !formData.message) {
-      console.error('Validation failed: Missing required fields');
       setSubmitStatus('error');
       setIsSubmitting(false);
       return;
@@ -40,7 +36,6 @@ const Contact = () => {
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      console.error('Validation failed: Invalid email format');
       setSubmitStatus('error');
       setIsSubmitting(false);
       return;
@@ -62,7 +57,6 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        console.log('Form sent successfully');
         setSubmitStatus('success');
         setFormData({
           name: '',
@@ -74,7 +68,6 @@ const Contact = () => {
         throw new Error('Form submission failed');
       }
     } catch (error) {
-      console.error('Form sending failed:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -140,6 +133,7 @@ const Contact = () => {
       <Navbar />
       <div className="pt-32 pb-20">
          <div className="container-custom">
+            <h1 className="text-4xl md:text-5xl font-bold mb-10 text-center">İletişim</h1>
             <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row">
                <div className="bg-prime-black text-white p-12 md:w-2/5 flex flex-col justify-between relative overflow-hidden">
                   <div className="relative z-10">

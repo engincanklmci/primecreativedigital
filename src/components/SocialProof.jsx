@@ -221,6 +221,7 @@ const SocialProof = ({ variant = 'full' }) => {
                       rel="noopener noreferrer"
                       className="p-2 bg-red-100 text-red-600 rounded-full hover:bg-red-200 transition-colors"
                       title="Video Testimonial"
+                      aria-label="Video testimonial"
                     >
                       <Play className="w-4 h-4" />
                     </a>
@@ -232,6 +233,7 @@ const SocialProof = ({ variant = 'full' }) => {
                       rel="noopener noreferrer"
                       className="p-2 bg-blue-100 text-blue-600 rounded-full hover:bg-blue-200 transition-colors"
                       title="LinkedIn Profili"
+                      aria-label="LinkedIn profili"
                     >
                       <ExternalLink className="w-4 h-4" />
                     </a>
@@ -259,7 +261,7 @@ const SocialProof = ({ variant = 'full' }) => {
                     {testimonials[activeTestimonial].results.map((result, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-prime-yellow/20 text-prime-yellow text-xs font-medium rounded-full"
+                        className="px-3 py-1 bg-prime-yellow/20 text-prime-black text-xs font-medium rounded-full"
                       >
                         {result}
                       </span>
@@ -275,6 +277,8 @@ const SocialProof = ({ variant = 'full' }) => {
             <button
               onClick={prevTestimonial}
               className="p-2 bg-white rounded-full shadow-lg hover:bg-gray-50 transition-colors"
+              type="button"
+              aria-label="Önceki yorum"
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
@@ -287,6 +291,8 @@ const SocialProof = ({ variant = 'full' }) => {
                   className={`w-3 h-3 rounded-full transition-colors ${
                     index === activeTestimonial ? 'bg-prime-yellow' : 'bg-gray-300'
                   }`}
+                  type="button"
+                  aria-label={`Yorum ${index + 1}`}
                 />
               ))}
             </div>
@@ -294,6 +300,8 @@ const SocialProof = ({ variant = 'full' }) => {
             <button
               onClick={nextTestimonial}
               className="p-2 bg-white rounded-full shadow-lg hover:bg-gray-50 transition-colors"
+              type="button"
+              aria-label="Sonraki yorum"
             >
               <ArrowRight className="w-5 h-5" />
             </button>

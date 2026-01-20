@@ -104,21 +104,21 @@ const CookieConsent = () => {
                 <div className="flex items-center gap-4 mt-2">
                   <a 
                     href="/gizlilik-politikasi" 
-                    className="text-prime-yellow hover:underline text-sm"
+                    className="text-prime-black underline decoration-prime-yellow underline-offset-2 text-sm"
                     target="_blank"
                   >
                     Gizlilik Politikası
                   </a>
                   <a 
                     href="/cerez-politikasi" 
-                    className="text-prime-yellow hover:underline text-sm"
+                    className="text-prime-black underline decoration-prime-yellow underline-offset-2 text-sm"
                     target="_blank"
                   >
                     Çerez Politikası
                   </a>
                   <a 
                     href="/kvkk-aydinlatma-metni" 
-                    className="text-prime-yellow hover:underline text-sm"
+                    className="text-prime-black underline decoration-prime-yellow underline-offset-2 text-sm"
                     target="_blank"
                   >
                     KVKK Aydınlatma Metni
@@ -156,6 +156,8 @@ const CookieConsent = () => {
                 <button
                   onClick={() => setShowDetails(false)}
                   className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                  type="button"
+                  aria-label="Çerez ayarlarını kapat"
                 >
                   <X className="w-5 h-5" />
                 </button>
