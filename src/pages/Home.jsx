@@ -147,7 +147,7 @@ const Home = () => {
                    <Lightbulb size={120} />
                  </div>
                  <h2 className="text-3xl font-bold mb-6 flex items-center gap-3 text-prime-black">
-                   <Lightbulb className="text-prime-yellow" />
+                   <Lightbulb className="text-prime-black bg-prime-yellow/60 rounded-md p-1" />
                    Vizyonumuz
                  </h2>
                  <p className="text-gray-600 leading-relaxed text-lg">
@@ -164,7 +164,7 @@ const Home = () => {
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-prime-yellow/30 to-transparent"></div>
         <div className="container-custom">
           <div className="text-center max-w-4xl mx-auto mb-20">
-            <span className="text-prime-yellow font-bold tracking-wider uppercase text-sm">Dijital Dönüşüm</span>
+            <span className="inline-flex items-center bg-prime-yellow/20 text-prime-black font-bold tracking-wider uppercase text-sm px-3 py-1 rounded-full">Dijital Dönüşüm</span>
             <h2 className="text-4xl md:text-6xl font-bold mt-3 mb-6 bg-gradient-to-r from-prime-black to-prime-yellow bg-clip-text text-transparent">
               Markanızın Geleceğini Şekillendiriyoruz
             </h2>
@@ -278,7 +278,7 @@ const Home = () => {
                  transition={{ delay: i * 0.2 }}
                  className="bg-prime-white p-8 rounded-2xl relative"
                >
-                 <div className="text-prime-yellow text-6xl absolute top-4 left-6 opacity-30 font-serif">"</div>
+                 <div className="text-prime-black text-6xl absolute top-4 left-6 opacity-20 font-serif">"</div>
                  <p className="text-gray-600 italic mb-6 relative z-10 pt-4">
                    {testimonial.text}
                  </p>
@@ -288,7 +288,7 @@ const Home = () => {
                      <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${testimonial.name}`} alt={testimonial.name} width="48" height="48" loading="lazy" decoding="async" />
                    </div>
                    <div>
-                     <h4 className="font-bold text-sm">{testimonial.name}</h4>
+                     <p className="font-bold text-sm">{testimonial.name}</p>
                      <p className="text-xs text-gray-500">{testimonial.role}</p>
                    </div>
                  </div>

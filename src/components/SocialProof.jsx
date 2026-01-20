@@ -179,7 +179,7 @@ const SocialProof = ({ variant = 'full' }) => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
           {liveStats.map((stat, index) => (
             <div key={index} className="text-center p-4 bg-white rounded-xl shadow-sm">
-              <div className="text-2xl font-bold text-prime-yellow mb-1">
+              <div className="text-2xl font-bold text-prime-black mb-1">
                 {stat.value}{stat.suffix}
               </div>
               <div className="text-sm text-gray-600">{stat.label}</div>
@@ -208,7 +208,7 @@ const SocialProof = ({ variant = 'full' }) => {
                 <p className="text-gray-600 text-sm">
                   {testimonials[activeTestimonial].position}
                 </p>
-                <p className="text-prime-yellow font-semibold text-sm">
+                <p className="text-prime-black font-semibold text-sm bg-prime-yellow/20 inline-block px-2 py-0.5 rounded-md">
                   {testimonials[activeTestimonial].company}
                 </p>
                 
@@ -243,7 +243,7 @@ const SocialProof = ({ variant = 'full' }) => {
 
               {/* Testimonial Content */}
               <div className="flex-1">
-                <Quote className="w-12 h-12 text-prime-yellow mb-4" />
+                <Quote className="w-12 h-12 text-prime-black/20 mb-4" />
                 
                 <div className="flex mb-4">
                   {renderStars(testimonials[activeTestimonial].rating)}

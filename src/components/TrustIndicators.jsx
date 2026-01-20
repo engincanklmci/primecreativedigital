@@ -89,8 +89,10 @@ const TrustIndicators = ({ variant = 'full' }) => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
           {trustElements.statistics.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="flex justify-center mb-4 text-prime-yellow">
+              <div className="flex justify-center mb-4">
+                <div className="w-12 h-12 rounded-xl bg-prime-yellow/20 text-prime-black flex items-center justify-center">
                 {stat.icon}
+                </div>
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">
                 {stat.number}
@@ -131,9 +133,7 @@ const TrustIndicators = ({ variant = 'full' }) => {
                   {guarantee.icon}
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">
-                    {guarantee.title}
-                  </h4>
+                  <p className="font-semibold text-gray-900 mb-1">{guarantee.title}</p>
                   <p className="text-gray-600 text-sm">
                     {guarantee.description}
                   </p>

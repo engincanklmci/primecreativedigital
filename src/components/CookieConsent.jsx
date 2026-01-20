@@ -288,7 +288,7 @@ const CookieConsent = () => {
                 <p className="text-xs text-gray-600 leading-relaxed">
                   <strong>KVKK Uyarısı:</strong> Bu web sitesi, 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında 
                   kişisel verilerinizi işlemektedir. Detaylı bilgi için 
-                  <a href="/kvkk-aydinlatma-metni" className="text-prime-yellow hover:underline ml-1" target="_blank">
+                  <a href="/kvkk-aydinlatma-metni" className="text-prime-black underline decoration-prime-yellow underline-offset-2 ml-1" target="_blank">
                     KVKK Aydınlatma Metni
                   </a>'ni inceleyebilirsiniz.
                 </p>

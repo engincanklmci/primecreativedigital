@@ -109,7 +109,7 @@ const ContactInfo = ({ variant = 'default', className = '' }) => {
       <div className="flex items-start gap-3">
         <MapPin className="w-5 h-5 text-prime-yellow mt-1 flex-shrink-0" />
         <div>
-          <h4 className="font-semibold text-gray-900 mb-1">Adres</h4>
+          <p className="font-semibold text-gray-900 mb-1">Adres</p>
           <button
             onClick={() => handleContactClick('address')}
             className="text-gray-600 hover:text-prime-yellow transition-colors text-left"
@@ -125,7 +125,7 @@ const ContactInfo = ({ variant = 'default', className = '' }) => {
       <div className="flex items-start gap-3">
         <Phone className="w-5 h-5 text-prime-yellow mt-1 flex-shrink-0" />
         <div>
-          <h4 className="font-semibold text-gray-900 mb-1">Telefon</h4>
+          <p className="font-semibold text-gray-900 mb-1">Telefon</p>
           <div className="space-y-1">
             <button
               onClick={() => handleContactClick('phone', contactData.phone.primary)}
@@ -147,7 +147,7 @@ const ContactInfo = ({ variant = 'default', className = '' }) => {
       <div className="flex items-start gap-3">
         <Mail className="w-5 h-5 text-prime-yellow mt-1 flex-shrink-0" />
         <div>
-          <h4 className="font-semibold text-gray-900 mb-1">E-posta</h4>
+          <p className="font-semibold text-gray-900 mb-1">E-posta</p>
           <div className="space-y-1">
             <button
               onClick={() => handleContactClick('email', contactData.email.info)}
@@ -169,7 +169,7 @@ const ContactInfo = ({ variant = 'default', className = '' }) => {
       <div className="flex items-start gap-3">
         <Clock className="w-5 h-5 text-prime-yellow mt-1 flex-shrink-0" />
         <div>
-          <h4 className="font-semibold text-gray-900 mb-1">Çalışma Saatleri</h4>
+          <p className="font-semibold text-gray-900 mb-1">Çalışma Saatleri</p>
           <div className="space-y-1 text-gray-600">
             <p>{contactData.workingHours.weekdays}</p>
             <p>{contactData.workingHours.saturday}</p>

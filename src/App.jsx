@@ -4,7 +4,6 @@ import { HelmetProvider } from 'react-helmet-async';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { DataProvider } from './context/DataContext';
 import AnalyticsTracker from './components/AnalyticsTracker';
-import AnalyticsTest from './components/AnalyticsTest';
 import CookieConsent from './components/CookieConsent';
 
 // Lazy loading for pages
@@ -21,6 +20,10 @@ const Dashboard = lazy(() => import('./pages/admin/Dashboard'));
 const KVKKAydinlatmaMetni = lazy(() => import('./pages/KVKKAydinlatmaMetni'));
 const GizlilikPolitikasi = lazy(() => import('./pages/GizlilikPolitikasi'));
 const CerezPolitikasi = lazy(() => import('./pages/CerezPolitikasi'));
+
+const DevAnalyticsTest = import.meta.env.DEV
+  ? lazy(() => import('./components/AnalyticsTest'))
+  : null;
 
 // Loading component
 const PageLoader = () => (
@@ -60,7 +63,11 @@ function App() {
           <Router>
             <ScrollToTop />
             <AnalyticsTracker />
-            <AnalyticsTest />
+            {DevAnalyticsTest ? (
+              <Suspense fallback={null}>
+                <DevAnalyticsTest />
+              </Suspense>
+            ) : null}
             <div className="font-sans antialiased text-prime-black bg-prime-white min-h-screen selection:bg-prime-yellow selection:text-prime-black overflow-x-hidden w-full relative">
               <main id="main-content">
                 <Suspense fallback={<PageLoader />}>

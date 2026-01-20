@@ -160,7 +160,7 @@ const About = () => {
                   )}
                 </div>
                 <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                <p className="text-prime-yellow font-bold text-sm mb-3 uppercase tracking-wider">{member.title}</p>
+                <p className="text-prime-black font-bold text-sm mb-3 uppercase tracking-wider underline decoration-prime-yellow underline-offset-4">{member.title}</p>
                 <p className="text-gray-500 text-sm px-6 leading-relaxed">
                   {member.description}
                 </p>
