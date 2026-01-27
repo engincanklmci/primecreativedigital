@@ -104,14 +104,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
     <!-- Critical CSS Preloading -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="preload" as="image" href="/logo.webp" fetchpriority="high" />
     <style>
       /* Critical CSS for LCP */
-      body{font-family:'Poppins',sans-serif;margin:0;background:#f6f6f6}
+      body{font-family:'Poppins',sans-serif;margin:0;background:#f6f6f6;font-weight:400}
       .text-prime-black{color:#292929}
       .bg-prime-yellow{background-color:#e4ac20}
-      .font-bold{font-weight:700}
+      .font-medium{font-weight:500}
+      .font-semibold{font-weight:600}
       .text-4xl{font-size:2.25rem;line-height:2.5rem}
       .text-5xl{font-size:3rem;line-height:1}
       .text-7xl{font-size:4.5rem;line-height:1}
@@ -147,7 +148,7 @@
     <link rel="modulepreload" href="/src/main.jsx" />
     
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" />
     </noscript>
     
     <!-- Early Hints for Performance -->

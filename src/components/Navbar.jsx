@@ -50,11 +50,10 @@ const Navbar = () => {
               whileHover={{ rotate: 5, scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             />
-            <span className="text-2xl font-black tracking-tight flex items-center gap-1 text-[#292929]" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+            <span className="text-2xl font-semibold tracking-tight flex items-center gap-1 text-[#292929]">
               Prime
               <motion.span 
-                className="bg-gradient-to-r from-[#e4ac20] to-[#c99416] text-[#292929] px-2.5 py-1 rounded-lg font-black"
-                style={{ fontFamily: "'League Spartan', sans-serif" }}
+                className="bg-gradient-to-r from-[#e4ac20] to-[#c99416] text-[#292929] px-2.5 py-1 rounded-lg font-semibold"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
@@ -92,7 +91,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-3">
             <Link to="/iletisim">
               <motion.button 
-                className="relative bg-gradient-to-r from-[#e4ac20] to-[#c99416] text-[#292929] px-6 py-2.5 rounded-full text-sm font-bold shadow-lg overflow-hidden group"
+                className="relative bg-gradient-to-r from-[#e4ac20] to-[#c99416] text-[#292929] px-6 py-2.5 rounded-full text-sm font-medium shadow-lg overflow-hidden group"
                 whileHover={{ scale: 1.05, y: -1 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -141,7 +140,7 @@ const Navbar = () => {
                 >
                   <Link 
                     to={item.path} 
-                    className={`text-2xl font-black transition-colors ${
+                    className={`text-2xl font-semibold transition-colors ${
                       location.pathname === item.path ? 'text-[#e4ac20]' : 'text-[#292929] hover:text-[#e4ac20]'
                     }`}
                   >
@@ -156,7 +155,7 @@ const Navbar = () => {
                 className="pt-4"
               >
                 <Link to="/iletisim">
-                  <button className="bg-gradient-to-r from-[#e4ac20] to-[#c99416] text-[#292929] px-8 py-4 rounded-full text-lg font-black w-full shadow-xl">
+                  <button className="bg-gradient-to-r from-[#e4ac20] to-[#c99416] text-[#292929] px-8 py-4 rounded-full text-lg font-medium w-full shadow-xl">
                     İletişime Geç
                   </button>
                 </Link>
