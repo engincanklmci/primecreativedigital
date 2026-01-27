@@ -32,7 +32,7 @@ const Footer = () => {
                   whileHover={{ rotate: 5, scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 />
-                <span className="text-2xl font-black tracking-tight">
+                <span className="text-2xl font-black tracking-tight" style={{ fontFamily: "'League Spartan', sans-serif" }}>
                   Prime <span className="text-[#e4ac20]">Dijital</span>
                 </span>
               </div>

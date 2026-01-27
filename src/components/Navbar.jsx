@@ -50,10 +50,11 @@ const Navbar = () => {
               whileHover={{ rotate: 5, scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             />
-            <span className="text-2xl font-black tracking-tight flex items-center gap-1 text-[#292929]">
+            <span className="text-2xl font-black tracking-tight flex items-center gap-1 text-[#292929]" style={{ fontFamily: "'League Spartan', sans-serif" }}>
               Prime
               <motion.span 
                 className="bg-gradient-to-r from-[#e4ac20] to-[#c99416] text-[#292929] px-2.5 py-1 rounded-lg font-black"
+                style={{ fontFamily: "'League Spartan', sans-serif" }}
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >

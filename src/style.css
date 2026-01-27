@@ -8,7 +8,8 @@
   --color-prime-yellow-dark: #c99416;
   --color-prime-gray: #f6f6f6;
   
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-display: 'League Spartan', 'Poppins', system-ui, sans-serif;
 }
 
 body {

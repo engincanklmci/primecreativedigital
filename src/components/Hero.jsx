@@ -59,55 +59,26 @@ const Hero = () => {
 
       <div className="container-custom text-center z-10 max-w-6xl mx-auto relative">
         <motion.div 
-          className="mb-8"
+          className="mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.1] tracking-tight text-[#292929]">
-            <motion.span 
-              className="inline-block bg-gradient-to-r from-[#e4ac20] to-[#c99416] bg-clip-text text-transparent"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              Markanızın
-            </motion.span>
-            <br />
-            <motion.span 
-              className="inline-block text-[#292929]"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              Büyüme Yolculuğu
-            </motion.span>
-          </h1>
-          
-          <motion.h2 
-            className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#292929]/80 mb-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+          <motion.h1 
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.2] tracking-normal text-[#292929]"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Dijital Dünyanın <span className="text-[#e4ac20]">Prime</span> Çözüm Ortağı
-          </motion.h2>
+            İşinizi zirveye taşıyan <span className="text-[#e4ac20] font-black">prime</span> dokunuş.
+          </motion.h1>
         </motion.div>
-        
-        <motion.p 
-          className="text-lg md:text-xl text-[#292929]/70 mb-16 max-w-4xl mx-auto leading-relaxed font-medium"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
-          İşinizi zirveye taşıyan <span className="text-[#e4ac20] font-bold">prime</span> dokunuş.
-        </motion.p>
         
         <motion.div 
           className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
         >
           <motion.a
             href="https://api.whatsapp.com/send?phone=905359495305&text=Merhaba, dijital pazarlama hizmetleriniz hakkında bilgi almak istiyorum."
@@ -154,7 +125,7 @@ const Hero = () => {
           className="flex flex-wrap justify-center gap-8 text-[#292929]/60 text-sm font-medium"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
         >
           {[
             { label: '7/24 Destek', delay: 0 },
@@ -166,7 +137,7 @@ const Hero = () => {
               className="flex items-center gap-2"
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 1.2 + item.delay }}
+              transition={{ duration: 0.5, delay: 0.8 + item.delay }}
             >
               <motion.div 
                 className="w-2 h-2 bg-[#e4ac20] rounded-full"
