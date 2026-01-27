@@ -59,7 +59,7 @@ const SEOHead = ({
     ],
     "priceRange": "$$",
     "sameAs": [
-      "https://www.instagram.com/primedigitalcreative",
+      "https://www.instagram.com/primedijital.co/",
       "https://www.linkedin.com/company/primedigitalcreative",
       "https://www.facebook.com/primedigitalcreative",
       "https://twitter.com/primedigitaltr",
@@ -116,15 +116,15 @@ const SEOHead = ({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content={author} />
-      
+
       {/* Canonical URL */}
       <link rel="canonical" href={canonical || fullUrl} />
-      
+
       {/* Robots */}
       {(noindex || nofollow) && (
         <meta name="robots" content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`} />
       )}
-      
+
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
@@ -133,7 +133,7 @@ const SEOHead = ({
       <meta property="og:type" content={type} />
       <meta property="og:site_name" content="Prime Dijital" />
       <meta property="og:locale" content="tr_TR" />
-      
+
       {/* Article specific */}
       {type === 'article' && (
         <>
@@ -145,13 +145,13 @@ const SEOHead = ({
           ))}
         </>
       )}
-      
+
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullImage} />
-      
+
       {/* Additional SEO */}
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
@@ -159,16 +159,16 @@ const SEOHead = ({
       <meta name="revisit-after" content="7 days" />
       <meta name="distribution" content="web" />
       <meta name="rating" content="general" />
-      
+
       {/* Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify(structuredData || defaultStructuredData)}
       </script>
-      
+
       {/* Preconnect to external domains */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      
+
       {/* DNS Prefetch */}
       <link rel="dns-prefetch" href="//www.google-analytics.com" />
       <link rel="dns-prefetch" href="//www.googletagmanager.com" />
