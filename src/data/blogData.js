@@ -505,6 +505,121 @@ yez
     views: 1890,
     likes: 156,
     comments: 24
+  },
+  {
+    id: 'istanbul-web-tasarim-ajansi-secimi',
+    title: 'İstanbul Web Tasarım Ajansı Seçerken Dikkat Edilmesi Gerekenler',
+    slug: 'istanbul-web-tasarim-ajansi-secimi',
+    excerpt: 'İstanbul\'da işletmeniz için en doğru web tasarım ajansını nasıl seçersiniz? Profesyonel web tasarım, SEO uyumluluğu ve destek süreçleri hakkında rehber.',
+    content: `
+# İstanbul Web Tasarım Ajansı Seçerken Dikkat Edilmesi Gerekenler
+
+İstanbul gibi rekabetin yoğun olduğu bir pazarda, işletmenizi öne çıkaracak doğru web tasarım ajansını bulmak kritik bir karardır. **Web tasarım İstanbul** aramalarında karşınıza çıkan yüzlerce seçenek arasından işletmeniz için en uygun partneri nasıl seçmelisiniz? İşte dikkat etmeniz gerekenler.
+
+## 1. Sektörel Deneyim ve Portfolyo
+
+Bir ajansın daha önce yaptığı işler, yapacaklarının teminatıdır. Referanslarını incelerken şunlara dikkat edin:
+- Sizin sektörünüze benzer projeler yapmışlar mı?
+- Tasarımları modern ve kullanıcı dostu mu?
+- Mobil uyumluluğa (responsive tasarım) dikkat edilmiş mi?
+
+**Prime Dijital** olarak, farklı sektörlerden yüzlerce mutlu müşterimize özel çözümler sunuyoruz. Portfolyomuzu inceleyerek kalite standartlarımızı görebilirsiniz.
+
+## 2. SEO (Arama Motoru Optimizasyonu) Yetkinliği
+
+Web siteniz sadece güzel görünmemeli, aynı zamanda Google'da bulunabilir olmalıdır. **SEO hizmetleri** sunan ve web tasarım sürecine SEO'yu dahil eden bir ajansla çalışmak, uzun vadede reklam bütçenizi düşürür ve organik trafiğinizi artırır.
+
+> "SEO uyumlu olmayan bir web sitesi, kimsenin ziyaret etmediği bir mağaza gibidir."
+
+Prime Dijital'de geliştirdiğimiz tüm web siteleri:
+- Hızlı açılış sürelerine sahiptir (Core Web Vitals uyumlu).
+- Temiz ve semantik kod yapısıyla yazılır.
+- Mobil öncelikli (Mobile-First) indekslemeye uygundur.
+
+## 3. Destek ve Bakım Süreçleri
+
+Web siteniz yayına alındıktan sonra iş bitmez. Güncellemeler, güvenlik yamaları ve olası teknik sorunlar için ulaşılabilir bir destek ekibine ihtiyacınız vardır. Seçtiğiniz ajansın satış sonrası destek politikalarını mutlaka sorun.
+
+## 4. Bütçe ve Fiyatlandırma
+
+"Ucuz" web tasarımı genellikle uzun vadede daha pahalıya patlar. Güvenlik açıkları, yavaş açılan sayfalar ve kötü kullanıcı deneyimi müşteri kaybetmenize neden olur. Fiyat/performans dengesini gözeterek, size en uygun teklifi sunan, şeffaf fiyatlandırma yapan ajansları tercih edin.
+
+## Sonuç
+
+İstanbul'da web tasarım hizmeti alırken, sadece bir hizmet sağlayıcı değil, bir iş ortağı seçtiğinizi unutmayın. **Prime Dijital**, işletmenizin dijital dünyadaki büyüme partneri olmaya hazır.
+
+**Hemen iletişime geçin ve projenizi konuşalım!**
+    `,
+    author: 'Prime Dijital Ekibi',
+    date: '2025-01-15',
+    readTime: '6 dk',
+    category: 'Web Tasarım',
+    tags: ['web tasarım istanbul', 'istanbul web tasarım ajansı', 'kurumsal web tasarım', 'seo uyumlu web sitesi'],
+    featuredImage: '/images/blog/istanbul-web-tasarim.jpg',
+    seoTitle: 'İstanbul Web Tasarım Ajansı Seçimi | Kurumsal Web Tasarım | Prime Dijital',
+    seoDescription: 'İstanbul\'da en iyi web tasarım ajansını seçerken nelere dikkat etmelisiniz? SEO uyumlu, mobil dostu ve profesyonel web tasarım rehberi.',
+    seoKeywords: 'web tasarım istanbul, istanbul web tasarım ajansı, kurumsal web tasarım, seo hizmetleri istanbul, profesyonel web sitesi',
+    views: 850,
+    likes: 45,
+    comments: 5
+  },
+  {
+    id: 'mobil-uygulama-gelistirme-surecleri',
+    title: 'Mobil Uygulama Geliştirme: Fikirden Mağazaya Adım Adım Rehber',
+    slug: 'mobil-uygulama-gelistirme-surecleri',
+    excerpt: 'iOS ve Android mobil uygulama geliştirme süreçleri nelerdir? React Native ve Flutter ile native performanslı uygulamalar nasıl geliştirilir?',
+    content: `
+# Mobil Uygulama Geliştirme: Fikirden Mağazaya Adım Adım Rehber
+
+Akıllı telefon kullanımının artmasıyla birlikte, işletmeler için **mobil uygulama** sahibi olmak büyük bir avantaj haline geldi. Peki, başarılı bir mobil uygulama nasıl geliştirilir? İşte Prime Dijital'in mobil uygulama geliştirme metodolojisi.
+
+## 1. Analiz ve Strateji
+
+Her başarılı proje iyi bir planlamayla başlar. Hedef kitleniz kim? Uygulamanız hangi sorunu çözüyor? Rakipleriniz neler yapıyor? Bu soruların cevapları, uygulamanızın temelini oluşturur.
+
+## 2. UI/UX Tasarımı
+
+Kullanıcı arayüzü (UI) ve kullanıcı deneyimi (UX) tasarımı, uygulamanızın başarısında kritik rol oynar. Kullanıcıların uygulamanızı kolayca kullanabilmesi ve aradıklarını bulabilmesi gerekir.
+
+**Tasarım prensiplerimiz:**
+- Basit ve anlaşılır arayüzler
+- Parmak dostu navigasyon
+- Marka kimliğine uygun renk ve tipografi
+
+## 3. Teknoloji Seçimi: Native vs Hibrit
+
+**Mobil uygulama geliştirme** sürecinde en önemli kararlardaniri teknoloji seçimidir.
+- **Native (Swift/Kotlin):** En yüksek performans, ancak iOS ve Android için ayrı geliştirme gerektirir (daha yüksek maliyet).
+- **Cross-Platform (React Native / Flutter):** Tek kod tabanı ile hem iOS hem Android'de çalışır. Maliyet ve zaman avantajı sağlar, performansı native'e çok yakındır.
+
+Prime Dijital olarak, projenizin ihtiyaçlarına göre en uygun teknolojiyi (genellikle React Native veya Flutter) öneriyoruz.
+
+## 4. Geliştirme ve Test
+
+Kodlama sürecinde **Agile** metodolojisini kullanıyoruz. Düzenli sprintler ile ilerlemeyi görüyor ve geri bildirimlerinizi anında uyguluyoruz. Test aşamasında ise uygulamanın farklı cihazlarda ve işletim sistemi sürümlerinde sorunsuz çalıştığından emin oluyoruz.
+
+## 5. Mağaza Yayını ve ASO (App Store Optimization)
+
+Uygulamanızın App Store ve Google Play Store'da yayınlanması ve üst sıralarda çıkması için ASO çalışmaları yapıyoruz. Doğru anahtar kelimeler, etkileyici ekran görüntüleri ve açıklamalar ile indirme sayılarını artırıyoruz.
+
+## Sonuç
+
+Mobil uygulama fikrinizi hayata geçirmek için profesyonel bir ekiple çalışmak, başarı şansınızı artırır. **Prime Dijital**, mobil uygulama projelerinizde uçtan uca çözüm ortağınızdır.
+
+**Mobil uygulama projeniz için teklif alın!**
+    `,
+    author: 'Prime Dijital Yazılım Ekibi',
+    date: '2025-01-20',
+    readTime: '8 dk',
+    category: 'Yazılım Geliştirme',
+    tags: ['mobil uygulama', 'mobil uygulama geliştirme', 'ios uygulama', 'android uygulama', 'react native', 'flutter'],
+    featuredImage: '/images/blog/mobil-uygulama-gelistirme.jpg',
+    seoTitle: 'Mobil Uygulama Geliştirme | iOS & Android | React Native | Prime Dijital',
+    seoDescription: 'Profesyonel mobil uygulama geliştirme hizmetleri. iOS ve Android için React Native ve Flutter çözümleri. Fikirden mağazaya tam destek.',
+    seoKeywords: 'mobil uygulama geliştirme, android uygulama yapımı, ios uygulama geliştirme, mobil uygulama fiyatları, istanbul yazılım ajansı',
+    views: 1120,
+    likes: 95,
+    comments: 14
   }
 ];
 
@@ -518,7 +633,7 @@ export const blogCategories = [
 
 // Popüler etiketler
 export const popularTags = [
-  'web tasarım', '2024 trendler', 'dijital pazarlama', 'ux tasarım', 'seo', 
+  'web tasarım', '2024 trendler', 'dijital pazarlama', 'ux tasarım', 'seo',
   'grafik tasarım', 'marka kimliği', 'yazılım geliştirme', 'agile', 'react',
   'node.js', 'yapay zeka', 'sosyal medya', 'e-posta pazarlama', 'otomasyon'
 ];
@@ -530,8 +645,8 @@ export const getRelatedPosts = (currentPostId, limit = 3) => {
 
   return blogPosts
     .filter(post => post.id !== currentPostId)
-    .filter(post => 
-      post.category === currentPost.category || 
+    .filter(post =>
+      post.category === currentPost.category ||
       post.tags.some(tag => currentPost.tags.includes(tag))
     )
     .slice(0, limit);
