@@ -90,7 +90,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Dijital Dünyanın Prime Çözüm Ortağı
+            Dijital Dünyanın <span className="text-[#e4ac20]">Prime</span> Çözüm Ortağı
           </motion.h2>
         </motion.div>
         
@@ -100,9 +100,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          İşini büyük bir keyifle yapan, dijital pazarlama tutkunu, 
-          <span className="text-[#e4ac20] font-bold"> 5 yaşındaki bir çocuk kadar meraklı</span>, 
-          fakat işinde son derece uzman ve yenilikçi bir ekip.
+          İşinizi zirveye taşıyan <span className="text-[#e4ac20] font-bold">prime</span> dokunuş.
         </motion.p>
         
         <motion.div 

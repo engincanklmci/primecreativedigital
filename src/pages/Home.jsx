@@ -91,7 +91,6 @@ const Home = () => {
       <Navbar />
       <Hero />
       <Stats />
-      <Services />
       <SocialProof />
       <CTA />
       <Footer />
