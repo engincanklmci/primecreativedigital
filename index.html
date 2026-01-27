@@ -1,74 +1,196 @@
 <!doctype html>
 <html lang="tr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#e4ac20" />
-    
-    <link rel="icon" type="image/png" href="/logo.png" />
-    <link rel="manifest" href="/manifest.json" />
-    
-    <!-- DNS Prefetch & Preconnect -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <!-- Font Loading Optimization -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
-    
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" />
-    </noscript>
-    
-    <!-- Critical CSS -->
-    <style>
-      body{font-family:'Poppins',system-ui,sans-serif;margin:0;background:#f6f6f6;font-weight:400;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-      .text-prime-black{color:#292929}
-      .bg-prime-yellow{background-color:#e4ac20}
-      .font-medium{font-weight:500}
-      .font-semibold{font-weight:600}
-      .text-4xl{font-size:2.25rem;line-height:2.5rem}
-      .text-5xl{font-size:3rem;line-height:1}
-      .text-6xl{font-size:3.75rem;line-height:1}
-      .text-7xl{font-size:4.5rem;line-height:1}
-      .mb-12{margin-bottom:3rem}
-      .container-custom{max-width:1200px;margin:0 auto;padding:0 1.5rem}
-      .text-center{text-align:center}
-      .min-h-screen{min-height:100vh}
-      .flex{display:flex}
-      .flex-col{flex-direction:column}
-      .justify-center{justify-content:center}
-      .relative{position:relative}
-      .pt-24{padding-top:6rem}
-      .pb-12{padding-bottom:3rem}
-      .z-10{z-index:10}
-      .mx-auto{margin-left:auto;margin-right:auto}
-      .mb-6{margin-bottom:1.5rem}
-      .px-10{padding-left:2.5rem;padding-right:2.5rem}
-      .py-5{padding-top:1.25rem;padding-bottom:1.25rem}
-      .rounded-full{border-radius:9999px}
-      .shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1)}
-      .leading-tight{line-height:1.2}
-      @media (min-width:640px){.sm\:text-5xl{font-size:3rem}}
-      @media (min-width:768px){.md\:text-6xl{font-size:3.75rem}}
-      @media (min-width:1024px){.lg\:text-7xl{font-size:4.5rem}}
-      #app{opacity:0;animation:fadeIn 0.3s ease-out forwards}
-      @keyframes fadeIn{to{opacity:1}}
-    </style>
-    
-    <title>Prime Dijital | Web Tasarım & SEO İstanbul</title>
-    <meta name="description" content="İstanbul web tasarım ve SEO ajansı. Mobil uyumlu web siteleri, mobil uygulamalar ve dijital pazarlama çözümleri." />
-    <meta name="robots" content="index, follow" />
-    
-    <!-- Free Backlinks & SEO -->
-    <link rel="author" href="https://primedigitalcreative.com/hakkimizda" />
-    <link rel="me" href="https://www.instagram.com/primedigitalcreative" />
-    <link rel="me" href="https://www.linkedin.com/company/primedigitalcreative" />
-    <link rel="alternate" hreflang="tr" href="https://primedigitalcreative.com/" />
-    
-    <!-- Schema.org JSON-LD (defer for performance) -->
-    <script type="application/ld+json">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#e4ac20" />
+
+  <link rel="icon" type="image/png" href="/logo.png?v=2" />
+  <link rel="manifest" href="/manifest.json?v=2" />
+
+  <!-- DNS Prefetch & Preconnect -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Font Loading Optimization -->
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+    media="print" onload="this.media='all'" />
+
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" />
+  </noscript>
+
+  <!-- Critical CSS -->
+  <style>
+    body {
+      font-family: 'Poppins', system-ui, sans-serif;
+      margin: 0;
+      background: #f6f6f6;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale
+    }
+
+    .text-prime-black {
+      color: #292929
+    }
+
+    .bg-prime-yellow {
+      background-color: #e4ac20
+    }
+
+    .font-medium {
+      font-weight: 500
+    }
+
+    .font-semibold {
+      font-weight: 600
+    }
+
+    .text-4xl {
+      font-size: 2.25rem;
+      line-height: 2.5rem
+    }
+
+    .text-5xl {
+      font-size: 3rem;
+      line-height: 1
+    }
+
+    .text-6xl {
+      font-size: 3.75rem;
+      line-height: 1
+    }
+
+    .text-7xl {
+      font-size: 4.5rem;
+      line-height: 1
+    }
+
+    .mb-12 {
+      margin-bottom: 3rem
+    }
+
+    .container-custom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem
+    }
+
+    .text-center {
+      text-align: center
+    }
+
+    .min-h-screen {
+      min-height: 100vh
+    }
+
+    .flex {
+      display: flex
+    }
+
+    .flex-col {
+      flex-direction: column
+    }
+
+    .justify-center {
+      justify-content: center
+    }
+
+    .relative {
+      position: relative
+    }
+
+    .pt-24 {
+      padding-top: 6rem
+    }
+
+    .pb-12 {
+      padding-bottom: 3rem
+    }
+
+    .z-10 {
+      z-index: 10
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .mb-6 {
+      margin-bottom: 1.5rem
+    }
+
+    .px-10 {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem
+    }
+
+    .py-5 {
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem
+    }
+
+    .rounded-full {
+      border-radius: 9999px
+    }
+
+    .shadow-lg {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1)
+    }
+
+    .leading-tight {
+      line-height: 1.2
+    }
+
+    @media (min-width:640px) {
+      .sm\:text-5xl {
+        font-size: 3rem
+      }
+    }
+
+    @media (min-width:768px) {
+      .md\:text-6xl {
+        font-size: 3.75rem
+      }
+    }
+
+    @media (min-width:1024px) {
+      .lg\:text-7xl {
+        font-size: 4.5rem
+      }
+    }
+
+    #app {
+      opacity: 0;
+      animation: fadeIn 0.3s ease-out forwards
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1
+      }
+    }
+  </style>
+
+  <title>Prime Dijital | Web Tasarım & SEO İstanbul</title>
+  <meta name="description"
+    content="İstanbul web tasarım ve SEO ajansı. Mobil uyumlu web siteleri, mobil uygulamalar ve dijital pazarlama çözümleri." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Free Backlinks & SEO -->
+  <link rel="author" href="https://primedigitalcreative.com/hakkimizda" />
+  <link rel="me" href="https://www.instagram.com/primedigitalcreative" />
+  <link rel="me" href="https://www.linkedin.com/company/primedigitalcreative" />
+  <link rel="alternate" hreflang="tr" href="https://primedigitalcreative.com/" />
+
+  <!-- Schema.org JSON-LD (defer for performance) -->
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
@@ -151,9 +273,11 @@
       ]
     }
     </script>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
