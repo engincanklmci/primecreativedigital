@@ -3,6 +3,27 @@ import { MessageCircle, X, Send, User, Bot, Phone, Mail, Clock } from 'lucide-re
 import { trackEvent } from '../utils/analytics';
 
 const LiveChat = () => {
+  // Load Calendly widget script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    const link = document.createElement('link');
+    link.href = 'https://assets.calendly.com/assets/external/widget.css';
+    link.rel = 'stylesheet';
+    document.body.appendChild(link);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+      if (document.body.contains(link)) {
+        document.body.removeChild(link);
+      }
+    };
+  }, []);
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
@@ -21,25 +42,25 @@ const LiveChat = () => {
         "Teklif almak istiyorum"
       ]
     },
-    
+
     responses: {
       "web tasarım fiyatları": {
-        message: "Web tasarım fiyatlarımız proje kapsamına göre değişmektedir:\n\n💼 Kurumsal Web: 15.000₺ - 35.000₺\n🛒 E-ticaret: 25.000₺ - 50.000₺\n📱 Responsive Tasarım: Dahil\n🔧 1 Yıl Bakım: Ücretsiz\n\nDetaylı teklif için iletişim bilgilerinizi alabilir miyim?",
+        message: "Fiyatlandırmamız projenin kapsamına ve ihtiyaçlarınıza göre belirlenmektedir. Size en uygun teklifi sunabilmemiz ve detayları görüşebilmemiz için lütfen randevu alınız. 📅\n\n'Randevu Al' butonuna tıklayarak uygun zamanı seçebilirsiniz.",
         nextStage: "contact"
       },
-      
+
       "seo hizmetleri": {
-        message: "SEO hizmetlerimiz ile Google'da üst sıralara çıkın! 🚀\n\n✅ Teknik SEO Analizi\n✅ Anahtar Kelime Araştırması\n✅ İçerik Optimizasyonu\n✅ Link Building\n✅ Aylık Raporlama\n\nAylık 5.000₺'den başlayan paketlerimiz var. Size özel teklif hazırlayalım mı?",
+        message: "SEO hizmetlerimiz ile Google'da üst sıralara çıkın! 🚀\n\nFiyat ve hizmet detayları projenize özel olarak belirlenir. Detaylı bilgi ve size özel teklifimiz için lütfen randevu oluşturunuz.",
         nextStage: "contact"
       },
-      
+
       "mobil uygulama": {
-        message: "Mobil uygulama geliştirme hizmetlerimiz:\n\n📱 iOS & Android\n⚡ React Native / Flutter\n🎨 UI/UX Tasarım Dahil\n🔧 Backend Geliştirme\n📊 Analytics Entegrasyonu\n\nFiyatlar 30.000₺'den başlıyor. Projenizi konuşalım mı?",
+        message: "Mobil uygulama projelerinizde size özel çözümler sunuyoruz.\n\nFiyatlandırma ve teknik detayları konuşmak için uzman ekibimizle görüşmeniz gerekmektedir. Lütfen 'Randevu Al' butonunu kullanarak randevunuzu oluşturun.",
         nextStage: "contact"
       },
-      
+
       "teklif almak istiyorum": {
-        message: "Harika! Size özel teklif hazırlamak için birkaç bilgiye ihtiyacım var:\n\n📋 Hangi hizmetimizle ilgileniyorsunuz?\n🎯 Projenizin hedefi nedir?\n⏰ Ne zaman başlamak istiyorsunuz?\n\nİletişim bilgilerinizi de alabilir miyim?",
+        message: "Harika! Size özel teklif hazırlamak için görüşme randevusu oluşturalım! 🎯\n\n📋 Hangi hizmetimizle ilgileniyorsunuz?\n🎯 Projenizin hedefi nedir?\n⏰ Ne zaman başlamak istiyorsunuz?\n\nTüm detayları randevuda konuşabiliriz. 'Randevu Al' butonuna tıklayın!",
         nextStage: "contact"
       }
     }
@@ -49,17 +70,23 @@ const LiveChat = () => {
     {
       icon: <Phone className="w-4 h-4" />,
       text: "Hemen Ara",
-      action: () => window.location.href = "tel:+902125550123"
+      action: () => window.location.href = "tel:+905359495305"
     },
     {
       icon: <Mail className="w-4 h-4" />,
       text: "Email Gönder",
-      action: () => window.location.href = "mailto:info@primedigitalcreative.com"
+      action: () => window.location.href = "mailto:primeagency@zohomail.eu"
     },
     {
       icon: <Clock className="w-4 h-4" />,
       text: "Randevu Al",
-      action: () => window.open("https://calendly.com/primedigital", "_blank")
+      action: () => {
+        if (window.Calendly) {
+          window.Calendly.initPopupWidget({ url: 'https://calendly.com/kelemciengincan/30min' });
+        } else {
+          window.open('https://calendly.com/kelemciengincan/30min', '_blank');
+        }
+      }
     }
   ];
 
@@ -109,7 +136,7 @@ const LiveChat = () => {
     addUserMessage(inputMessage);
     handleBotResponse(inputMessage.toLowerCase());
     setInputMessage('');
-    
+
     // Track chat interaction
     trackEvent('chat_message_sent', 'engagement', inputMessage);
   };
@@ -122,7 +149,7 @@ const LiveChat = () => {
   const handleBotResponse = (userInput) => {
     // Find matching response
     const response = botResponses.responses[userInput];
-    
+
     if (response) {
       setTimeout(() => {
         addBotMessage(response.message);
@@ -134,7 +161,7 @@ const LiveChat = () => {
       // Default response for unmatched input
       setTimeout(() => {
         addBotMessage(
-          "Anlıyorum! Bu konuda size daha detaylı bilgi verebilmek için uzmanlarımızdan biriyle görüşmenizi öneriyorum. İletişim bilgilerinizi alabilir miyim? 📞"
+          "Anlıyorum! Bu konuda size daha detaylı bilgi verebilmek için uzmanlarımızdan biriyle görüşmenizi öneriyorum. Randevu oluşturmak için 'Randevu Al' butonuna tıklayabilirsiniz! 📅"
         );
         setChatStage('contact');
       }, 1000);
@@ -154,8 +181,8 @@ const LiveChat = () => {
           onClick={toggleChat}
           className={`
             w-14 h-14 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center
-            ${isOpen 
-              ? 'bg-red-500 hover:bg-red-600' 
+            ${isOpen
+              ? 'bg-red-500 hover:bg-red-600'
               : 'bg-prime-yellow hover:bg-yellow-400 animate-pulse'
             }
           `}
@@ -170,7 +197,7 @@ const LiveChat = () => {
             <MessageCircle className="w-6 h-6 text-black" />
           )}
         </button>
-        
+
         {/* Notification Badge */}
         {!isOpen && (
           <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
@@ -201,13 +228,13 @@ const LiveChat = () => {
               <div key={message.id} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`
                   max-w-xs p-3 rounded-lg text-sm
-                  ${message.sender === 'user' 
-                    ? 'bg-prime-yellow text-black' 
+                  ${message.sender === 'user'
+                    ? 'bg-prime-yellow text-black'
                     : 'bg-gray-100 text-gray-900'
                   }
                 `}>
                   <div className="whitespace-pre-line">{message.text}</div>
-                  
+
                   {/* Options */}
                   {message.options && (
                     <div className="mt-3 space-y-2">
@@ -225,20 +252,20 @@ const LiveChat = () => {
                 </div>
               </div>
             ))}
-            
+
             {/* Typing Indicator */}
             {isTyping && (
               <div className="flex justify-start">
                 <div className="bg-gray-100 p-3 rounded-lg">
                   <div className="flex space-x-1">
                     <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                   </div>
                 </div>
               </div>
             )}
-            
+
             <div ref={messagesEndRef} />
           </div>
 

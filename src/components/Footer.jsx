@@ -42,10 +42,8 @@ const Footer = () => {
             </p>
             <div className="flex space-x-3">
               {[
-                { icon: <Facebook size={18} />, href: "https://www.facebook.com/primedigitalcreative", label: "Facebook" },
-                { icon: <Instagram size={18} />, href: "https://www.instagram.com/primedigitalcreative", label: "Instagram" },
-                { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/company/primedigitalcreative", label: "LinkedIn" },
-                { icon: <Twitter size={18} />, href: "https://twitter.com/primedigitaltr", label: "X (Twitter)" }
+                { icon: <Instagram size={18} />, href: "https://www.instagram.com/primedijital.co/", label: "Instagram" },
+                { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/company/primedigitalcreative", label: "LinkedIn" }
               ].map((social, index) => (
                 <motion.a
                   key={index}
@@ -139,7 +137,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3 text-white/60 group hover:text-white/80 transition-colors">
                 <Mail className="text-[#e4ac20] flex-shrink-0 group-hover:scale-110 transition-transform" size={20} />
-                <a href="mailto:primedigitalcreative@gmail.com" className="hover:text-[#e4ac20] break-all">primedigitalcreative@gmail.com</a>
+                <a href="mailto:primeagency@zohomail.eu" className="hover:text-[#e4ac20] break-all">primeagency@zohomail.eu</a>
               </li>
             </ul>
           </motion.div>

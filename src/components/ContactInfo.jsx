@@ -12,14 +12,14 @@ const ContactInfo = ({ variant = 'default', className = '' }) => {
       country: "Türkiye"
     },
     phone: {
-      primary: "+90 212 555 0123",
-      mobile: "+90 535 555 0123",
-      formatted: "(212) 555 01 23"
+      primary: "+90 535 949 53 05",
+      mobile: "+90 535 949 53 05",
+      formatted: "+90 535 949 53 05"
     },
     email: {
-      info: "info@primedigitalcreative.com",
-      sales: "satis@primedigitalcreative.com",
-      support: "destek@primedigitalcreative.com"
+      info: "primeagency@zohomail.eu",
+      sales: "primeagency@zohomail.eu",
+      support: "primeagency@zohomail.eu"
     },
     workingHours: {
       weekdays: "Pazartesi - Cuma: 09:00 - 18:00",

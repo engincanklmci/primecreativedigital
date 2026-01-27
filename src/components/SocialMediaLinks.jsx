@@ -13,7 +13,7 @@ const SocialMediaLinks = ({ className = '', showLabels = false, size = 'md' }) =
     },
     {
       name: 'Instagram',
-      url: 'https://www.instagram.com/primedigitalcreative',
+      url: 'https://www.instagram.com/primedijital.co/',
       icon: Instagram,
       color: 'hover:text-pink-600',
       description: 'Instagram hesabımızı takip edin'
@@ -95,10 +95,10 @@ export const SocialMediaFollow = () => {
       <p className="text-gray-600 mb-4">
         Güncel projelerimizi, ipuçlarını ve sektör haberlerini kaçırmayın
       </p>
-      <SocialMediaLinks 
-        className="justify-center" 
-        showLabels={false} 
-        size="lg" 
+      <SocialMediaLinks
+        className="justify-center"
+        showLabels={false}
+        size="lg"
       />
       <div className="mt-4 text-sm text-gray-500">
         <p>📺 YouTube kanalımızda ücretsiz eğitim videoları</p>
