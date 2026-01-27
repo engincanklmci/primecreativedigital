@@ -1,17 +1,15 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   
-  // Optimized build configuration
   build: {
     minify: 'terser',
     target: 'es2015',
     sourcemap: false,
+    cssCodeSplit: true,
     
-    // Code splitting for better performance
     rollupOptions: {
       output: {
         manualChunks(id) {
@@ -19,43 +17,47 @@ export default defineConfig({
             if (id.includes('react') || id.includes('react-dom')) {
               return 'vendor';
             }
+            if (id.includes('framer-motion')) {
+              return 'animations';
+            }
+            if (id.includes('lucide-react')) {
+              return 'icons';
+            }
             if (id.includes('react-router-dom')) {
               return 'router';
             }
-            if (id.includes('framer-motion') || id.includes('lucide-react')) {
-              return 'ui';
-            }
-            if (id.includes('react-helmet-async')) {
-              return 'utils';
-            }
             return 'vendor';
           }
-        }
+        },
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]'
       }
     },
     
-    // Optimize chunks
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 800,
     
-    // Terser options for better minification
     terserOptions: {
       compress: {
         drop_console: true,
         drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info', 'console.debug'],
+        passes: 2
       },
       mangle: {
         safari10: true
+      },
+      format: {
+        comments: false
       }
     }
   },
   
-  // Development server
   server: {
     port: 3000,
     open: true,
   },
   
-  // Preview server
   preview: {
     port: 4173,
     open: true,
