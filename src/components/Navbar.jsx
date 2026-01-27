@@ -16,7 +16,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
@@ -35,39 +34,55 @@ const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled || isOpen ? 'bg-prime-white/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+          scrolled ? 'bg-[#f6f6f6]/80 backdrop-blur-xl shadow-lg border-b border-[#292929]/5 py-3' : 'bg-transparent py-5'
         }`}
       >
         <div className="container-custom flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-2 z-50">
-            {/* Logo Image */}
-            <img 
+          <Link to="/" className="flex items-center gap-2 z-50 group">
+            <motion.img 
               src="/logo.png" 
               alt="Prime Dijital" 
               width="48"
               height="48"
               className="h-12 w-auto object-contain" 
               style={{ backgroundColor: 'transparent' }}
+              whileHover={{ rotate: 5, scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             />
-            <span className="text-2xl font-bold tracking-tighter flex items-center gap-1">
-              Prime<span className="bg-prime-yellow text-prime-black px-2 py-0.5 rounded-md">Dijital</span>
+            <span className="text-2xl font-black tracking-tight flex items-center gap-1 text-[#292929]">
+              Prime
+              <motion.span 
+                className="bg-gradient-to-r from-[#e4ac20] to-[#c99416] text-[#292929] px-2.5 py-1 rounded-lg font-black"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                Dijital
+              </motion.span>
             </span>
           </Link>
           
-          {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             {links.map((item) => (
               <Link 
                 key={item.name} 
                 to={item.path} 
-                className={`text-sm font-medium transition-colors relative group ${
-                  location.pathname === item.path ? 'text-prime-yellow' : 'text-prime-black hover:text-prime-yellow'
-                }`}
+                className="relative text-sm font-semibold transition-colors group"
               >
-                {item.name}
+                <span className={`relative z-10 ${
+                  location.pathname === item.path ? 'text-[#e4ac20]' : 'text-[#292929]/80 group-hover:text-[#e4ac20]'
+                }`}>
+                  {item.name}
+                </span>
                 {location.pathname === item.path && (
-                  <motion.span layoutId="underline" className="absolute -bottom-1 left-0 w-full h-0.5 bg-prime-yellow" />
+                  <motion.span 
+                    layoutId="underline" 
+                    className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#e4ac20] to-[#c99416]"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                {location.pathname !== item.path && (
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#e4ac20] to-[#c99416] group-hover:w-full transition-all duration-300 ease-out" />
                 )}
               </Link>
             ))}
@@ -75,54 +90,76 @@ const Navbar = () => {
           
           <div className="hidden md:flex items-center gap-3">
             <Link to="/iletisim">
-              <button className="bg-prime-yellow text-prime-black px-6 py-2 rounded-md text-sm font-bold hover:bg-yellow-400 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                İletişime Geç
-              </button>
+              <motion.button 
+                className="relative bg-gradient-to-r from-[#e4ac20] to-[#c99416] text-[#292929] px-6 py-2.5 rounded-full text-sm font-bold shadow-lg overflow-hidden group"
+                whileHover={{ scale: 1.05, y: -1 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-[#f0c563] to-[#e4ac20] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left"></span>
+                <span className="relative z-10">İletişime Geç</span>
+              </motion.button>
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <button 
-            className="md:hidden z-50 text-prime-black"
+            className="md:hidden z-50 text-[#292929]"
             onClick={() => setIsOpen(!isOpen)}
             type="button"
             aria-label={isOpen ? 'Menüyü kapat' : 'Menüyü aç'}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
           >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            <motion.div
+              animate={{ rotate: isOpen ? 90 : 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </motion.div>
           </button>
         </div>
       </motion.nav>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: '100vh' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
             id="mobile-menu"
-            className="fixed inset-0 bg-prime-white z-40 md:hidden pt-24 px-6 flex flex-col"
+            className="fixed inset-0 bg-gradient-to-br from-[#f6f6f6] to-[#f6f6f6] z-40 md:hidden pt-24 px-6 flex flex-col backdrop-blur-2xl"
           >
             <div className="flex flex-col space-y-6 text-center">
-              {links.map((item) => (
-                <Link 
-                  key={item.name} 
-                  to={item.path} 
-                  className={`text-2xl font-bold transition-colors ${
-                    location.pathname === item.path ? 'text-prime-yellow' : 'text-prime-black hover:text-prime-yellow'
-                  }`}
+              {links.map((item, index) => (
+                <motion.div
+                  key={item.name}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  {item.name}
-                </Link>
+                  <Link 
+                    to={item.path} 
+                    className={`text-2xl font-black transition-colors ${
+                      location.pathname === item.path ? 'text-[#e4ac20]' : 'text-[#292929] hover:text-[#e4ac20]'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
               ))}
-              <Link to="/iletisim" className="pt-4">
-                <button className="bg-prime-yellow text-prime-black px-8 py-3 rounded-md text-lg font-bold w-full hover:bg-yellow-400 transition-all">
-                  İletişime Geç
-                </button>
-              </Link>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="pt-4"
+              >
+                <Link to="/iletisim">
+                  <button className="bg-gradient-to-r from-[#e4ac20] to-[#c99416] text-[#292929] px-8 py-4 rounded-full text-lg font-black w-full shadow-xl">
+                    İletişime Geç
+                  </button>
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}

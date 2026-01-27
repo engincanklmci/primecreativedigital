@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import CTA from '../components/CTA';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const team = [
   {
@@ -56,6 +57,12 @@ const About = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Hakkımızda - Prime Dijital | İstanbul Dijital Ajans</title>
+        <meta name="description" content="Prime Dijital hakkında bilgi edinin. 5 yıllık deneyimle grafik tasarım, web yazılım ve dijital pazarlama hizmetleri sunan İstanbul merkezli dijital ajansımız." />
+        <meta name="keywords" content="hakkımızda, prime dijital, dijital ajans, istanbul, web tasarım, grafik tasarım, yazılım geliştirme" />
+        <link rel="canonical" href="https://primedigitalcreative.com/about" />
+      </Helmet>
       <Navbar />
       <div className="pt-32 pb-20">
         <div className="container-custom text-center mb-20">

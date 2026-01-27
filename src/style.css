@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-prime-white: #F8F8F6; /* İnci Beyazı */
-  --color-prime-black: #2C2C2C; /* Soft Kömür Siyahı */
-  --color-prime-yellow: #E3AB1E; /* Logo ile aynı sarı renk */
-  --color-prime-yellow-light: #F4D580; /* Daha açık ton */
-  --color-prime-gray: #F3F4F6;
+  --color-prime-white: #f6f6f6;
+  --color-prime-black: #292929;
+  --color-prime-yellow: #e4ac20;
+  --color-prime-yellow-light: #f0c563;
+  --color-prime-yellow-dark: #c99416;
+  --color-prime-gray: #f6f6f6;
   
-  --font-sans: 'Inter', sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 body {
@@ -27,10 +28,10 @@ html {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #F8F8F6;
+  background: #f6f6f6;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2C2C2C;
+  background: #292929;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -62,7 +63,7 @@ html {
   width: 20px;
   height: 20px;
   border: 2px solid #f3f3f3;
-  border-top: 2px solid #E3AB1E;
+  border-top: 2px solid #e4ac20;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }

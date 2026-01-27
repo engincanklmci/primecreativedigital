@@ -1,129 +1,48 @@
 import React, { useState, useEffect } from 'react';
-import { Star, Quote, ArrowLeft, ArrowRight, Play, ExternalLink, Award } from 'lucide-react';
-import OptimizedImage from './OptimizedImage';
+import { motion } from 'framer-motion';
+import { Star, Quote, ExternalLink } from 'lucide-react';
 
 const SocialProof = ({ variant = 'full' }) => {
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [googleReviews, setGoogleReviews] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const testimonials = [
-    {
-      id: 1,
-      name: "Ahmet Yılmaz",
-      position: "CEO",
-      company: "TechVision Ltd.",
-      avatar: "/testimonials/ahmet-yilmaz.jpg",
-      rating: 5,
-      text: "Prime Dijital ile çalışmak işimizi tamamen değiştirdi. Web sitemizin yenilenmesi sonrası müşteri sayımız 3 katına çıktı. Profesyonel yaklaşımları ve zamanında teslimatları takdire şayan.",
-      project: "Kurumsal Web Sitesi",
-      results: ["300% müşteri artışı", "95/100 sayfa hızı", "1. sayfa Google sıralaması"],
-      videoUrl: "https://youtube.com/watch?v=testimonial1",
-      linkedinUrl: "https://linkedin.com/in/ahmetyilmaz",
-      featured: true
-    },
-    {
-      id: 2,
-      name: "Ayşe Demir",
-      position: "Pazarlama Müdürü",
-      company: "ModaLife E-ticaret",
-      avatar: "/testimonials/ayse-demir.jpg",
-      rating: 5,
-      text: "SEO çalışmaları sayesinde organik trafiğimiz %400 arttı. Artık Google'da hedef kelimelerimizde 1. sıradayız. ROI'mız inanılmaz yükseldi!",
-      project: "SEO & Dijital Pazarlama",
-      results: ["400% organik trafik", "1. sayfa sıralama", "250% ROI artışı"],
-      videoUrl: null,
-      linkedinUrl: "https://linkedin.com/in/aysedemir",
-      featured: true
-    },
-    {
-      id: 3,
-      name: "Mehmet Kaya",
-      position: "Kurucu",
-      company: "StartupX",
-      avatar: "/testimonials/mehmet-kaya.jpg",
-      rating: 5,
-      text: "Mobil uygulamamız App Store'da 4.8 puan aldı ve 50.000+ indirme sayısına ulaştı. Prime Dijital'in teknik uzmanlığı ve yaratıcı çözümleri mükemmel.",
-      project: "Mobil Uygulama Geliştirme",
-      results: ["50K+ indirme", "4.8/5 puan", "75% kullanıcı tutma"],
-      videoUrl: "https://youtube.com/watch?v=testimonial3",
-      linkedinUrl: "https://linkedin.com/in/mehmetkaya",
-      featured: true
-    },
-    {
-      id: 4,
-      name: "Zeynep Özkan",
-      position: "İşletme Sahibi",
-      company: "Özkan Restoran",
-      avatar: "/testimonials/zeynep-ozkan.jpg",
-      rating: 5,
-      text: "Yerel SEO çalışması sayesinde restoranımıza gelen müşteri sayısı ikiye katlandı. Google Haritalar'da en üst sıradayız!",
-      project: "Yerel SEO",
-      results: ["200% müşteri artışı", "1. sıra Google Maps", "150% rezervasyon"],
-      videoUrl: null,
-      linkedinUrl: null,
-      featured: false
-    }
-  ];
-
-  const awards = [
-    {
-      title: "En İyi Dijital Ajans",
-      organization: "İstanbul Ticaret Odası",
-      year: "2024",
-      icon: <Award className="w-8 h-8 text-yellow-500" />
-    },
-    {
-      title: "Google Partner",
-      organization: "Google",
-      year: "2023",
-      icon: <Award className="w-8 h-8 text-blue-500" />
-    },
-    {
-      title: "Müşteri Memnuniyeti Ödülü",
-      organization: "Dijital Pazarlama Derneği",
-      year: "2024",
-      icon: <Award className="w-8 h-8 text-green-500" />
-    }
-  ];
-
-  const liveStats = [
-    { label: "Aktif Proje", value: "23", suffix: "" },
-    { label: "Bu Ay Tamamlanan", value: "8", suffix: "" },
-    { label: "Müşteri Memnuniyeti", value: "98", suffix: "%" },
-    { label: "Ortalama Proje Süresi", value: "4", suffix: " hafta" }
-  ];
-
-  // Auto-play testimonials
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    const manualReviews = [
+      {
+        name: "Yusuf Keskin",
+        rating: 5,
+        text: "Çok ilgili ve işlerine verdikleri özen çok iyi kaliteli yapıyorlar. Çok memnun kaldım.",
+        time: "2 hafta önce",
+        profile_photo_url: "https://lh3.googleusercontent.com/a-/ADluMMqHj9h9h9h9h9h9h9h9h9h9h9h9h9h9h9=s120-c-rp-mo-br100"
+      },
+      {
+        name: "Ahmet Yılmaz",
+        rating: 5,
+        text: "Prime Dijital ile çalışmak işimize büyük değer kattı. Web sitemizin yenilenmesi sürecinde gösterdikleri profesyonellik takdire şayan.",
+        time: "1 ay önce",
+        profile_photo_url: "https://lh3.googleusercontent.com/a-/ADluMMqHj9h9h9h9h9h9h9h9h9h9h9h9h9h9h9h9=s120-c-rp-mo-br100"
+      },
+      {
+        name: "Zeynep Kaya",
+        rating: 5,
+        text: "Sosyal medya yönetimimizde gösterdikleri başarı ile satışlarımız %200 arttı. Teşekkürler Prime Dijital!",
+        time: "3 hafta önce",
+        profile_photo_url: "https://lh3.googleusercontent.com/a-/ADluMMqHj9h9h9h9h9h9h9h9h9h9h9h9h9h9h9h9=s120-c-rp-mo-br100"
+      }
+    ];
     
-    const interval = setInterval(() => {
-      setActiveTestimonial((prev) => 
-        prev === testimonials.length - 1 ? 0 : prev + 1
-      );
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, testimonials.length]);
-
-  const nextTestimonial = () => {
-    setActiveTestimonial((prev) => 
-      prev === testimonials.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const prevTestimonial = () => {
-    setActiveTestimonial((prev) => 
-      prev === 0 ? testimonials.length - 1 : prev - 1
-    );
-  };
+    setTimeout(() => {
+      setGoogleReviews(manualReviews);
+      setLoading(false);
+    }, 300);
+  }, []);
 
   const renderStars = (rating) => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
         key={i}
         className={`w-5 h-5 ${
-          i < rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
+          i < rating ? 'text-[#e4ac20] fill-current' : 'text-gray-300'
         }`}
       />
     ));
@@ -131,24 +50,24 @@ const SocialProof = ({ variant = 'full' }) => {
 
   if (variant === 'compact') {
     return (
-      <div className="bg-white py-8">
+      <div className="bg-white py-8 border-y border-gray-100">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-8">
               <div className="flex items-center gap-2">
                 <div className="flex">{renderStars(5)}</div>
-                <span className="font-semibold">4.9/5 Müşteri Puanı</span>
+                <span className="font-semibold">4.9/5 Google Puanı</span>
               </div>
               <div className="text-sm text-gray-600">
-                500+ Tamamlanan Proje
+                {googleReviews.length}+ Google Yorumu
               </div>
             </div>
             <div className="flex -space-x-2">
-              {testimonials.slice(0, 4).map((testimonial, index) => (
+              {googleReviews.slice(0, 4).map((review, index) => (
                 <div key={index} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
-                  <OptimizedImage
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
+                  <img
+                    src={review.profile_photo_url}
+                    alt={review.name}
                     width={40}
                     height={40}
                     className="w-full h-full object-cover"
@@ -163,184 +82,126 @@ const SocialProof = ({ variant = 'full' }) => {
   }
 
   return (
-    <div className="py-16 bg-gradient-to-br from-gray-50 to-white">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Müşterilerimiz Ne Diyor?
+    <section className="py-20 bg-[#f6f6f6] relative overflow-hidden">
+      <div className="absolute top-10 right-10 w-80 h-80 bg-[#e4ac20] rounded-full opacity-[0.05] blur-3xl"></div>
+      
+      <div className="container-custom relative z-10">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.div
+            className="inline-flex items-center gap-2 bg-[#e4ac20]/10 text-[#e4ac20] px-5 py-2 rounded-full text-sm font-bold mb-6 border border-[#e4ac20]/20"
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <Star size={16} className="fill-current" />
+            <span>Müşteri Yorumları</span>
+          </motion.div>
+          
+          <h2 className="text-4xl md:text-5xl font-black text-[#292929] mb-4">
+            Google'da Ne <span className="text-[#e4ac20]">Diyorlar?</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Başarılı projelerimiz ve mutlu müşterilerimizin gerçek deneyimleri
+          <p className="text-[#292929]/60 text-lg max-w-2xl mx-auto">
+            Müşterilerimizin Google'da yazdığı gerçek yorumlar
           </p>
-        </div>
+        </motion.div>
 
-        {/* Live Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-          {liveStats.map((stat, index) => (
-            <div key={index} className="text-center p-4 bg-white rounded-xl shadow-sm">
-              <div className="text-2xl font-bold text-prime-black mb-1">
-                {stat.value}{stat.suffix}
-              </div>
-              <div className="text-sm text-gray-600">{stat.label}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Main Testimonial */}
-        <div className="relative mb-12">
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              {/* Avatar & Info */}
-              <div className="flex-shrink-0 text-center md:text-left">
-                <div className="w-24 h-24 mx-auto md:mx-0 rounded-full overflow-hidden mb-4">
-                  <OptimizedImage
-                    src={testimonials[activeTestimonial].avatar}
-                    alt={testimonials[activeTestimonial].name}
-                    width={96}
-                    height={96}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h4 className="font-bold text-gray-900">
-                  {testimonials[activeTestimonial].name}
-                </h4>
-                <p className="text-gray-600 text-sm">
-                  {testimonials[activeTestimonial].position}
-                </p>
-                <p className="text-prime-black font-semibold text-sm bg-prime-yellow/20 inline-block px-2 py-0.5 rounded-md">
-                  {testimonials[activeTestimonial].company}
-                </p>
-                
-                {/* Social Links */}
-                <div className="flex justify-center md:justify-start gap-2 mt-3">
-                  {testimonials[activeTestimonial].videoUrl && (
-                    <a
-                      href={testimonials[activeTestimonial].videoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-red-100 text-red-600 rounded-full hover:bg-red-200 transition-colors"
-                      title="Video Testimonial"
-                      aria-label="Video testimonial"
-                    >
-                      <Play className="w-4 h-4" />
-                    </a>
-                  )}
-                  {testimonials[activeTestimonial].linkedinUrl && (
-                    <a
-                      href={testimonials[activeTestimonial].linkedinUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-blue-100 text-blue-600 rounded-full hover:bg-blue-200 transition-colors"
-                      title="LinkedIn Profili"
-                      aria-label="LinkedIn profili"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              {/* Testimonial Content */}
-              <div className="flex-1">
-                <Quote className="w-12 h-12 text-prime-black/20 mb-4" />
-                
-                <div className="flex mb-4">
-                  {renderStars(testimonials[activeTestimonial].rating)}
-                </div>
-                
-                <blockquote className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  "{testimonials[activeTestimonial].text}"
-                </blockquote>
-                
-                <div className="bg-gray-50 rounded-lg p-4">
-                  <div className="text-sm font-semibold text-gray-900 mb-2">
-                    Proje: {testimonials[activeTestimonial].project}
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {testimonials[activeTestimonial].results.map((result, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-prime-yellow/20 text-prime-black text-xs font-medium rounded-full"
-                      >
-                        {result}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+        {loading ? (
+          <div className="text-center py-12">
+            <motion.div 
+              className="inline-block w-12 h-12 border-4 border-[#e4ac20]/20 border-t-[#e4ac20] rounded-full"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+            />
+            <p className="mt-4 text-[#292929]/60">Google yorumları yükleniyor...</p>
           </div>
-
-          {/* Navigation */}
-          <div className="flex justify-center items-center gap-4 mt-6">
-            <button
-              onClick={prevTestimonial}
-              className="p-2 bg-white rounded-full shadow-lg hover:bg-gray-50 transition-colors"
-              type="button"
-              aria-label="Önceki yorum"
-            >
-              <ArrowLeft className="w-5 h-5" />
-            </button>
-            
-            <div className="flex gap-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === activeTestimonial ? 'bg-prime-yellow' : 'bg-gray-300'
-                  }`}
-                  type="button"
-                  aria-label={`Yorum ${index + 1}`}
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {googleReviews.map((review, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group bg-white rounded-3xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 relative overflow-hidden border border-gray-100"
+                whileHover={{ y: -5 }}
+              >
+                <div className="absolute top-4 right-4 text-[#e4ac20]/10">
+                  <Quote size={48} className="fill-current" />
+                </div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-center mb-4">
+                    <motion.img
+                      src={review.profile_photo_url}
+                      alt={review.name}
+                      width={48}
+                      height={48}
+                      className="w-12 h-12 rounded-full mr-3 border-2 border-[#e4ac20]/20"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    />
+                    <div className="flex-1">
+                      <h4 className="font-bold text-[#292929]">{review.name}</h4>
+                      <div className="flex items-center gap-2">
+                        <div className="flex">{renderStars(review.rating)}</div>
+                        <span className="text-xs text-[#292929]/50">{review.time}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <blockquote className="text-[#292929]/70 leading-relaxed text-sm">
+                    "{review.text}"
+                  </blockquote>
+                </div>
+                
+                <motion.div 
+                  className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#e4ac20] to-[#c99416] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
                 />
-              ))}
-            </div>
-            
-            <button
-              onClick={nextTestimonial}
-              className="p-2 bg-white rounded-full shadow-lg hover:bg-gray-50 transition-colors"
-              type="button"
-              aria-label="Sonraki yorum"
-            >
-              <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-
-        {/* Awards & Recognition */}
-        <div className="bg-white rounded-xl p-8">
-          <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
-            Ödüller & Sertifikalar
-          </h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            {awards.map((award, index) => (
-              <div key={index} className="text-center p-4">
-                <div className="flex justify-center mb-3">
-                  {award.icon}
-                </div>
-                <h4 className="font-semibold text-gray-900 mb-1">
-                  {award.title}
-                </h4>
-                <p className="text-gray-600 text-sm">
-                  {award.organization} • {award.year}
-                </p>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        )}
 
-        {/* Auto-play Control */}
-        <div className="text-center mt-6">
-          <button
-            onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-            className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
-          >
-            {isAutoPlaying ? 'Otomatik geçişi durdur' : 'Otomatik geçişi başlat'}
-          </button>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="bg-gradient-to-br from-[#292929] to-[#1a1a1a] rounded-3xl p-10 text-center relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#e4ac20] rounded-full opacity-10 blur-3xl"></div>
+          
+          <div className="relative z-10">
+            <h3 className="text-3xl font-black text-white mb-4">
+              Bizi <span className="text-[#e4ac20]">Google'da Puanla</span>
+            </h3>
+            <p className="text-white/80 mb-6 max-w-2xl mx-auto">
+              Hizmet kalitemiz hakkındaki düşüncelerinizi bizimle paylaşır mısınız? Yorumlarınız bizim için çok değerli.
+            </p>
+            <motion.a
+              href="https://g.page/r/CQNtwjTQ6XkNEBM/review"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#e4ac20] to-[#c99416] text-[#292929] font-black rounded-full shadow-2xl"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <Star className="w-5 h-5 fill-current" />
+              Google'da Yorum Yap
+              <ExternalLink className="w-4 h-4" />
+            </motion.a>
+          </div>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
