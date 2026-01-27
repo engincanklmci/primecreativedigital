@@ -2,9 +2,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 const SEOHead = ({
-  title = "Prime Dijital | Web Tasarım & Dijital Pazarlama Ajansı İstanbul",
-  description = "Prime Dijital ile işinizi dijital dünyada zirveye taşıyın. Profesyonel web tasarım, SEO, mobil uygulama ve dijital pazarlama hizmetleri.",
-  keywords = "web tasarım İstanbul, dijital ajans, SEO hizmetleri, mobil uygulama geliştirme, grafik tasarım, dijital pazarlama, e-ticaret çözümleri",
+  title = "Prime Dijital | Web Tasarım & SEO İstanbul",
+  description = "İstanbul web tasarım ve SEO ajansı. Mobil uyumlu, hızlı ve Google dostu web siteleri & mobil uygulamalar.",
+  keywords = "web tasarım İstanbul, SEO ajansı, mobil uygulama geliştirme, dijital pazarlama, kurumsal web sitesi",
   image = "/logo.png",
   url = "https://primedigitalcreative.com",
   type = "website",
