@@ -133,8 +133,10 @@ const Contact = () => {
       <Navbar />
       <div className="pt-32 pb-20">
         <div className="container-custom">
-          <h1 className="text-4xl md:text-5xl font-bold mb-10 text-center">İletişim</h1>
-          <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row">
+          <div className="max-w-6xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold mb-10 text-left pl-4 md:pl-0">İletişim</h1>
+          </div>
+          <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-gray-100">
             <div className="bg-prime-black text-white p-12 md:w-2/5 flex flex-col justify-between relative overflow-hidden">
               <div className="relative z-10">
                 <h2 className="text-3xl font-bold mb-6">İletişime Geçin</h2>
@@ -208,7 +210,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-prime-yellow focus:ring-1 focus:ring-prime-yellow transition-all bg-gray-50"
+                      className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:outline-none focus:border-prime-yellow focus:ring-2 focus:ring-prime-yellow/20 transition-all bg-gray-50 focus:bg-white"
                       placeholder="Adınız Soyadınız"
                     />
                   </div>
@@ -220,7 +222,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-prime-yellow focus:ring-1 focus:ring-prime-yellow transition-all bg-gray-50"
+                      className="w-full px-4 py-4 rounded-xl border border-gray-200 focus:outline-none focus:border-prime-yellow focus:ring-2 focus:ring-prime-yellow/20 transition-all bg-gray-50 focus:bg-white"
                       placeholder="ornek@email.com"
                     />
                   </div>
@@ -258,8 +260,8 @@ const Contact = () => {
                   type="submit"
                   disabled={isSubmitting}
                   className={`w-full font-bold py-4 rounded-lg transition-colors shadow-lg ${isSubmitting
-                      ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
-                      : 'bg-prime-black text-white hover:bg-gray-800'
+                    ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
+                    : 'bg-prime-black text-white hover:bg-gray-800'
                     }`}
                 >
                   {isSubmitting ? 'Gönderiliyor...' : 'Gönder'}

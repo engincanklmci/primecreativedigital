@@ -61,19 +61,19 @@ const services = [
 
 const ServiceCard = ({ service, index }) => {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  
+
   const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
   const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
-  
+
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7deg", "-7deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7deg", "7deg"]);
 
   const handleMouseMove = (e) => {
     if (!isHovered) return;
-    
+
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -103,31 +103,31 @@ const ServiceCard = ({ service, index }) => {
       onMouseLeave={handleMouseLeave}
       className="group relative bg-white rounded-3xl overflow-hidden border border-gray-100 cursor-pointer"
     >
-      <motion.div 
+      <motion.div
         className="absolute inset-0 bg-gradient-to-br from-[#e4ac20]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         style={{ transform: "translateZ(20px)" }}
       />
-      
+
       <div className="relative p-8" style={{ transform: "translateZ(40px)" }}>
-        <motion.div 
+        <motion.div
           className="mb-6 w-20 h-20 rounded-2xl bg-gradient-to-br from-[#e4ac20] to-[#c99416] flex items-center justify-center text-white shadow-lg"
           whileHover={{ scale: 1.1, rotate: 5 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
         >
           {service.icon}
         </motion.div>
-        
+
         <h3 className="text-2xl font-bold mb-4 text-[#292929] group-hover:text-[#e4ac20] transition-colors duration-300">
           {service.title}
         </h3>
-        
+
         <p className="text-[#292929]/70 mb-6 leading-relaxed">
           {service.desc}
         </p>
-        
+
         <div className="flex flex-wrap gap-2">
           {service.keywords.map((keyword, idx) => (
-            <motion.span 
+            <motion.span
               key={idx}
               className="px-3 py-1 bg-[#e4ac20]/10 text-[#e4ac20] text-xs font-medium rounded-full border border-[#e4ac20]/20"
               whileHover={{ scale: 1.05, backgroundColor: "#e4ac20", color: "#292929" }}
@@ -139,7 +139,7 @@ const ServiceCard = ({ service, index }) => {
         </div>
       </div>
 
-      <motion.div 
+      <motion.div
         className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#e4ac20] to-[#c99416] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
       />
     </motion.div>
@@ -156,14 +156,14 @@ const Services = () => {
       </div>
 
       <div className="container-custom mx-auto px-6 relative z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-left mb-20"
         >
-          <motion.div 
+          <motion.div
             className="inline-block mb-6"
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
@@ -174,7 +174,7 @@ const Services = () => {
               Hizmetlerimiz
             </span>
           </motion.div>
-          
+
           <h2 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
             <span className="bg-gradient-to-r from-[#e4ac20] to-[#c99416] bg-clip-text text-transparent">
               Bir Marka İnşa Etmek
@@ -184,10 +184,10 @@ const Services = () => {
               İçin Ne Lazım?
             </span>
           </h2>
-          
-          <p className="text-xl text-[#292929]/70 max-w-3xl mx-auto leading-relaxed">
-            Dijital dünyada markanızı zirveye taşıyan, 
-            <span className="font-bold text-[#e4ac20]"> SEO optimize edilmiş</span> ve 
+
+          <p className="text-xl text-[#292929]/70 max-w-3xl leading-relaxed">
+            Dijital dünyada markanızı zirveye taşıyan,
+            <span className="font-bold text-[#e4ac20]"> SEO optimize edilmiş</span> ve
             <span className="font-bold text-[#292929]"> sonuç odaklı</span> hizmetlerimizle tanışın.
           </p>
         </motion.div>
@@ -208,7 +208,7 @@ const Services = () => {
           <div className="bg-gradient-to-br from-[#292929] to-[#1a1a1a] rounded-3xl p-12 shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#e4ac20] rounded-full opacity-10 blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#e4ac20] rounded-full opacity-10 blur-3xl"></div>
-            
+
             <div className="relative z-10">
               <h3 className="text-3xl md:text-4xl font-black text-white mb-6">
                 Dijital Büyüme Stratejinizi
@@ -216,7 +216,7 @@ const Services = () => {
                 <span className="text-[#e4ac20]">Birlikte Planlayalım!</span>
               </h3>
               <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                E-ticaret markalarının büyüme yolculuklarını tasarlıyor, 
+                E-ticaret markalarının büyüme yolculuklarını tasarlıyor,
                 Google'da ilk sıralarda yer almanızı sağlıyoruz.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -16,27 +16,27 @@ const Services = () => {
         <meta name="description" content="Prime Dijital hizmetleri: Profesyonel web tasarım, mobil uygulama geliştirme, SEO optimizasyonu, dijital pazarlama, kurumsal kimlik ve grafik tasarım çözümleri." />
         <meta name="keywords" content="web tasarım hizmetleri, SEO hizmetleri, dijital pazarlama ajansı, mobil uygulama geliştirme, kurumsal kimlik tasarımı, grafik tasarım İstanbul" />
         <meta name="robots" content="index, follow" />
-        
+
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://primedigitalcreative.com/hizmetler" />
         <meta property="og:title" content="Hizmetlerimiz | Web Tasarım, SEO, Dijital Pazarlama - Prime Dijital" />
         <meta property="og:description" content="Prime Dijital hizmetleri: Profesyonel web tasarım, mobil uygulama geliştirme, SEO optimizasyonu, dijital pazarlama, kurumsal kimlik ve grafik tasarım çözümleri." />
         <meta property="og:image" content="https://primedigitalcreative.com/og-services.jpg" />
-        
+
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://primedigitalcreative.com/hizmetler" />
         <meta property="twitter:title" content="Hizmetlerimiz | Web Tasarım, SEO, Dijital Pazarlama - Prime Dijital" />
         <meta property="twitter:description" content="Prime Dijital hizmetleri: Profesyonel web tasarım, mobil uygulama geliştirme, SEO optimizasyonu, dijital pazarlama, kurumsal kimlik ve grafik tasarım çözümleri." />
         <meta property="twitter:image" content="https://primedigitalcreative.com/og-services.jpg" />
-        
+
         {/* Canonical URL */}
         <link rel="canonical" href="https://primedigitalcreative.com/hizmetler" />
-        
+
         {/* Schema.org JSON-LD */}
         <script type="application/ld+json">
-        {`
+          {`
           {
             "@context": "https://schema.org",
             "@type": "Service",
@@ -81,107 +81,105 @@ const Services = () => {
       </Helmet>
       <Navbar />
       <div className="pt-32 pb-20">
-        <div className="container-custom text-center mb-20">
-          <motion.div 
+        <div className="container-custom text-left mb-20">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="mb-6"
           >
             <h1 className="text-4xl md:text-5xl font-bold">Hizmetlerimiz</h1>
           </motion.div>
-          <motion.div 
-             initial={{ opacity: 0, y: 20 }}
-             animate={{ opacity: 1, y: 0 }}
-             transition={{ delay: 0.1 }}
-             className="text-xl text-gray-500 max-w-3xl mx-auto"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-xl text-gray-500 max-w-3xl"
           >
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">İşinizi dijital dünyada zirveye taşıyacak kapsamlı çözümlerimizi keşfedin</p>
+            <p className="text-gray-600 text-lg max-w-2xl">İşinizi dijital dünyada zirveye taşıyacak kapsamlı çözümlerimizi keşfedin</p>
           </motion.div>
         </div>
 
-        <div className="container-custom space-y-32">
+        <div className="container-custom space-y-20">
           {services.map((service, index) => (
-            <div key={service.id} className={`flex flex-col ${service.reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-16`}>
-              {/* Image/Icon Side */}
-              <motion.div 
-                initial={{ opacity: 0, x: service.reverse ? 50 : -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="w-full md:w-1/2"
-              >
-                <div className="relative">
-                   <div className="absolute inset-0 bg-prime-yellow/20 blur-3xl rounded-full transform scale-90"></div>
-                   <div className="relative rounded-3xl shadow-2xl border border-gray-100 overflow-hidden aspect-video md:aspect-square group">
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      {service.imagePath ? (
-                        <img 
-                          src={service.imagePath} 
-                          alt={service.title}
-                          width="800"
-                          height="450"
-                          loading="lazy"
-                          decoding="async"
-                          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                          onError={(e) => {
-                            console.error('Image failed to load:', service.imagePath);
-                            e.target.style.display = 'none';
-                          }}
-                        />
-                      ) : (
-                        <div className="text-red-500 text-center">
-                          <p>No imagePath found</p>
-                          <p className="text-sm">Service: {service.title}</p>
-                        </div>
-                      )}
-                   </div>
-                </div>
-              </motion.div>
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7, delay: index * 0.1 }}
+              className="bg-white rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-shadow duration-500"
+            >
+              <div className={`flex flex-col lg:flex-row ${service.reverse ? 'lg:flex-row-reverse' : ''}`}>
 
-              {/* Text Side */}
-              <motion.div 
-                 initial={{ opacity: 0, x: service.reverse ? -50 : 50 }}
-                 whileInView={{ opacity: 1, x: 0 }}
-                 viewport={{ once: true }}
-                 transition={{ duration: 0.6 }}
-                 className="w-full md:w-1/2"
-              >
-                <span className="inline-block px-4 py-2 bg-prime-yellow/20 text-prime-black font-bold text-sm rounded-lg mb-4">
-                  {service.id === 'grafik-tasarim' ? 'Grafik Tasarım' : 
-                   service.id === 'baski-hizmetleri' ? 'Baskı Hizmetleri' : 
-                   'Yazılım Geliştirme'}
-                </span>
-                <h2 className="text-4xl font-bold mb-6">
-                  {service.id === 'grafik-tasarim' ? 'Grafik Tasarım' : 
-                   service.id === 'baski-hizmetleri' ? 'Baskı Hizmetleri' : 
-                   'Yazılım Geliştirme'}
-                </h2>
-                <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                  {service.id === 'grafik-tasarim' ? 'Prime Dijital olarak, markanızın görsel kimliğini en üst düzeyde temsil edecek grafik tasarım hizmetleri sunuyoruz.' : 
-                   service.id === 'baski-hizmetleri' ? 'Son teknoloji baskı makinelerimiz ve kaliteli malzemelerimizle, her türlü baskı ihtiyacınız için profesyonel çözümler sunuyoruz.' : 
-                   'Dijital dünyada işinizi öne çıkaracak, kullanıcı deneyimini ön planda tutan yazılım çözümleri geliştiriyoruz.'}
-                </p>
-                
-                <h3 className="text-lg font-bold mb-4">Hizmet Kapsamı:</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {service.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-gray-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-prime-yellow flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      <span className="text-sm font-medium">{feature}</span>
+                {/* Image Side */}
+                <div className="lg:w-1/2 relative min-h-[300px] lg:min-h-[500px]">
+                  <div className="absolute inset-0 bg-gray-100">
+                    {service.imagePath ? (
+                      <img
+                        src={service.imagePath}
+                        alt={service.title}
+                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-gray-100 text-gray-400">
+                        <span className="text-lg">Görsel Hazırlanıyor</span>
+                      </div>
+                    )}
+                  </div>
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                </div>
+
+                {/* Text Side */}
+                <div className="lg:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="w-12 h-1 bg-prime-yellow rounded-full"></span>
+                    <span className="text-prime-yellow font-bold text-sm tracking-wider uppercase">
+                      {service.id === 'grafik-tasarim' ? 'Yaratıcı Çözümler' :
+                        service.id === 'baski-hizmetleri' ? 'Profesyonel Baskı' :
+                          'Teknoloji & Yazılım'}
+                    </span>
+                  </div>
+
+                  <h2 className="text-3xl md:text-4xl font-bold mb-6 text-prime-black">
+                    {service.title}
+                  </h2>
+
+                  <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                    {service.description}
+                  </p>
+
+                  <div className="mb-10">
+                    <h3 className="text-lg font-bold mb-5 text-prime-black flex items-center gap-2">
+                      <svg className="w-5 h-5 text-prime-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+                      Hizmet Kapsamı
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
+                      {service.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-start gap-3 group">
+                          <div className="w-5 h-5 rounded-full bg-yellow-50 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-prime-yellow transition-colors duration-300">
+                            <svg className="w-3 h-3 text-prime-yellow group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
+                          </div>
+                          <span className="text-gray-600 text-sm font-medium">{feature}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-4">
+                    <button className="bg-prime-yellow text-prime-black px-8 py-3.5 rounded-xl font-bold hover:bg-black hover:text-white transition-all duration-300 shadow-lg shadow-yellow-200/50 hover:shadow-xl flex items-center gap-2">
+                      Teklif Alın
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </button>
+                    <button className="px-8 py-3.5 rounded-xl font-bold border-2 border-gray-100 hover:border-prime-black hover:bg-prime-black hover:text-white transition-all duration-300">
+                      Detaylı Bilgi
+                    </button>
+                  </div>
                 </div>
-                
-                <div className="mt-10">
-                   <button className="bg-prime-yellow text-prime-black px-8 py-3 rounded-full font-bold hover:bg-yellow-400 transition-all duration-300 flex items-center gap-2">
-                     Teklif Alın
-                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                   </button>
-                </div>
-              </motion.div>
-            </div>
+
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

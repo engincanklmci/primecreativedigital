@@ -7,11 +7,11 @@ export const portfolioProjects = [
     client: 'Çeşitli Müşteriler',
     date: '2024',
     duration: '2-3 Hafta',
-    featuredImage: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    featuredImage: 'https://images.unsplash.com/photo-1636622433525-127afdf3662d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     images: [
-      'https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1636622433525-127afdf3662d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1605000797494-3457d368b4b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1559028012-c72e70dded57?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
     ],
     description: 'Profesyonel iş kartı ve kurumsal kimlik tasarımları koleksiyonu. Her markanın kimliğini yansıtan özgün ve etkileyici tasarımlarla kurumsal kimlik çalışmalarımız.',
@@ -38,10 +38,10 @@ export const portfolioProjects = [
     client: 'Yayıncı Firmalar ve Kurumlar',
     date: '2024',
     duration: '3-4 Hafta',
-    featuredImage: 'https://images.unsplash.com/photo-1487088678257-3b536e9912bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    featuredImage: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     images: [
-      'https://images.unsplash.com/photo-1487088678257-3b536e9912bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1554188248-9862ddda5a2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
     ],
@@ -69,10 +69,10 @@ export const portfolioProjects = [
     client: 'Startup\'lar ve Kurumsal Firmalar',
     date: '2024',
     duration: '2-3 Hafta',
-    featuredImage: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    featuredImage: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     images: [
-      'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1626785774573-4b799314346d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1559028012-c72e70dded57?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
     ],
@@ -100,9 +100,9 @@ export const portfolioProjects = [
     client: 'Perakende ve Gıda Markaları',
     date: '2024',
     duration: '4-5 Hafta',
-    featuredImage: 'https://images.unsplash.com/photo-1605000797494-3457d368b4b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    featuredImage: 'https://images.unsplash.com/photo-1627483262268-9c96d8a31892?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     images: [
-      'https://images.unsplash.com/photo-1605000797494-3457d368b4b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1627483262268-9c96d8a31892?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
@@ -131,9 +131,9 @@ export const portfolioProjects = [
     client: 'Sosyal Medya Markaları',
     date: '2024',
     duration: 'Sürekli',
-    featuredImage: 'https://images.unsplash.com/photo-1611262586427-f74f3fbaa5c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    featuredImage: 'https://images.unsplash.com/photo-1611162616475-46b635cb6868?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     images: [
-      'https://images.unsplash.com/photo-1611262586427-f74f3fbaa5c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1611162616475-46b635cb6868?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
@@ -162,9 +162,9 @@ export const portfolioProjects = [
     client: 'Büyük Scale Kurumsal Firmalar',
     date: '2024',
     duration: '6-8 Hafta',
-    featuredImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    featuredImage: 'https://images.unsplash.com/photo-1493421419110-74f4e70abc49?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     images: [
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1493421419110-74f4e70abc49?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1600607687644-c7142e4e8c3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1554188248-9862ddda5a2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
@@ -193,9 +193,9 @@ export const portfolioProjects = [
     client: 'Etkinlik ve Kampanya Markaları',
     date: '2024',
     duration: '2-3 Hafta',
-    featuredImage: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    featuredImage: 'https://images.unsplash.com/photo-1563206767-5b1d97287374?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     images: [
-      'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1563206767-5b1d97287374?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1559028012-c72e70dded57?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
@@ -224,9 +224,9 @@ export const portfolioProjects = [
     client: 'Dijital Girişimciler',
     date: '2024',
     duration: '4-6 Hafta',
-    featuredImage: 'https://images.unsplash.com/photo-1467232004585-a7214f0480f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    featuredImage: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     images: [
-      'https://images.unsplash.com/photo-1467232004585-a7214f0480f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1554188248-9862ddda5a2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1559028012-c72e70dded57?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
@@ -256,7 +256,7 @@ export const getProjectBySlug = (slug) => {
 
 // Helper function to get related projects
 export const getRelatedProjects = (currentProjectId, category) => {
-  return portfolioProjects.filter(project => 
+  return portfolioProjects.filter(project =>
     project.id !== currentProjectId && project.category === category
   ).slice(0, 3);
 };

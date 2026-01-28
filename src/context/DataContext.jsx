@@ -8,7 +8,7 @@ const defaultServices = [
     title: 'Grafik Tasarım',
     description: 'Prime Dijital olarak, markanızın görsel kimliğini en üst düzeyde temsil edecek grafik tasarım hizmetleri sunuyoruz. Deneyimli tasarım ekibimiz, her projede özgünlüğü ve profesyonelliği bir araya getirerek, hedef kitlenizle güçlü bir bağ kurmanızı sağlar.',
     features: ['Kurumsal Kimlik Tasarımı', 'Logo ve Marka Tasarımı', 'Broşür ve Katalog Tasarımı', 'Sosyal Medya Görselleri', 'Reklam ve Billboard Tasarımı', 'Ambalaj Tasarımı'],
-    imagePath: '/hizmetler-grafiktasarim.jpg',
+    imagePath: 'https://images.unsplash.com/photo-1626785774573-4b799314346d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     color: 'bg-prime-yellow',
     reverse: false
   },
@@ -17,7 +17,7 @@ const defaultServices = [
     title: 'Baskı Hizmetleri',
     description: 'Son teknoloji baskı makinelerimiz ve kaliteli malzemelerimizle, her türlü baskı ihtiyacınız için profesyonel çözümler sunuyoruz. Küçük tirajlardan büyük projelere kadar, her işi titizlikle ve zamanında teslim ediyoruz.',
     features: ['Dijital ve Ofset Baskı', 'Katalog ve Dergi Baskısı', 'Billboard ve Dış Mekan Baskı', 'Kartvizit ve Kurumsal Materyaller', 'Sticker ve Etiket Baskı', 'Özel Promosyon Ürünleri'],
-    imagePath: '/hizmetler-matbaa.jpg',
+    imagePath: 'https://images.unsplash.com/photo-1562564055-71e051d33c19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     color: 'bg-prime-yellow',
     reverse: true
   },
@@ -26,7 +26,7 @@ const defaultServices = [
     title: 'Yazılım Geliştirme',
     description: 'Dijital dünyada işinizi öne çıkaracak, kullanıcı deneyimini ön planda tutan yazılım çözümleri geliştiriyoruz. React, Node.js, Python gibi modern teknolojilerle, hızlı, güvenli ve ölçeklenebilir projeler hayata geçiriyoruz.',
     features: ['Web Site ve E-Ticaret Geliştirme', 'Mobil Uygulama Geliştirme', 'Kurumsal Yazılım Çözümleri', 'API ve Entegrasyon Hizmetleri', 'SEO ve Dijital Pazarlama', 'Bakım ve Destek Hizmetleri'],
-    imagePath: '/yazilim-hizmetler.jpg',
+    imagePath: 'https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     color: 'bg-prime-yellow',
     reverse: false
   }
@@ -56,8 +56,8 @@ export const DataProvider = ({ children }) => {
   // Memoize the context value to prevent unnecessary re-renders
   const contextValue = useMemo(() => {
     const updateService = (id, updatedData) => {
-      setServices(prevServices => 
-        prevServices.map(service => 
+      setServices(prevServices =>
+        prevServices.map(service =>
           service.id === id ? { ...service, ...updatedData } : service
         )
       );

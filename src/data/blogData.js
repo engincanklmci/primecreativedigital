@@ -620,6 +620,109 @@ Mobil uygulama fikrinizi hayata geçirmek için profesyonel bir ekiple çalışm
     views: 1120,
     likes: 95,
     comments: 14
+  },
+  {
+    id: 'sosyal-medya-yonetimi-ipuclari-2024',
+    title: 'Etkili Sosyal Medya Yönetimi İçin 5 Altın Kural',
+    slug: 'sosyal-medya-yonetimi-ipuclari-2024',
+    excerpt: 'Markanızın sosyal medyadaki sesini güçlendirmek için bilmeniz gerekenler. İçerik stratejisi, etkileşim artırma ve kriz yönetimi ipuçları.',
+    content: `
+# Etkili Sosyal Medya Yönetimi İçin 5 Altın Kural
+
+Sosyal medya, markaların hedef kitleleriyle doğrudan iletişim kurduğu en güçlü kanaldır. Ancak başarılı bir sosyal medya yönetimi, sadece düzenli paylaşım yapmaktan ibaret değildir. İşte markanızı bir adım öne taşıyacak 5 altın kural.
+
+## 1. Hedef Kitlenizi Tanıyın
+
+Hangi platformda kiminle konuştuğunuzu bilmek, stratejinizin temelidir. LinkedIn'deki kurumsal dil ile TikTok'taki eğlenceli yaklaşım aynı olamaz.
+
+- **Persona analizi yapın:** Müşterileriniz kim? Yaş aralığı, ilgi alanları neler?
+- **Platforma uygun içerik üretin:** Her mecra kendi dinamiklerine sahiptir.
+
+## 2. Tutarlı Bir Marka Dili Oluşturun
+
+Görsel ve metin dilinizde tutarlılık, marka bilinirliğini artırır. Logolar, renk paletleri ve ses tonu bir bütün olmalıdır.
+
+> "Tutarlılık, güvenin anahtarıdır."
+
+## 3. Etkileşimi Önceliklendirin
+
+Takipçilerinizle konuşun. Yorumlara yanıt vermek, sorular sormak ve anketler düzenlemek, topluluk hissi yaratır. Etkileşim, algoritma dostudur.
+
+## 4. Analiz ve Raporlama
+
+Verilere dayalı kararlar alın. Hangi gönderiler daha çok beğenildi? Hangi saatlerde etkileşim yüksek? Sosyal medya analiz araçlarını kullanarak stratejinizi optimize edin.
+
+## 5. Krizlere Hazırlıklı Olun
+
+Sosyal medyada her an bir kriz çıkabilir. Önceden hazırlanmış bir kriz iletişim planınız olsun. Şeffaf, hızlı ve çözüm odaklı olmak hayat kurtarır.
+
+## Sonuç
+
+Sosyal medya yönetimi sabır ve strateji gerektirir. Prime Dijital olarak, markanızın sesini en doğru şekilde duyurmanıza yardımcı oluyoruz.
+    `,
+    author: 'Prime Dijital Sosyal Medya Ekibi',
+    date: '2024-02-15',
+    readTime: '5 dk',
+    category: 'Dijital Pazarlama',
+    tags: ['sosyal medya', 'instagram yönetimi', 'marka bilinirliği', 'dijital pazarlama'],
+    featuredImage: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    seoTitle: 'Etkili Sosyal Medya Yönetimi İpuçları 2024 | Prime Dijital',
+    seoDescription: 'Sosyal medya yönetimi için en iyi stratejiler. Markanızı güçlendirecek ipuçları ve analiz yöntemleri.',
+    seoKeywords: 'sosyal medya yönetimi, instagram ipuçları, dijital pazarlama stratejileri',
+    views: 450,
+    likes: 32,
+    comments: 4
+  },
+  {
+    id: 'seo-uyumlu-icerik-yazimi',
+    title: 'SEO Uyumlu İçerik Nasıl Yazılır? Başarılı Bir Blog İçin Rehber',
+    slug: 'seo-uyumlu-icerik-yazimi',
+    excerpt: 'Google sıralamalarında yükselmek için içeriklerinizi nasıl optimize etmelisiniz? Anahtar kelime kullanımı, başlık yapıları ve daha fazlası.',
+    content: `
+# SEO Uyumlu İçerik Nasıl Yazılır?
+
+İçerik, dijital pazarlamanın kralıdır. Ancak arama motorları tarafından bulunamayan bir içerik, hedefine ulaşamaz. SEO uyumlu makale yazmak, hem kullanıcıları hem de Google botlarını memnun etme sanatıdır.
+
+## 1. Anahtar Kelime Araştırması
+
+Yazmaya başlamadan önce, kullanıcıların ne aradığını bilmelisiniz. Google Keyword Planner, Semrush veya Ahrefs gibi araçlarla doğru anahtar kelimeleri belirleyin.
+
+- **Ana anahtar kelime:** Yazının odağı. (Örn: "SEO uyumlu içerik")
+- **LSI kelimeler:** Konuyla ilgili yan kelimeler.
+
+## 2. Başlık Hiyerarşisi (H1, H2, H3)
+
+Başlıklar, yazının iskeletini oluşturur. H1 ana başlıktır ve sayfada tek olmalıdır. H2 ve H3 ile konuyu alt başlıklara bölün. Bu, okunabilirliği artırır ve Google'ın içeriği anlamasını kolaylaştırır.
+
+## 3. Meta Açıklaması ve URL Yapısı
+
+- **URL:** Kısa, açıklayıcı ve anahtar kelime içermeli. (/seo-uyumlu-icerik-yazimi)
+- **Meta Description:** Arama sonuçlarında görünen kısa özet. Tıklama oranını artırır.
+
+## 4. Görsel Optimizasyonu
+
+Kullandığınız görsellerin boyutunu küçültün (WebP formatı önerilir) ve mutlaka "alt etiket" (alt text) ekleyin. Google görselleri okuyamaz, etiketleri okur.
+
+## 5. Kaliteli ve Özgün İçerik
+
+En önemli kural: Kullanıcıya değer katın. Kopya içerikten kaçının. Uzun süreli okuma oranları, SEO puanınızı doğrudan etkiler.
+
+## Sonuç
+
+SEO uyumlu içerik üretimi, organik trafiğinizi artırmanın en etkili yoludur. Prime Dijital ekibi olarak içerik stratejilerinizi güçlendirmek için buradayız.
+    `,
+    author: 'Prime Dijital SEO Uzmanı',
+    date: '2024-02-20',
+    readTime: '7 dk',
+    category: 'Dijital Pazarlama',
+    tags: ['seo', 'icerik pazarlamasi', 'blog yazarlığı', 'google sıralama'],
+    featuredImage: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    seoTitle: 'SEO Uyumlu İçerik Yazımı Rehberi | Prime Dijital',
+    seoDescription: 'SEO uyumlu makale nasıl yazılır? Google sıralamalarında yükselmek için içerik optimizasyon teknikleri.',
+    seoKeywords: 'seo uyumlu içerik, makale yazımı, seo teknikleri, içerik pazarlaması',
+    views: 620,
+    likes: 45,
+    comments: 8
   }
 ];
 

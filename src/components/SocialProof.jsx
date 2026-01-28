@@ -30,20 +30,17 @@ const SocialProof = ({ variant = 'full' }) => {
         profile_photo_url: "https://lh3.googleusercontent.com/a-/ADluMMqHj9h9h9h9h9h9h9h9h9h9h9h9h9h9h9h9=s120-c-rp-mo-br100"
       }
     ];
-    
-    setTimeout(() => {
-      setGoogleReviews(manualReviews);
-      setLoading(false);
-    }, 300);
+
+    setGoogleReviews(manualReviews);
+    setLoading(false);
   }, []);
 
   const renderStars = (rating) => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
         key={i}
-        className={`w-5 h-5 ${
-          i < rating ? 'text-[#e4ac20] fill-current' : 'text-gray-300'
-        }`}
+        className={`w-5 h-5 ${i < rating ? 'text-[#e4ac20] fill-current' : 'text-gray-300'
+          }`}
       />
     ));
   };
@@ -84,9 +81,9 @@ const SocialProof = ({ variant = 'full' }) => {
   return (
     <section className="py-20 bg-[#f6f6f6] relative overflow-hidden">
       <div className="absolute top-10 right-10 w-80 h-80 bg-[#e4ac20] rounded-full opacity-[0.05] blur-3xl"></div>
-      
+
       <div className="container-custom relative z-10">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -103,7 +100,7 @@ const SocialProof = ({ variant = 'full' }) => {
             <Star size={16} className="fill-current" />
             <span>Müşteri Yorumları</span>
           </motion.div>
-          
+
           <h2 className="text-4xl md:text-5xl font-black text-[#292929] mb-4">
             Google'da Ne <span className="text-[#e4ac20]">Diyorlar?</span>
           </h2>
@@ -114,7 +111,7 @@ const SocialProof = ({ variant = 'full' }) => {
 
         {loading ? (
           <div className="text-center py-12">
-            <motion.div 
+            <motion.div
               className="inline-block w-12 h-12 border-4 border-[#e4ac20]/20 border-t-[#e4ac20] rounded-full"
               animate={{ rotate: 360 }}
               transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
@@ -124,7 +121,7 @@ const SocialProof = ({ variant = 'full' }) => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {googleReviews.map((review, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -136,7 +133,7 @@ const SocialProof = ({ variant = 'full' }) => {
                 <div className="absolute top-4 right-4 text-[#e4ac20]/10">
                   <Quote size={48} className="fill-current" />
                 </div>
-                
+
                 <div className="relative z-10">
                   <div className="flex items-center mb-4">
                     <motion.img
@@ -160,8 +157,8 @@ const SocialProof = ({ variant = 'full' }) => {
                     "{review.text}"
                   </blockquote>
                 </div>
-                
-                <motion.div 
+
+                <motion.div
                   className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#e4ac20] to-[#c99416] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
                 />
               </motion.div>
@@ -177,7 +174,7 @@ const SocialProof = ({ variant = 'full' }) => {
           className="bg-gradient-to-br from-[#292929] to-[#1a1a1a] rounded-3xl p-10 text-center relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#e4ac20] rounded-full opacity-10 blur-3xl"></div>
-          
+
           <div className="relative z-10">
             <h3 className="text-3xl font-black text-white mb-4">
               Bizi <span className="text-[#e4ac20]">Google'da Puanla</span>

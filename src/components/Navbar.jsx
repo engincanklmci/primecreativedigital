@@ -34,49 +34,45 @@ const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-          scrolled ? 'bg-[#f6f6f6]/80 backdrop-blur-xl shadow-lg border-b border-[#292929]/5 py-3' : 'bg-transparent py-5'
-        }`}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-[#f6f6f6]/80 backdrop-blur-xl shadow-lg border-b border-[#292929]/5 py-3' : 'bg-transparent py-5'
+          }`}
       >
         <div className="container-custom flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2 z-50 group">
-            <motion.img 
-              src="/logo.png" 
-              alt="Prime Dijital" 
+            <motion.img
+              src="/logo.png"
+              alt="Prime Dijital"
               width="48"
               height="48"
-              className="h-12 w-auto object-contain" 
+              className="h-12 w-auto object-contain"
               style={{ backgroundColor: 'transparent' }}
               whileHover={{ rotate: 5, scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             />
             <span className="text-2xl font-semibold tracking-tight flex items-center gap-1 text-[#292929]">
-              Prime
-              <motion.span 
-                className="bg-gradient-to-r from-[#e4ac20] to-[#c99416] text-[#292929] px-2.5 py-1 rounded-lg font-semibold"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
+              <span className="bg-gradient-to-r from-[#e4ac20] to-[#c99416] bg-clip-text text-transparent font-bold">
+                Prime
+              </span>
+              <span className="text-[#292929] font-bold">
                 Dijital
-              </motion.span>
+              </span>
             </span>
           </Link>
-          
+
           <div className="hidden md:flex space-x-8">
             {links.map((item) => (
-              <Link 
-                key={item.name} 
-                to={item.path} 
+              <Link
+                key={item.name}
+                to={item.path}
                 className="relative text-sm font-semibold transition-colors group"
               >
-                <span className={`relative z-10 ${
-                  location.pathname === item.path ? 'text-[#e4ac20]' : 'text-[#292929]/80 group-hover:text-[#e4ac20]'
-                }`}>
+                <span className={`relative z-10 ${location.pathname === item.path ? 'text-[#e4ac20]' : 'text-[#292929]/80 group-hover:text-[#e4ac20]'
+                  }`}>
                   {item.name}
                 </span>
                 {location.pathname === item.path && (
-                  <motion.span 
-                    layoutId="underline" 
+                  <motion.span
+                    layoutId="underline"
                     className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#e4ac20] to-[#c99416]"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
@@ -87,10 +83,10 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          
+
           <div className="hidden md:flex items-center gap-3">
             <Link to="/iletisim">
-              <motion.button 
+              <motion.button
                 className="relative bg-gradient-to-r from-[#e4ac20] to-[#c99416] text-[#292929] px-6 py-2.5 rounded-full text-sm font-medium shadow-lg overflow-hidden group"
                 whileHover={{ scale: 1.05, y: -1 }}
                 whileTap={{ scale: 0.98 }}
@@ -102,7 +98,7 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <button 
+          <button
             className="md:hidden z-50 text-[#292929]"
             onClick={() => setIsOpen(!isOpen)}
             type="button"
@@ -138,11 +134,10 @@ const Navbar = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Link 
-                    to={item.path} 
-                    className={`text-2xl font-semibold transition-colors ${
-                      location.pathname === item.path ? 'text-[#e4ac20]' : 'text-[#292929] hover:text-[#e4ac20]'
-                    }`}
+                  <Link
+                    to={item.path}
+                    className={`text-2xl font-semibold transition-colors ${location.pathname === item.path ? 'text-[#e4ac20]' : 'text-[#292929] hover:text-[#e4ac20]'
+                      }`}
                   >
                     {item.name}
                   </Link>
