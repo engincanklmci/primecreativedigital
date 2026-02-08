@@ -84,7 +84,7 @@ const HomeBelowFold = () => {
           <div className="text-center max-w-4xl mx-auto mb-20">
             <span className="inline-flex items-center bg-prime-yellow/20 text-prime-black font-bold tracking-wider uppercase text-sm px-3 py-1 rounded-full">Dijital Dönüşüm</span>
             <h2 className="text-4xl md:text-6xl font-bold mt-3 mb-6 bg-gradient-to-r from-prime-black to-prime-yellow bg-clip-text text-transparent">
-              Markanızın Geleceğini Şekillendiriyoruz
+              İstanbul Türkiye Dijital Ajansı: Markanızın Geleceğini Şekillendiriyoruz
             </h2>
             <p className="text-gray-500 text-lg">
               Sıradanlıktan çıkarıp dijital zirveye taşıyoruz. İşte bu yolculukta size eşlik edeceğimiz 4 temel alan.
@@ -181,7 +181,7 @@ const HomeBelowFold = () => {
       <section className="py-24 bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Müşterilerimiz Ne Diyor?</h2>
+            <h2 className="text-4xl font-bold mb-4">Best Digital Marketing Agencies Istanbul Reviews: Müşterilerimiz Ne Diyor?</h2>
             <div className="w-20 h-1 bg-prime-yellow mx-auto rounded-full"></div>
           </div>
 

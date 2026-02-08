@@ -11,6 +11,7 @@ export default {
           white: '#F8F8F6', // Pearl White - slightly warmer/softer
           black: '#2C2C2C', // Soft Charcoal Black
           yellow: '#E3AB1E', // Vanilla/Soft Yellow
+          'dark-yellow': '#B4860B', // Darker yellow for better contrast on white backgrounds
           accent: '#FFD700', // A bit stronger gold/yellow for highlights if needed
         }
       },

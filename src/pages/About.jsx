@@ -97,7 +97,7 @@ const About = () => {
                 Hikayemiz
               </span>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-                5 Yıllık Dijital Mükemmellik Yolculuğu
+                İstanbul Digital Agency Top Services: 5 Yıllık Dijital Mükemmellik Yolculuğu
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>

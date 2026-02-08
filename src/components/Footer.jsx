@@ -12,7 +12,7 @@ const Footer = () => {
     <footer className="bg-gradient-to-br from-[#292929] via-[#1a1a1a] to-[#292929] text-white pt-20 pb-10 border-t border-[#e4ac20]/20 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#e4ac20] rounded-full opacity-[0.05] blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#e4ac20] rounded-full opacity-[0.05] blur-3xl"></div>
-      
+
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <motion.div
@@ -23,12 +23,12 @@ const Footer = () => {
           >
             <Link to="/" className="inline-block mb-6 group">
               <div className="flex items-center gap-2">
-                <motion.img 
-                  src="/logo.png" 
-                  alt="Prime Dijital" 
-                  width="40" 
-                  height="40" 
-                  className="h-10 w-auto object-contain bg-white/5 rounded-lg p-1 group-hover:bg-white/10 transition-colors" 
+                <motion.img
+                  src="/logo.png"
+                  alt="Prime Dijital"
+                  width="40"
+                  height="40"
+                  className="h-10 w-auto object-contain bg-white/5 rounded-lg p-1 group-hover:bg-white/10 transition-colors"
                   whileHover={{ rotate: 5, scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 />
@@ -78,8 +78,8 @@ const Footer = () => {
                 { name: 'Blog', path: '/blog' }
               ].map((link, index) => (
                 <motion.li key={index} whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link 
-                    to={link.path} 
+                  <Link
+                    to={link.path}
                     className="text-white/60 hover:text-[#e4ac20] transition-colors duration-300 inline-flex items-center gap-2 group"
                   >
                     <span className="w-0 h-px bg-[#e4ac20] group-hover:w-4 transition-all duration-300"></span>
@@ -107,8 +107,8 @@ const Footer = () => {
                 'SEO & Pazarlama'
               ].map((service, index) => (
                 <motion.li key={index} whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                  <Link 
-                    to="/hizmetler" 
+                  <Link
+                    to="/hizmetler"
                     className="text-white/60 hover:text-[#e4ac20] transition-colors duration-300 inline-flex items-center gap-2 group"
                   >
                     <span className="w-0 h-px bg-[#e4ac20] group-hover:w-4 transition-all duration-300"></span>
@@ -143,7 +143,7 @@ const Footer = () => {
           </motion.div>
         </div>
 
-        <motion.div 
+        <motion.div
           className="pt-8 border-t border-white/10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -164,7 +164,7 @@ const Footer = () => {
               <Link to="/kvkk-aydinlatma-metni" className="hover:text-[#e4ac20] transition-colors">
                 KVKK
               </Link>
-              <button 
+              <button
                 onClick={() => {
                   localStorage.removeItem('cookie_consent');
                   localStorage.removeItem('cookie_consent_date');
@@ -181,6 +181,7 @@ const Footer = () => {
 
         <motion.button
           onClick={scrollToTop}
+          aria-label="Yukarı Çık"
           className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-[#e4ac20] to-[#c99416] rounded-full flex items-center justify-center shadow-2xl z-50"
           whileHover={{ scale: 1.1, y: -2 }}
           whileTap={{ scale: 0.95 }}

@@ -112,7 +112,7 @@ const Services = () => {
               <div className={`flex flex-col lg:flex-row ${service.reverse ? 'lg:flex-row-reverse' : ''}`}>
 
                 {/* Image Side */}
-                <div className="lg:w-1/2 relative min-h-[300px] lg:min-h-[500px]">
+                <div className="lg:w-1/2 relative min-h-[400px] lg:min-h-[500px]">
                   <div className="absolute inset-0 bg-gray-100">
                     {service.imagePath ? (
                       <img
